@@ -140,6 +140,8 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .meter{height:6px;border-radius:3px;background:var(--soft);overflow:hidden;display:flex}
 .meter i{display:block;height:100%}
 .meter .g{background:var(--good)} .meter .r{background:var(--review)}
+.fit{margin:0;font-size:.85rem;font-weight:700;color:var(--muted)}
+.fit.on{color:var(--good)}
 .allbtn{border:0;background:var(--soft);color:var(--teal);font-weight:800;border-radius:999px;padding:6px 12px;font-size:.88rem;white-space:nowrap}
 .intro-card{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:18px;border-radius:var(--r);background:var(--teal);color:var(--teal-ink);border:0;text-align:left;box-shadow:var(--shadow)}
 .intro-card .lf-ico{background:rgba(255,255,255,.18)}
@@ -314,7 +316,9 @@ td.num{font-variant-numeric:tabular-nums;text-align:right}
   .card{padding:24px 16px 20px 26px;min-height:320px}
   .mtile{min-height:64px;font-size:.98rem;padding:10px;border-radius:16px}
   .lf-h{grid-template-columns:auto 1fr}
-  .lf-h .allbtn{grid-column:2;justify-self:start}
+  .lf-h .fit{margin:0;font-size:.85rem;font-weight:700;color:var(--muted)}
+.fit.on{color:var(--good)}
+.allbtn{grid-column:2;justify-self:start}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -355,7 +359,7 @@ const FRS=[
   {id:'obst',n:'Obstbau',k:'Obstbau',i:'🍎'},
   {id:'stauden',n:'Staudengärtnerei',k:'Staudengärtnerei',i:'🌼'}
 ];
-const LF_ICON={zp1:'🌺',zp2:'💐',bs1:'🌱',bs2:'🚚',fg1:'🪦',fg2:'🕯️',gm1:'🥕',gm2:'🧺',ob1:'🍎',ob2:'🍏',st1:'🌼',st2:'🗺️',lf1:'🦺',lf2:'🌱',lf3:'🪱',lf4:'💧',lf5:'📐',lf6:'🚜',lf7:'🧱',lf8:'🌳',lf9:'🪨',lf10:'🪵',lf11:'🌾',lf12:'🧾',pfl:'🌿'};
+const LF_ICON={pk01:'🔬',pk02:'🌰',pk03:'🥕',pk04:'🍎',pk05:'🌳',pk06:'🌼',pk07:'🌷',pk08:'🪴',pk11:'🌿',pk12:'🛡️',zp1:'🌺',zp2:'💐',bs1:'🌱',bs2:'🚚',fg1:'🪦',fg2:'🕯️',gm1:'🥕',gm2:'🧺',ob1:'🍎',ob2:'🍏',st1:'🌼',st2:'🗺️',lf1:'🦺',lf2:'🌱',lf3:'🪱',lf4:'💧',lf5:'📐',lf6:'🚜',lf7:'🧱',lf8:'🌳',lf9:'🪨',lf10:'🪵',lf11:'🌾',lf12:'🧾',pfl:'🌿'};
 
 /* Oberflächentexte zweisprachig (KI-übersetzt, bitte prüfen) */
 const UI_KEYS=['chooseLang','help','topics','practice','learn','learnD','match','matchD','quiz','quizD','fb','fbD','tap','expl','ex','right','wrong','qMeaning','qTrans','qToTr','qArticle','qPlural','qGap','qBot','qType','matchHint','know','again'];
@@ -491,7 +495,8 @@ R.start=()=>{
 R.select=()=>{
   const n=selWords().length;
   setBar(`<div class="bar-info"><b>${n}</b> Wörter gewählt${S.sel.length?` · <button class="linkbtn" data-act="clearsel">leeren</button>`:''}</div><button class="btn primary" data-act="go" data-v="path" ${n?'':'disabled'}>Üben ${ICON.next}</button>`);
-  const lfs=DATA.lf.filter(lf=>lf.jahr===S.year&&(lf.fr==='alle'||lf.fr===S.fr));
+  const lfs=DATA.lf.filter(lf=>lf.jahr===S.year&&(lf.fr==='alle'||lf.fr===S.fr))
+    .map((lf,i)=>[lf,i]).sort((a,b)=>(a[0].kat==='pk'&&b[0].kat==='pk')?((fits(b[0])-fits(a[0]))||(a[1]-b[1])):(a[1]-b[1])).map(x=>x[0]);
   const intro=S.year===0?`<button class="intro-card" data-act="go" data-v="botanik"><span class="lf-ico" aria-hidden="true">🏷️</span><span><b>Zuerst: Was bedeutet der botanische Name?</b><span class="s">Gattung, Art, Sorte – kurz erklärt mit Beispielen</span></span>${ICON.next}</button>`:'';
   return `<section class="screen">
     ${head('Fachwortschatz-Trainer','','start')}
@@ -503,15 +508,22 @@ R.select=()=>{
     ${S.year>1&&S.fr!=='gala'?`<p class="note">Fachstufe ${esc(frObj().n)}: vorläufige Themen, noch ohne Unterlagen der Schule.</p>`:''}
     ${intro}
     <div class="lf-list">${lfs.map(lfHTML).join('')}</div>
-    <p class="note">Die Lernfelder sind vorläufig gegliedert und werden an die Jahresplanung der Schule angepasst.</p>
+    <p class="note">${S.year===0?'Quellen: Fragenkatalog Pflanzenkenntnisse (alle Fachrichtungen, 2019) und Beispielaufgaben der Landwirtschaftskammer NRW. Die Erklärungen sind vereinfacht.':'Die Lernfelder sind vorläufig gegliedert und werden an die Jahresplanung der Schule angepasst.'}</p>
     <div class="foot"><button class="linkbtn" data-act="go" data-v="teacher">Bereich für Lehrkräfte</button></div>
   </section>`;
 };
 function frBtn(f){return `<button class="frb ${S.fr===f.id?'on':''}" data-act="fr" data-v="${f.id}" aria-pressed="${S.fr===f.id}"><span class="fi" aria-hidden="true">${f.i}</span><span>${esc(f.n)}</span></button>`}
+function lfLabel(lf){
+  if(lf.nr) return 'Lernfeld '+lf.nr;
+  if(lf.kat==='pk') return 'Prüfung Pflanzenkenntnisse · Kap. '+lf.kap;
+  return lf.jahr?'Fachstufe '+esc(frObj(lf.fr).k):'Grundlagen für alle';
+}
+const fits=lf=>!lf.fuer||lf.fuer.includes('alle')||lf.fuer.includes(S.fr);
 function lfHTML(lf){
   const all=lf.subs.every(s=>S.sel.includes(s.id)), n=lf.subs.reduce((a,s)=>a+s.words.length,0);
   return `<article class="lf">
-    <header class="lf-h"><span class="lf-ico" aria-hidden="true">${LF_ICON[lf.id]||'🌿'}</span><h3><small>${lf.nr?'Lernfeld '+lf.nr:(lf.jahr?'Fachstufe '+esc(frObj(lf.fr).k):'alle Ausbildungsjahre')} · ${n} Fachwörter</small>${esc(lf.titel)}</h3><button class="allbtn" data-act="lfall" data-v="${lf.id}">${all?'keine':'alle wählen'}</button></header>
+    <header class="lf-h"><span class="lf-ico" aria-hidden="true">${LF_ICON[lf.id]||'🌿'}</span><h3><small>${lfLabel(lf)} · ${n} Fachwörter</small>${esc(lf.titel)}</h3><button class="allbtn" data-act="lfall" data-v="${lf.id}">${all?'keine':'alle wählen'}</button></header>
+    ${lf.kat==='pk'?`<p class="fit ${fits(lf)?'on':''}">${fits(lf)?'✓ wichtig für deine Fachrichtung':'besonders für: '+lf.fuer.map(f=>esc(frObj(f).k)).join(', ')}</p>`:''}
     <div class="subs">${lf.subs.map(s=>{
       const on=S.sel.includes(s.id), c=counts(s.words), k=s.words.length;
       return `<button class="sub ${on?'on':''}" data-act="sub" data-v="${s.id}" aria-pressed="${on}">
@@ -859,9 +871,9 @@ R.teacher=()=>{
   </section>`;
 };
 function csvText(){
-  const headR=['Fachrichtung','Lernfeld','Jahr','Thema','Artikel','Wort','Plural','Botanisch','Erklärung','Beispielsatz'].concat(TR_ORDER.map(c=>LANGS.find(l=>l.c===c).n),['Status']);
+  const headR=['Fachrichtung','Lernfeld','Jahr','Thema','Artikel','Wort','Plural','Botanisch','Erklärung','Beispielsatz'].concat(TR_ORDER.map(c=>LANGS.find(l=>l.c===c).n),['Quelle','Status']);
   const q=s=>'"'+String(s).replace(/"/g,'""')+'"';
-  const rows=WORDS.map(w=>[frName(w.lf),w.lf.nr?'LF '+w.lf.nr:(w.lf.jahr?w.lf.titel:'Pflanzenkunde'),w.lf.jahr||'alle',w.sub.titel,w.art,w.w,w.pl,w.bot,w.ex,w.bsp].concat(TR_ORDER.map(c=>w.tr[c]),['KI – ungeprüft']).map(q).join(';'));
+  const rows=WORDS.map(w=>[frName(w.lf),w.lf.nr?'LF '+w.lf.nr:(w.lf.kat==='pk'?'Pflanzenkenntnisse Kap. '+w.lf.kap:(w.lf.jahr?w.lf.titel:'Pflanzenkunde')),w.lf.jahr||'alle',w.sub.titel,w.art,w.w,w.pl,w.bot,w.ex,w.bsp].concat(TR_ORDER.map(c=>w.tr[c]),[w.sub.src||(w.lf.kat==='pk'?PK_SRC:'eigene Auswahl'),'KI – ungeprüft']).map(q).join(';'));
   return [headR.map(q).join(';')].concat(rows).join('\r\n');
 }
 function copyText(txt,ok){

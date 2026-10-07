@@ -147,6 +147,8 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .meter{height:6px;border-radius:3px;background:var(--soft);overflow:hidden;display:flex}
 .meter i{display:block;height:100%}
 .meter .g{background:var(--good)} .meter .r{background:var(--review)}
+.fit{margin:0;font-size:.85rem;font-weight:700;color:var(--muted)}
+.fit.on{color:var(--good)}
 .allbtn{border:0;background:var(--soft);color:var(--teal);font-weight:800;border-radius:999px;padding:6px 12px;font-size:.88rem;white-space:nowrap}
 .intro-card{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:18px;border-radius:var(--r);background:var(--teal);color:var(--teal-ink);border:0;text-align:left;box-shadow:var(--shadow)}
 .intro-card .lf-ico{background:rgba(255,255,255,.18)}
@@ -321,7 +323,9 @@ td.num{font-variant-numeric:tabular-nums;text-align:right}
   .card{padding:24px 16px 20px 26px;min-height:320px}
   .mtile{min-height:64px;font-size:.98rem;padding:10px;border-radius:16px}
   .lf-h{grid-template-columns:auto 1fr}
-  .lf-h .allbtn{grid-column:2;justify-self:start}
+  .lf-h .fit{margin:0;font-size:.85rem;font-weight:700;color:var(--muted)}
+.fit.on{color:var(--good)}
+.allbtn{grid-column:2;justify-self:start}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -1015,6 +1019,444 @@ DATA.lf.push({
     ]}
   ]
 });
+
+/* Ergänzungen aus: Landwirtschaftskammer NRW – Beispielaufgaben schriftliche
+ * Abschlussprüfung Gärtner/Gärtnerin, Fachrichtung GaLaBau
+ * (Pflanzenkenntnisse, Betriebliche Zusammenhänge).
+ * Begriffe aus den Aufgaben; Erklärungen, Beispiele und Übersetzungen
+ * KI-generiert, ungeprüft.
+ */
+function addSub(lfId, sub) {
+  const lf = DATA.lf.find(l => l.id === lfId);
+  sub.src = 'LWK NRW Prüfungsaufgaben';
+  lf.subs.push(sub);
+}
+
+/* ---------- Pflanzenkunde (alle Fachrichtungen) ---------- */
+addSub('pfl', { id: 'pfl-verw', titel: 'Pflanzenverwendung und Gestaltung', w: [
+  "die|Prachtstaude|die Prachtstauden||Eine große Staude mit auffälligen Blüten. Sie ist der Blickfang im Beet. Man sagt auch Leitstaude.|Die Pfingstrose ist eine Prachtstaude.|🌺|نبات معمّر مزهر بارز|ефектна багаторічна рослина|گیاه چندساله شاخص|gösterişli çok yıllık bitki|эффектный многолетник|showy perennial (key plant)|bylina przewodnia (efektowna)|plantă perenă decorativă principală",
+  "der|Fruchtschmuck|–||Bunte Früchte an Gehölzen, die schön aussehen, oft im Herbst und Winter.|Der Feuerdorn hat orangen Fruchtschmuck.|🍒|الثمار الزينية|декоративні плоди|میوه‌های زینتی|süs meyveleri|декоративные плоды|ornamental fruit|ozdobne owoce|fructe decorative",
+  "die|Herbstfärbung|die Herbstfärbungen||Die Blätter werden im Herbst gelb, orange oder rot.|Der Amberbaum hat eine leuchtend rote Herbstfärbung.|🍁|تلوّن الأوراق في الخريف|осіннє забарвлення листя|رنگ پاییزی برگ‌ها|sonbahar renklenmesi|осенняя окраска листьев|autumn colour|jesienne przebarwienie liści|colorația de toamnă",
+  "die|Rinde|die Rinden||Die äußere Schicht am Stamm und an den Ästen.|Die Rinde der Birke ist weiß.|🪵|اللحاء|кора|پوست درخت|ağaç kabuğu|кора|bark|kora|scoarță",
+  "die|Blütezeit|die Blütezeiten||Die Monate, in denen eine Pflanze blüht.|Die Blütezeit der Forsythie ist im März und April.|🌸|موسم الإزهار|час цвітіння|زمان گلدهی|çiçeklenme zamanı|время цветения|flowering time|okres kwitnienia|perioada de înflorire",
+  "der|Straßenbaum|die Straßenbäume||Ein Baum an einer Straße. Er muss Hitze, Streusalz und wenig Platz aushalten.|Der Straßenbaum spendet Schatten und filtert Staub.|🌳|شجرة الشارع|вуличне дерево|درخت خیابانی|cadde ağacı|уличное дерево|street tree|drzewo przyuliczne|arbore stradal",
+  "der|Bodendecker|die Bodendecker||Eine niedrige Pflanze, die den Boden dicht bedeckt.|Der Bodendecker unterdrückt Beikraut.|🌿|نبات مغطٍّ للتربة|ґрунтопокривна рослина|گیاه پوششی|yer örtücü bitki|почвопокровное растение|ground cover plant|roślina okrywowa|plantă acoperitoare de sol",
+  "der|Halbschatten|–||Ein Ort, der nur einen Teil des Tages Sonne bekommt.|Die Funkie wächst gut im Halbschatten.|⛅|الظل الجزئي|напівтінь|نیم‌سایه|yarı gölge|полутень|partial shade|półcień|semiumbră",
+  "das|Laubgehölz|die Laubgehölze||Ein Baum oder Strauch mit Blättern, nicht mit Nadeln.|Das Laubgehölz verliert im Herbst seine Blätter.|🍂|نبات خشبي عريض الأوراق|листяна деревна рослина|درخت یا درختچه برگ‌پهن|yapraklı odunsu bitki|лиственное древесное растение|broadleaved woody plant|roślina liściasta|plantă lemnoasă foioasă",
+  "das|Nadelgehölz|die Nadelgehölze||Ein Baum oder Strauch mit Nadeln statt Blättern, zum Beispiel Kiefer oder Eibe.|Das Nadelgehölz bleibt meist auch im Winter grün.|🌲|نبات خشبي إبري الأوراق|хвойна деревна рослина|درخت یا درختچه سوزنی‌برگ|iğne yapraklı odunsu bitki|хвойное древесное растение|conifer|roślina iglasta|plantă lemnoasă coniferă"
+]});
+
+addSub('pfl', { id: 'pfl-standort', titel: 'Standort und Zeigerpflanzen', w: [
+  "die|Zeigerpflanze|die Zeigerpflanzen||Eine wild wachsende Pflanze. Sie zeigt, wie der Boden an einem Ort ist.|Die Brennnessel ist eine Zeigerpflanze für viel Stickstoff.|🔎|النبات الدالّ (المؤشر)|рослина-індикатор|گیاه شاخص (نشانگر)|gösterge bitki|растение-индикатор|indicator plant|roślina wskaźnikowa|plantă indicatoare",
+  "die|Staunässe|–||Das Wasser kann nicht abfließen. Der Boden bleibt lange nass.|Staunässe schadet den Wurzeln vieler Pflanzen.|💧|ركود الماء في التربة|застій води|ماندابی|su birikmesi|застой воды|waterlogging|zastoiska wody|exces de umiditate (stagnarea apei)",
+  "die|Große Brennnessel|die Großen Brennnesseln|Urtica dioica|Eine Pflanze mit Brennhaaren. Sie wächst auf Böden mit viel Stickstoff.|Die Große Brennnessel zeigt viel Stickstoff im Boden.|🌿|القرّاص|кропива дводомна|گزنه|ısırgan otu|крапива двудомная|stinging nettle|pokrzywa zwyczajna|urzică",
+  "der|Kriechende Hahnenfuß|die Kriechenden Hahnenfüße|Ranunculus repens|Eine Pflanze mit gelben Blüten. Sie zeigt nassen, verdichteten Boden.|Der Kriechende Hahnenfuß wächst auf verdichtetem Boden.|🌼|الحوذان الزاحف|жовтець повзучий|آلاله خزنده|sürünücü düğünçiçeği|лютик ползучий|creeping buttercup|jaskier rozłogowy|piciorul-cocoșului târâtor",
+  "die|Leguminose|die Leguminosen||Eine Pflanze aus der Familie der Hülsenfrüchtler, zum Beispiel Klee. Sie holt Stickstoff aus der Luft in den Boden.|Die Leguminose verbessert den Boden mit Stickstoff.|☘️|النبات البقولي|бобова рослина|گیاه بقولات|baklagil|бобовое растение|legume|roślina motylkowa|leguminoasă",
+  "das|Knöllchenbakterium|die Knöllchenbakterien||Ein winziges Lebewesen an den Wurzeln von Leguminosen. Es bindet Stickstoff aus der Luft.|Das Knöllchenbakterium lebt an den Wurzeln vom Klee.|🦠|بكتيريا العقد الجذرية|бульбочкова бактерія|باکتری گره‌ساز|nodül bakterisi|клубеньковая бактерия|nodule bacterium|bakteria brodawkowa|bacterie nodulară",
+  "das|Moorbeet|die Moorbeete||Ein Beet mit saurem, humusreichem Boden, zum Beispiel für Rhododendron.|Im Moorbeet wachsen Rhododendren und Heide.|🌸|حوض بتربة حمضية|клумба з кислим ґрунтом|باغچه خاک اسیدی|asidik toprak tarhı|клумба с кислой почвой|acid soil bed|rabata z kwaśną glebą|strat cu sol acid",
+  "der|Rhododendron|die Rhododendren|Rhododendron|Ein immergrüner Strauch mit großen Blüten. Er braucht sauren Boden.|Der Rhododendron blüht im Mai.|🌺|الرودودندرون|рододендрон|رودودندرون|ormangülü|рододендрон|rhododendron|różanecznik|rododendron",
+  "die|Besenheide|die Besenheiden|Calluna vulgaris|Ein Zwergstrauch mit lila Blüten im Spätsommer. Er braucht sauren Boden.|Die Besenheide blüht im August und September.|💜|الخلنج|верес звичайний|خلنگ|süpürge çalısı (funda)|вереск обыкновенный|heather (ling)|wrzos zwyczajny|iarbă neagră"
+]});
+
+addSub('pfl', { id: 'pfl-kletterform', titel: 'Kletterformen und Schnittzeitpunkt', w: [
+  "der|Selbstklimmer|die Selbstklimmer||Eine Kletterpflanze, die sich ohne Hilfe an der Wand festhält, zum Beispiel mit Haftwurzeln.|Der Efeu ist ein Selbstklimmer.|🧗|نبات متسلّق ذاتيًا|самочіпна рослина|بالارونده خودچسب|kendinden tırmanıcı|самоцепляющаяся лиана|self-clinging climber|pnącze samoczepne|plantă cățărătoare autoaderentă",
+  "der|Schlinger|die Schlinger||Eine Kletterpflanze, die sich mit dem Trieb um eine Stütze windet.|Der Blauregen ist ein Schlinger.|🌀|نبات ملتفّ|витка рослина|گیاه پیچنده|sarılıcı bitki|вьющееся растение|twining climber|pnącze wijące|plantă volubilă",
+  "der|Ranker|die Ranker||Eine Kletterpflanze, die sich mit Ranken oder Blattstielen festhält.|Die Waldrebe ist ein Ranker.|➰|نبات متسلّق بالمحاليق|рослина з вусиками|گیاه پیچک‌دار|sülüklü tırmanıcı|растение с усиками|tendril climber|pnącze czepne|plantă cu cârcei",
+  "der|Spreizklimmer|die Spreizklimmer||Eine Kletterpflanze, die sich mit langen Trieben und Stacheln einhakt.|Die Kletterrose ist ein Spreizklimmer.|🌹|نبات متسلّق بالاستناد|рослина, що чіпляється пагонами|بالارونده تکیه‌ای|yaslanarak tırmanan bitki|растение, цепляющееся побегами|scrambling climber|pnącze rozpierające|plantă cățărătoare sprijinitoare",
+  "die|Kletterhilfe|die Kletterhilfen||Ein Gerüst, Seil oder Gitter, an dem eine Kletterpflanze hochwächst.|Der Schlinger braucht eine Kletterhilfe.|🪜|دعامة التسلّق|опора для витких рослин|داربست گیاه بالارونده|tırmanma desteği|опора для вьющихся растений|climbing support|podpora dla pnączy|suport pentru plante cățărătoare",
+  "der|Schnittzeitpunkt|die Schnittzeitpunkte||Der richtige Zeitpunkt, um eine Pflanze zu schneiden.|Der Schnittzeitpunkt der Forsythie ist direkt nach der Blüte.|📅|موعد التقليم|час обрізування|زمان هرس|budama zamanı|срок обрезки|pruning time|termin cięcia|momentul tăierii",
+  "der|Sommerflieder|die Sommerflieder|Buddleja davidii|Ein Strauch mit langen, lila Blütenrispen im Sommer. Schmetterlinge lieben ihn.|Den Sommerflieder schneiden wir im Frühjahr stark zurück.|🦋|البودليا|буддлея Давида|بودلیا|kelebek çalısı|буддлея Давида|butterfly bush|budleja Dawida|liliac de vară",
+  "das|einjährige Holz|–||Triebe, die im letzten Jahr gewachsen sind.|Die Forsythie blüht am einjährigen Holz.||الخشب بعمر سنة واحدة|однорічна деревина|چوب یک‌ساله|bir yıllık odun|однолетняя древесина|one-year-old wood|pędy jednoroczne|lemn de un an"
+]});
+
+addSub('pfl', { id: 'pfl-teich', titel: 'Teich- und Sumpfpflanzen', w: [
+  "die|Sumpfzone|die Sumpfzonen||Der Bereich am Teichrand. Der Boden ist nass, das Wasser ist 0 bis 10 cm tief.|In der Sumpfzone wächst die Sumpfdotterblume.|🌾|المنطقة المستنقعية|болотна зона|ناحیه باتلاقی|bataklık bölgesi|болотная зона|marsh zone|strefa bagienna|zona mlăștinoasă",
+  "die|Flachwasserzone|die Flachwasserzonen||Der Bereich im Teich mit 10 bis 50 cm Wassertiefe.|In der Flachwasserzone steht die Sumpf-Schwertlilie.|🌊|منطقة المياه الضحلة|мілководна зона|ناحیه آب کم‌عمق|sığ su bölgesi|мелководная зона|shallow water zone|strefa płytkiej wody|zona de apă mică",
+  "die|Tiefwasserzone|die Tiefwasserzonen||Der tiefe Bereich im Teich, mehr als 50 cm tief.|In der Tiefwasserzone wächst die Seerose.|🌊|منطقة المياه العميقة|глибоководна зона|ناحیه آب عمیق|derin su bölgesi|глубоководная зона|deep water zone|strefa głębokiej wody|zona de apă adâncă",
+  "die|Wassertiefe|die Wassertiefen||Wie tief das Wasser an einer Stelle ist.|Die Wassertiefe für Seerosen beträgt 50 bis 120 cm.|📏|عمق الماء|глибина води|عمق آب|su derinliği|глубина воды|water depth|głębokość wody|adâncimea apei",
+  "die|Weiße Seerose|die Weißen Seerosen|Nymphaea alba|Eine Wasserpflanze mit großen, schwimmenden Blättern und weißen Blüten.|Die Weiße Seerose blüht im Sommer auf dem Wasser.|🪷|زنبق الماء الأبيض|латаття біле|نیلوفر آبی سفید|beyaz nilüfer|кувшинка белая|white water lily|grzybienie białe|nufăr alb",
+  "die|Sumpfdotterblume|die Sumpfdotterblumen|Caltha palustris|Eine Pflanze mit gelben Blüten im Frühling. Sie wächst im Sumpf.|Die Sumpfdotterblume blüht im April gelb.|🌼|الكالثا المستنقعية|калюжниця болотна|کالتا (گل مردابی زرد)|bataklık kadife çiçeği|калужница болотная|marsh marigold|knieć błotna|calcea-calului",
+  "die|Sumpf-Schwertlilie|die Sumpf-Schwertlilien|Iris pseudacorus|Eine hohe Pflanze mit gelben Blüten. Sie wächst im flachen Wasser.|Die Sumpf-Schwertlilie wird bis zu einem Meter hoch.|💛|السوسن المائي الأصفر|півники болотні|زنبق زرد مردابی|sarı su süseni|ирис болотный|yellow flag iris|kosaciec żółty|stânjenel galben",
+  "der|Zwerg-Rohrkolben|die Zwerg-Rohrkolben|Typha minima|Eine kleine Sumpfpflanze mit braunen, runden Kolben.|Der Zwerg-Rohrkolben passt gut in kleine Teiche.||البردي القزم|рогіз найменший|لویی کوتوله|cüce hasırotu|рогоз малый|dwarf bulrush|pałka najmniejsza|papură pitică"
+]});
+
+addSub('pfl', { id: 'pfl-gift', titel: 'Giftige und dornige Gehölze', w: [
+  "der|Dorn|die Dornen||Eine harte, spitze Spitze. Sie ist fest mit dem Holz verwachsen, zum Beispiel beim Weißdorn.|Der Dorn vom Weißdorn ist sehr spitz.||الشوكة (الخشبية)|колючка (видозмінений пагін)|خار (چوبی)|diken|колючка|thorn (spine)|cierń|spin",
+  "der|Stachel|die Stacheln||Eine spitze Spitze auf der Rinde. Man kann sie leicht abbrechen, zum Beispiel bei der Rose.|Der Stachel der Rose lässt sich leicht abbrechen.|🌹|الشوكة السطحية|колючка на корі (шип)|خار سطحی|kabuk dikeni|шип|prickle|kolec|ghimpe",
+  "der|Gewöhnliche Goldregen|die Gewöhnlichen Goldregen|Laburnum anagyroides|Ein Strauch oder kleiner Baum mit gelben, hängenden Blüten. Alle Teile sind stark giftig.|Der Gewöhnliche Goldregen gehört nicht auf einen Spielplatz.|☠️|المطر الذهبي (لابورنوم)|бобовник анагіролистий (золотий дощ)|باران طلایی (لابورنوم)|altın yağmur|бобовник анагиролистный (золотой дождь)|laburnum (golden chain)|złotokap zwyczajny|salcâm galben",
+  "der|Echte Seidelbast|die Echten Seidelbaste|Daphne mezereum|Ein kleiner Strauch mit rosa Blüten im Februar und roten Beeren. Er ist sehr giftig.|Der Echte Seidelbast blüht schon im Februar.|☠️|الدفنة|вовчі ягоди звичайні|دافنه|daphne (defne çalısı)|волчеягодник обыкновенный|mezereon|wawrzynek wilczełyko|tulichină",
+  "das|Gewöhnliche Pfaffenhütchen|die Gewöhnlichen Pfaffenhütchen|Euonymus europaeus|Ein Strauch mit rosa-orangen Früchten im Herbst. Die Früchte sind giftig.|Das Gewöhnliche Pfaffenhütchen hat auffälligen Fruchtschmuck.|☠️|الفعيلة الأوروبية|бересклет європейський|شمشاد اروپایی (اونیموس)|iğ ağacı|бересклет европейский|European spindle|trzmielina pospolita|salbă moale",
+  "die|Gewöhnliche Stechpalme|die Gewöhnlichen Stechpalmen|Ilex aquifolium|Ein immergrünes Gehölz mit stacheligen Blättern und roten, giftigen Beeren.|Die Gewöhnliche Stechpalme hat im Winter rote Beeren.|🎄|البهشية (الإيلكس)|падуб гостролистий|خاس|çoban püskülü|падуб остролистный|holly|ostrokrzew kolczasty|ilice",
+  "der|Feuerdorn|die Feuerdorne|Pyracantha coccinea|Ein dorniger Strauch mit orangen oder roten Früchten.|Der Feuerdorn hat spitze Dornen.|🔥|الشوك الناري (بيراكانثا)|піраканта|پیراکانتا (خار آتشین)|ateş dikeni|пираканта|firethorn|ognik szkarłatny|piracantă",
+  "die|Thunberg-Berberitze|die Thunberg-Berberitzen|Berberis thunbergii|Ein dorniger Strauch mit roten Blättern im Herbst. Gut für Schutzhecken.|Die Thunberg-Berberitze bildet eine dichte, dornige Hecke.||البرباريس الياباني|барбарис Тунберга|زرشک ژاپنی|Japon kadıntuzluğu|барбарис Тунберга|Japanese barberry|berberys Thunberga|dracilă japoneză"
+]});
+
+addSub('pfl', { id: 'pfl-hecke', titel: 'Wildhecke und einheimische Gehölze', w: [
+  "die|freiwachsende Hecke|die freiwachsenden Hecken||Eine Hecke, die nicht in Form geschnitten wird. Tiere finden dort Nahrung und Schutz.|Die freiwachsende Hecke ist ein Lebensraum für Vögel.|🐦|سياج نباتي حرّ النمو|вільнорослий живопліт|پرچین آزاد (هرس‌نشده)|serbest büyüyen çit|свободнорастущая живая изгородь|informal hedge (wildlife hedge)|żywopłot swobodnie rosnący|gard viu liber",
+  "das|einheimische Gehölz|die einheimischen Gehölze||Ein Baum oder Strauch, der hier von Natur aus wächst.|Das einheimische Gehölz ist wichtig für Insekten.|🌳|نبات خشبي محلّي|місцева деревна рослина|گیاه چوبی بومی|yerli odunsu bitki|местное древесное растение|native woody plant|rodzimy gatunek drzewiasty|plantă lemnoasă autohtonă",
+  "der|Lebensraum|die Lebensräume||Der Ort, an dem Tiere und Pflanzen leben.|Die Hecke ist ein Lebensraum für viele Tiere.|🦔|الموطن|середовище існування|زیستگاه|yaşam alanı|среда обитания|habitat|siedlisko|habitat",
+  "die|Gewöhnliche Hasel|die Gewöhnlichen Haseln|Corylus avellana|Ein Strauch mit Kätzchen im Februar und Haselnüssen im Herbst.|Die Gewöhnliche Hasel blüht schon im Februar.|🌰|البندق|ліщина звичайна|فندق|fındık|лещина обыкновенная|common hazel|leszczyna pospolita|alun",
+  "die|Schlehe|die Schlehen|Prunus spinosa|Ein dorniger Strauch mit weißen Blüten im Frühling und blauen Früchten.|Die Schlehe blüht im April weiß.|🫐|البرقوق الشائك|терен|آلوچه وحشی خاردار|çakal eriği|тёрн|blackthorn (sloe)|tarnina|porumbar",
+  "der|Eingriffelige Weißdorn|die Eingriffeligen Weißdorne|Crataegus monogyna|Ein dorniger Strauch oder kleiner Baum mit weißen Blüten und roten Früchten.|Der Eingriffelige Weißdorn ist wichtig für Vögel.|🌸|الزعرور|глід одноматочковий|زالزالک|alıç|боярышник однопестичный|common hawthorn|głóg jednoszyjkowy|păducel",
+  "die|Hunds-Rose|die Hunds-Rosen|Rosa canina|Eine wilde Rose mit rosa Blüten und roten Hagebutten.|Die Hunds-Rose hat im Herbst rote Hagebutten.|🌹|الورد البري (ورد الكلب)|шипшина собача|نسترن وحشی|kuşburnu|шиповник собачий|dog rose|róża dzika|măceș",
+  "der|Schwarze Holunder|die Schwarzen Holunder|Sambucus nigra|Ein Strauch mit weißen Blütendolden und schwarzen Beeren.|Der Schwarze Holunder wächst gern auf stickstoffreichem Boden.|🫐|البيلسان الأسود|бузина чорна|آقطی سیاه|kara mürver|бузина чёрная|elder|bez czarny|soc"
+]});
+
+/* ---------- Grundstufe (alle Fachrichtungen) ---------- */
+addSub('lf4', { id: 'lf4-psm', titel: 'Pflanzenschutzmittel sicher anwenden', w: [
+  "die|Schutzausrüstung|die Schutzausrüstungen||Kleidung und Geräte, die den Körper schützen, zum Beispiel Handschuhe und Maske.|Beim Spritzen trage ich die Schutzausrüstung.|🥽|معدات الحماية|захисне спорядження|تجهیزات حفاظتی|koruyucu ekipman|защитное снаряжение|protective equipment|środki ochrony osobistej|echipament de protecție",
+  "der|Sachkundenachweis|die Sachkundenachweise||Ein Ausweis: Man darf Pflanzenschutzmittel kaufen und anwenden.|Ohne Sachkundenachweis darf ich nicht spritzen.|🪪|شهادة الكفاءة|посвідчення про фахову компетентність|گواهی صلاحیت|yeterlilik belgesi|удостоверение о квалификации|certificate of competence|świadectwo kwalifikacji|certificat de competență",
+  "die|Ausbringung|die Ausbringungen||Das Mittel wird auf die Pflanzen oder den Boden gebracht, zum Beispiel gespritzt.|Die Ausbringung machen wir nur bei wenig Wind.|💨|الرشّ (التطبيق)|внесення|کاربرد (پخش)|uygulama|внесение|application|aplikacja (oprysk)|aplicare",
+  "die|Abdrift|die Abdriften||Der Wind trägt das Spritzmittel auf andere Flächen.|Bei starkem Wind ist die Abdrift groß.|🌬️|انجراف الرذاذ|знесення розчину вітром|بادبردگی سم|sürüklenme|снос препарата ветром|spray drift|znoszenie cieczy|deriva",
+  "der|Giftschrank|die Giftschränke||Ein abschließbarer Schrank für gefährliche Mittel.|Die Pflanzenschutzmittel lagern im Giftschrank.|🔒|خزانة المواد السامة|шафа для отрутохімікатів|کمد سموم|zehir dolabı|шкаф для ядохимикатов|poison cabinet|szafa na środki trujące|dulap pentru substanțe toxice",
+  "die|Gebrauchsanleitung|die Gebrauchsanleitungen||Ein Text, der erklärt, wie man ein Mittel richtig benutzt.|Vor dem Spritzen lese ich die Gebrauchsanleitung.|📖|تعليمات الاستعمال|інструкція з використання|دستور استفاده|kullanma talimatı|инструкция по применению|instructions for use|instrukcja stosowania|instrucțiuni de utilizare",
+  "die|Wartezeit|die Wartezeiten||Die Zeit zwischen Spritzen und Ernte. Erst danach darf man ernten.|Die Wartezeit steht auf der Packung.|⏳|فترة الانتظار قبل الحصاد|період очікування|دوره انتظار تا برداشت|bekleme süresi|срок ожидания|pre-harvest interval|okres karencji|timp de pauză",
+  "die|Rückenspritze|die Rückenspritzen||Ein Spritzgerät, das man auf dem Rücken trägt.|Die Rückenspritze reinigen wir nach der Arbeit.|🎒|مرشّة ظهرية|ранцевий обприскувач|سمپاش پشتی|sırt pülverizatörü|ранцевый опрыскиватель|knapsack sprayer|opryskiwacz plecakowy|pompă de stropit de spate"
+]});
+
+addSub('lf4', { id: 'lf4-duenger', titel: 'Organische und mineralische Dünger', w: [
+  "der|organische Dünger|die organischen Dünger||Dünger aus Resten von Pflanzen oder Tieren, zum Beispiel Hornspäne oder Kompost.|Der organische Dünger wirkt langsam.|🍂|السماد العضوي|органічне добриво|کود آلی|organik gübre|органическое удобрение|organic fertiliser|nawóz organiczny|îngrășământ organic",
+  "der|mineralische Dünger|die mineralischen Dünger||Dünger aus Salzen. Er wirkt schnell.|Der mineralische Dünger wirkt sofort.|🧂|السماد المعدني|мінеральне добриво|کود معدنی (شیمیایی)|mineral gübre|минеральное удобрение|mineral fertiliser|nawóz mineralny|îngrășământ mineral",
+  "der|Handelsdünger|die Handelsdünger||Dünger, den man im Handel kaufen kann. Auf der Packung stehen die Nährstoffe.|Der Handelsdünger hat genaue Angaben zu den Nährstoffen.|🛍️|السماد التجاري|товарне добриво|کود تجاری|ticari gübre|промышленное удобрение|commercial fertiliser|nawóz handlowy|îngrășământ comercial",
+  "das|Hornmehl|–||Ein organischer Dünger aus gemahlenen Hörnern. Er enthält viel Stickstoff.|Hornmehl wirkt langsam und lange.||دقيق القرون|рогове борошно|پودر شاخ|boynuz unu|роговая мука|horn meal|mączka rogowa|făină de corn",
+  "der|Volldünger|die Volldünger||Ein Dünger mit den Hauptnährstoffen Stickstoff, Phosphor und Kalium (NPK).|Der Volldünger enthält N, P und K.||سماد كامل (NPK)|комплексне добриво (NPK)|کود کامل (NPK)|kompoze gübre (NPK)|полное удобрение (NPK)|complete fertiliser (NPK)|nawóz wieloskładnikowy (NPK)|îngrășământ complex (NPK)",
+  "der|Langzeitdünger|die Langzeitdünger||Ein Dünger, der seine Nährstoffe über Monate langsam abgibt.|Der Langzeitdünger reicht für die ganze Saison.|⏳|سماد بطيء التحرّر|добриво тривалої дії|کود آهسته‌رهش|uzun etkili gübre|удобрение длительного действия|slow-release fertiliser|nawóz o spowolnionym działaniu|îngrășământ cu eliberare lentă",
+  "die|Auswaschung|die Auswaschungen||Regen spült Nährstoffe tief in den Boden oder ins Grundwasser.|Die Auswaschung von Stickstoff belastet das Grundwasser.|💧|غسل المغذيات من التربة|вимивання поживних речовин|آبشویی|yıkanma|вымывание|leaching|wymywanie|levigare",
+  "die|Überdüngung|die Überdüngungen||Es wurde zu viel Dünger gegeben. Das schadet Pflanzen und Umwelt.|Die Überdüngung führt zu braunen Blatträndern.|⚠️|الإفراط في التسميد|перенасичення добривами|کوددهی بیش از حد|aşırı gübreleme|перекорм удобрениями|over-fertilisation|przenawożenie|supra-fertilizare"
+]});
+
+/* ---------- Garten- und Landschaftsbau ---------- */
+addSub('lf6', { id: 'lf6-ingbio', titel: 'Böschungen sichern (Ingenieurbiologie)', w: [
+  "das|Böschungsverhältnis|die Böschungsverhältnisse||Es zeigt, wie steil eine Böschung ist, zum Beispiel 1:3 (1 m hoch, 3 m lang).|Das Böschungsverhältnis beträgt 1:3.|📐|نسبة ميل المنحدر|закладання укосу|نسبت شیب|şev eğimi oranı|заложение откоса|slope ratio|nachylenie skarpy|raportul pantei taluzului",
+  "die|Ingenieurbiologie|–||Bauweisen, bei denen lebende Pflanzen den Boden sichern.|Die Ingenieurbiologie schützt Hänge mit Pflanzen.|🌱|الهندسة الحيوية|інженерна біологія|مهندسی زیستی|biyomühendislik|инженерная биология|soil bioengineering|inżynieria biologiczna|inginerie biologică",
+  "die|Buschlage|die Buschlagen||Lebende Zweige werden quer in Gräben am Hang gelegt und mit Erde bedeckt.|Die Buschlage wächst an und hält den Hang fest.|🌿|طبقة الأغصان الحية|кладка з живих гілок|لایه شاخه‌های زنده|canlı dal tabakası|укладка живых ветвей|brush layer|warstwa żywych gałęzi|strat de ramuri vii",
+  "die|Faschine|die Faschinen||Ein Bündel aus lebenden Ästen. Man legt es in einen Graben am Hang.|Die Faschine bildet Wurzeln und Triebe.|🪵|حزمة الأغصان (فاشينة)|фашина|بسته شاخه (فاشین)|çalı demeti|фашина|fascine|faszyna|fascină",
+  "die|Spreitlage|die Spreitlagen||Lebende Äste werden dicht nebeneinander auf den Hang gelegt und befestigt.|Die Spreitlage schützt die Böschung am Bach.|🌿|فرشة الأغصان الحية|хмизовий настил|فرش شاخه‌های زنده|dal örtüsü|хворостяной настил|brush mattress|materac z żywych gałęzi|saltea de ramuri vii",
+  "die|Erosion|die Erosionen||Wasser oder Wind tragen den Boden ab.|Pflanzen schützen den Hang vor Erosion.|🌧️|التعرية|ерозія|فرسایش|erozyon|эрозия|erosion|erozja|eroziune",
+  "die|Nassansaat|die Nassansaaten||Samen, Wasser, Dünger und Kleber werden auf den Boden gespritzt.|Die Nassansaat begrünt steile Böschungen schnell.|💦|البذر الرطب بالرش|гідропосів|بذرپاشی هیدرولیکی|hidro tohumlama|гидропосев|hydroseeding|hydroobsiew|hidroînsămânțare",
+  "der|Lockerungsfaktor|die Lockerungsfaktoren||Er zeigt, wie viel mehr Platz Erde nach dem Ausheben braucht, zum Beispiel 1,3.|Der Lockerungsfaktor von Lehm beträgt etwa 1,3.|🧮|معامل الانتفاش|коефіцієнт розпушення|ضریب تورم خاک|kabarma katsayısı|коэффициент разрыхления|bulking factor|współczynnik spulchnienia|coeficient de afânare"
+]});
+
+addSub('lf6', { id: 'lf6-versick', titel: 'Regenwasser versickern', w: [
+  "die|Versickerungsmulde|die Versickerungsmulden||Eine flache Vertiefung mit Rasen. Dort versickert Regenwasser langsam.|Die Versickerungsmulde nimmt das Wasser vom Dach auf.|🌧️|حوض ترشيح ضحل|інфільтраційна улоговина|گودال نفوذ|sızdırma çukuru|инфильтрационная канава|infiltration swale|niecka chłonna|șanț de infiltrare",
+  "die|Rigole|die Rigolen||Ein Graben mit Kies oder Kunststoffkästen unter der Erde. Er speichert Wasser und lässt es versickern.|Die Rigole liegt unter dem Rasen.||خندق ترشيح جوفي|дренажна траншея|ترانشه نفوذ|sızdırma hendeği|дренажная траншея|infiltration trench|rów chłonny|tranșee de infiltrare",
+  "der|Sickerschacht|die Sickerschächte||Ein tiefer Schacht. Regenwasser läuft hinein und versickert im Boden.|Der Sickerschacht hat einen Deckel.|🕳️|بئر ترشيح|поглинальний колодязь|چاه جذبی|sızdırma kuyusu|поглощающий колодец|soakaway|studnia chłonna|puț absorbant",
+  "die|Kanalisation|die Kanalisationen||Rohre unter der Straße. Sie leiten Abwasser und Regenwasser weg.|Das Regenwasser soll nicht in die Kanalisation.|🚰|شبكة الصرف الصحي|каналізація|شبکه فاضلاب|kanalizasyon|канализация|sewer system|kanalizacja|canalizare",
+  "die|Entsiegelung|die Entsiegelungen||Asphalt oder Beton werden entfernt, damit Wasser wieder versickern kann.|Die Entsiegelung des Hofes hilft dem Grundwasser.|♻️|إزالة الأسطح غير النفاذة|зняття водонепроникного покриття|نفوذپذیر کردن سطوح|geçirimsiz yüzeyin kaldırılması|удаление водонепроницаемого покрытия|depaving|odszczelnienie powierzchni|desigilarea suprafețelor",
+  "der|Rasengitterstein|die Rasengittersteine||Ein Betonstein mit Löchern. Darin wächst Rasen.|Der Rasengitterstein ist gut für Parkplätze.|🟩|بلاط عشبي مثقّب|газонна решітка|بلوک چمن‌خور|çim taşı|газонная решётка|grass paver|płyta ażurowa|dală înierbată",
+  "das|Rasenfugenpflaster|die Rasenfugenpflaster||Pflaster mit breiten Fugen. In den Fugen wächst Rasen.|Das Rasenfugenpflaster lässt Wasser versickern.||رصف بفواصل عشبية|бруківка з газонними швами|سنگفرش با درز چمنی|çim derzli parke|брусчатка с газонными швами|grass-joint paving|bruk z trawiastymi spoinami|pavaj cu rosturi înierbate",
+  "der|Kies|die Kiese||Kleine, runde Steine.|Der Kies in der Rigole speichert Wasser.|⚪|الحصى|гравій|شن گرد (سنگریزه)|çakıl|гравий|gravel|żwir|pietriș"
+]});
+
+addSub('lf7', { id: 'lf7-material', titel: 'Material und Mengen', w: [
+  "die|wassergebundene Decke|die wassergebundenen Decken||Ein Wegbelag aus feinem Splitt und Sand. Wasser kann hindurch.|Die wassergebundene Decke passt gut in Parkanlagen.|🟫|طبقة سطحية مترابطة بالماء|водозв'язане покриття|رویه شنی آب‌بند|su bağlı kaplama|водосвязное покрытие|water-bound surface|nawierzchnia mineralna|îmbrăcăminte legată cu apă",
+  "die|Ausgleichsschicht|die Ausgleichsschichten||Eine dünne Schicht aus Sand oder Splitt. Sie gleicht kleine Unebenheiten aus.|Die Ausgleichsschicht ist 4 cm dick.||طبقة التسوية|вирівнювальний шар|لایه تسطیح|tesviye tabakası|выравнивающий слой|levelling layer|warstwa wyrównawcza|strat de egalizare",
+  "das|Kleinpflaster|die Kleinpflaster||Kleine Pflastersteine, zum Beispiel 9/11 cm groß, oft aus Granit.|Das Kleinpflaster aus Granit ist sehr haltbar.|🧱|حجارة رصف صغيرة|дрібна бруківка|سنگفرش کوچک|küçük parke taşı|мелкая брусчатка|small sett paving|kostka drobna|pavaj din piatră cubică mică",
+  "die|Körnung|die Körnungen||Wie groß die Körner sind, zum Beispiel 0/45 bei Schotter (0 bis 45 mm).|Die Körnung für die Tragschicht ist 0/45.|🔢|حجم الحبيبات|фракція|دانه‌بندی|tane boyutu|фракция (крупность)|grading (grain size)|uziarnienie|granulație",
+  "die|Fugenmasse|die Fugenmassen||Ein Material, das man in die Fugen füllt, zum Beispiel aus Kunstharz.|Die Fugenmasse wird mit einem Gummischieber eingearbeitet.||مادة حشو الفواصل|суміш для заповнення швів|ماده پرکننده درز|derz dolgu malzemesi|смесь для заполнения швов|jointing compound|masa do spoinowania|mortar de rostuire",
+  "die|Deckschicht|die Deckschichten||Die oberste Schicht eines Weges, auf der man geht oder fährt.|Die Deckschicht ist aus Granitpflaster.||الطبقة السطحية|верхній шар покриття|لایه رویه|üst kaplama|верхний слой покрытия|surface course|warstwa ścieralna|strat de uzură",
+  "die|Schichtdicke|die Schichtdicken||Wie dick eine Schicht ist, zum Beispiel 20 cm.|Die Schichtdicke der Tragschicht beträgt 20 cm.|📏|سماكة الطبقة|товщина шару|ضخامت لایه|tabaka kalınlığı|толщина слоя|layer thickness|grubość warstwy|grosimea stratului",
+  "der|Verschnitt|–||Material, das beim Zuschneiden übrig bleibt und nicht genutzt werden kann.|Wir rechnen 20 % Verschnitt dazu.|✂️|الفاقد عند القص|відходи при розкрої|پرت برش|fire|отходы при раскрое|offcut waste|odpad (naddatek)|pierderi la tăiere"
+]});
+
+addSub('lf8', { id: 'lf8-lieferung', titel: 'Gehölzlieferung annehmen', w: [
+  "die|Warenannahme|die Warenannahmen||Die gelieferte Ware wird kontrolliert und angenommen.|Bei der Warenannahme zählen wir die Pflanzen.|📦|استلام البضاعة|приймання товару|تحویل گرفتن کالا|mal kabulü|приёмка товара|goods receipt|przyjęcie towaru|recepția mărfii",
+  "die|Sortenechtheit|–||Die gelieferte Pflanze ist wirklich die bestellte Sorte.|Die Sortenechtheit prüfen wir am Etikett.|🏷️|صحة الصنف|сортова відповідність|اصالت رقم|çeşit doğruluğu|сортовая подлинность|trueness to variety|tożsamość odmianowa|autenticitatea soiului",
+  "die|Stückzahl|die Stückzahlen||Wie viele Pflanzen geliefert wurden.|Die Stückzahl stimmt mit dem Lieferschein überein.|🔢|عدد القطع|кількість штук|تعداد|adet|количество штук|number of pieces|liczba sztuk|număr de bucăți",
+  "der|Trockenschaden|die Trockenschäden||Ein Schaden an der Pflanze, weil Wurzeln oder Ballen ausgetrocknet sind.|Den Trockenschaden erkennt man an welken Blättern.|🥀|ضرر الجفاف|пошкодження від пересихання|آسیب خشکی|kuruma hasarı|повреждение от пересыхания|drying-out damage|uszkodzenie przez przesuszenie|deteriorare prin uscare",
+  "die|Rindenverletzung|die Rindenverletzungen||Die Rinde ist beschädigt, zum Beispiel beim Transport.|Eine Rindenverletzung kann den Baum krank machen.|🩹|جرح اللحاء|пошкодження кори|زخم پوست درخت|kabuk yaralanması|повреждение коры|bark damage|uszkodzenie kory|leziune a scoarței",
+  "die|Reklamation|die Reklamationen||Man meldet dem Lieferanten, dass die Ware Mängel hat.|Die Reklamation schicken wir sofort an die Baumschule.|📣|الشكوى بسبب العيب|рекламація|شکایت از کالا|şikayet (reklamasyon)|рекламация|complaint|reklamacja|reclamație",
+  "die|Ersatzlieferung|die Ersatzlieferungen||Der Lieferant schickt neue Pflanzen statt der mangelhaften.|Die Ersatzlieferung kommt nächste Woche.|🔄|توريد بديل|заміна поставки|ارسال جایگزین|yedek teslimat|замена поставки|replacement delivery|dostawa zastępcza|livrare de înlocuire",
+  "die|Preisminderung|die Preisminderungen||Der Preis wird gesenkt, weil die Ware Mängel hat.|Wir behalten die Pflanzen gegen eine Preisminderung.|💶|تخفيض السعر|зниження ціни|کاهش قیمت|fiyat indirimi|снижение цены|price reduction|obniżka ceny|reducere de preț"
+]});
+
+addSub('lf9', { id: 'lf9-beton', titel: 'Beton', w: [
+  "die|Festigkeitsklasse|die Festigkeitsklassen||Sie zeigt, wie fest der Beton wird, zum Beispiel C 12/15.|Die Festigkeitsklasse steht auf dem Lieferschein.|💪|فئة المقاومة|клас міцності|کلاس مقاومت|dayanım sınıfı|класс прочности|strength class|klasa wytrzymałości|clasă de rezistență",
+  "die|Konsistenz|die Konsistenzen||Wie fest oder flüssig der frische Beton ist, zum Beispiel F1 = steif.|Die Konsistenz F1 bedeutet: Der Beton ist steif.||القوام|консистенція|روانی (غلظت)|kıvam|консистенция|consistency|konsystencja|consistență",
+  "das|Größtkorn|–||Das größte Korn im Material, zum Beispiel 8 mm bei 0-8.|Das Größtkorn im Beton ist 8 mm.||أكبر حجم للحبيبات|найбільша крупність зерна|بزرگ‌ترین دانه|en büyük tane boyutu|наибольшая крупность зерна|maximum aggregate size|maksymalne ziarno|granulația maximă",
+  "das|Abbinden|–||Der Beton wird nach dem Mischen langsam hart.|Beim Abbinden muss der Beton feucht bleiben.|⏳|تصلّب الخرسانة|тужавлення|گیرش|priz alma|схватывание|setting|wiązanie|priza",
+  "die|Nachbehandlung|die Nachbehandlungen||Frischer Beton wird vor Sonne, Frost und Regen geschützt, zum Beispiel mit Folie.|Die Nachbehandlung mit Folie hält den Beton feucht.|🛡️|معالجة الخرسانة|догляд за бетоном|عمل‌آوری بتن|beton kürü|уход за бетоном|curing|pielęgnacja betonu|tratarea ulterioară a betonului",
+  "der|Transportbeton|–||Fertiger Beton, der mit einem Lkw zur Baustelle gebracht wird.|Der Transportbeton kommt mit dem Fahrmischer.|🚛|الخرسانة الجاهزة|товарний бетон|بتن آماده|hazır beton|товарный бетон|ready-mixed concrete|beton towarowy|beton preparat",
+  "der|Zement|die Zemente||Ein graues Pulver. Mit Wasser wird es hart und verbindet Sand und Kies.|Der Zement muss trocken gelagert werden.||الإسمنت|цемент|سیمان|çimento|цемент|cement|cement|ciment",
+  "der|Kubikmeter|die Kubikmeter||Eine Maßeinheit für Raum: 1 m mal 1 m mal 1 m.|Wir bestellen 1,25 Kubikmeter Beton.|🧊|متر مكعب|кубічний метр|متر مکعب|metreküp|кубический метр|cubic metre|metr sześcienny|metru cub"
+]});
+
+addSub('lf9', { id: 'lf9-stein', titel: 'Natursteine', w: [
+  "das|Sedimentgestein|die Sedimentgesteine||Gestein aus abgelagerten Schichten, zum Beispiel Sandstein oder Kalkstein.|Sandstein ist ein Sedimentgestein.|🪨|الصخر الرسوبي|осадова порода|سنگ رسوبی|tortul kayaç|осадочная порода|sedimentary rock|skała osadowa|rocă sedimentară",
+  "der|Magmatit|die Magmatite||Gestein aus erkaltetem Magma, zum Beispiel Granit oder Basalt.|Granit ist ein Magmatit.|🌋|الصخر الناري|магматична порода|سنگ آذرین|magmatik kayaç|магматическая порода|igneous rock|skała magmowa|rocă magmatică",
+  "der|Metamorphit|die Metamorphite||Gestein, das durch Hitze und Druck verändert wurde, zum Beispiel Gneis oder Marmor.|Marmor ist ein Metamorphit.||الصخر المتحوّل|метаморфічна порода|سنگ دگرگونی|metamorfik kayaç|метаморфическая порода|metamorphic rock|skała metamorficzna|rocă metamorfică",
+  "der|Granit|die Granite||Ein sehr harter Naturstein mit sichtbaren Körnern, grau oder rötlich.|Der Granit ist sehr hart und frostfest.|🪨|الغرانيت|граніт|گرانیت|granit|гранит|granite|granit|granit",
+  "der|Basalt|die Basalte||Ein dunkler, sehr harter Naturstein.|Der Basalt ist fast schwarz.|⬛|البازلت|базальт|بازالت|bazalt|базальт|basalt|bazalt|bazalt",
+  "der|Sandstein|die Sandsteine||Ein eher weicher Naturstein aus Sandkörnern.|Der Sandstein ist gelb oder rot.|🟨|الحجر الرملي|пісковик|ماسه‌سنگ|kumtaşı|песчаник|sandstone|piaskowiec|gresie",
+  "der|Kalkstein|die Kalksteine||Ein heller Naturstein aus Kalk.|Der Kalkstein ist hell und relativ weich.|⬜|الحجر الجيري|вапняк|سنگ آهک|kireçtaşı|известняк|limestone|wapień|calcar",
+  "der|Gneis|die Gneise||Ein Naturstein mit Streifen. Er entsteht durch Hitze und Druck.|Der Gneis hat eine streifige Struktur.||النايس|гнейс|گنایس|gnays|гнейс|gneiss|gnejs|gnais"
+]});
+
+addSub('lf10', { id: 'lf10-zaun', titel: 'Zäune und Holzarten', w: [
+  "der|Doppelstabmattenzaun|die Doppelstabmattenzäune||Ein Zaun aus Metallgittern mit doppelten Stäben. Er ist sehr stabil.|Der Doppelstabmattenzaun ist grün beschichtet.||سياج من ألواح شبكية معدنية|паркан із двопрутових панелей|نرده پانلی دو میله|çift çubuklu panel çit|забор из двухпрутковых панелей|double-wire mesh fence|ogrodzenie panelowe dwuprętowe|gard din panouri cu sârmă dublă",
+  "der|Maschendrahtzaun|die Maschendrahtzäune||Ein Zaun aus geflochtenem Draht.|Der Maschendrahtzaun ist günstig.||سياج سلكي شبكي|паркан із сітки-рабиці|نرده توری|tel örgü çit|забор из сетки-рабицы|chain-link fence|ogrodzenie z siatki|gard din plasă de sârmă",
+  "der|Sichtschutzzaun|die Sichtschutzzäune||Ein hoher, dichter Zaun. Niemand kann hindurchsehen.|Der Sichtschutzzaun ist 1,80 m hoch.|🚧|سياج حاجب للرؤية|глухий паркан|نرده دیدبند|görüş engelleyici çit|глухой забор|privacy fence|ogrodzenie osłonowe|gard de protecție vizuală",
+  "die|Holzart|die Holzarten||Holz von einem bestimmten Baum, zum Beispiel Lärche oder Eiche.|Die Holzart bestimmt, wie lange die Terrasse hält.|🪵|نوع الخشب|порода деревини|نوع چوب|ahşap türü|порода древесины|type of wood|gatunek drewna|specie de lemn",
+  "das|Lärchenholz|–||Holz von der Lärche. Es enthält viel Harz und hält draußen lange.|Lärchenholz wird mit der Zeit silbergrau.||خشب اللاريكس|деревина модрини|چوب لاریکس|melez kerestesi|древесина лиственницы|larch wood|drewno modrzewiowe|lemn de larice",
+  "das|Douglasienholz|–||Holz von der Douglasie. Es ist günstig und recht haltbar.|Douglasienholz eignet sich für Zäune.||خشب الدوغلاسية|деревина дугласії|چوب داگلاس|duglas kerestesi|древесина дугласии|Douglas fir wood|drewno daglezjowe|lemn de duglas",
+  "das|Robinienholz|–||Holz von der Robinie. Es ist sehr hart und hält auch ohne Holzschutzmittel lange.|Robinienholz hält auch im Boden sehr lange.||خشب الروبينيا|деревина робінії (білої акації)|چوب اقاقیا|yalancı akasya kerestesi|древесина робинии|black locust wood|drewno robiniowe|lemn de salcâm",
+  "der|konstruktive Holzschutz|–||Man baut so, dass Wasser schnell abläuft und das Holz wieder trocknet.|Der konstruktive Holzschutz braucht kein Gift.|🛡️|الحماية الإنشائية للخشب|конструктивний захист деревини|حفاظت سازه‌ای چوب|yapısal ahşap koruma|конструктивная защита древесины|structural wood protection|konstrukcyjna ochrona drewna|protecția constructivă a lemnului"
+]});
+
+addSub('lf12', { id: 'lf12-bericht', titel: 'Baustellenbericht und Transport', w: [
+  "der|Baustellenbericht|die Baustellenberichte||Ein Bericht über den Arbeitstag: Wer hat was gemacht, wie lange, mit welchem Material?|Den Baustellenbericht schreibt der Vorarbeiter jeden Tag.|📝|تقرير موقع البناء|звіт з будмайданчика|گزارش روزانه کارگاه|şantiye raporu|отчёт со стройплощадки|daily site report|raport z budowy|raport de șantier",
+  "die|Nachkalkulation|die Nachkalkulationen||Nach dem Auftrag prüft man: Was hat die Arbeit wirklich gekostet?|Die Nachkalkulation zeigt, ob wir Gewinn gemacht haben.|🧮|حساب التكاليف بعد التنفيذ|підсумкова калькуляція|محاسبه هزینه پس از اجرا|son maliyet hesabı|итоговая калькуляция|post-calculation|kalkulacja powykonawcza|calculație ulterioară",
+  "die|Abrechnung|die Abrechnungen||Man berechnet, wie viel der Kunde für die Arbeit bezahlen muss.|Die Abrechnung erfolgt nach Aufmaß.|💶|المحاسبة الختامية|остаточний розрахунок|تسویه حساب|hakediş|окончательный расчёт|final billing|rozliczenie|decontare",
+  "die|Behinderung|die Behinderungen||Ein Problem auf der Baustelle, das die Arbeit stört, zum Beispiel fehlendes Material.|Die Behinderung schreiben wir in den Bericht.|⛔|عائق في العمل|перешкода в роботі|مانع کار|iş engeli|препятствие в работе|obstruction (delay)|utrudnienie|impediment",
+  "die|Ladungssicherung|–||Die Ladung auf dem Fahrzeug wird so befestigt, dass sie nicht rutscht.|Die Ladungssicherung prüfe ich vor jeder Fahrt.|🚚|تثبيت الحمولة|кріплення вантажу|مهار بار|yük emniyeti|крепление груза|load securing|zabezpieczenie ładunku|asigurarea încărcăturii",
+  "der|Zurrgurt|die Zurrgurte||Ein starkes Band mit Ratsche. Es hält die Ladung fest.|Der Zurrgurt hält den Minibagger fest.|🎗️|حزام التثبيت|стяжний ремінь|تسمه مهار بار|spanzet|стяжной ремень|lashing strap|pas transportowy|chingă de ancorare",
+  "der|Anhänger|die Anhänger||Ein Wagen ohne Motor, der hinter einem Fahrzeug fährt.|Auf dem Anhänger steht der Minibagger.|🚛|المقطورة|причіп|تریلی (یدک)|römork|прицеп|trailer|przyczepa|remorcă",
+  "das|zulässige Gesamtgewicht|–||Das höchste Gewicht, das ein Fahrzeug mit Ladung haben darf.|Das zulässige Gesamtgewicht darf man nicht überschreiten.|⚖️|الوزن الإجمالي المسموح|допустима повна маса|حداکثر وزن مجاز|izin verilen toplam ağırlık|разрешённая полная масса|permissible gross weight|dopuszczalna masa całkowita|masa totală maximă admisă"
+]});
+
+/* Prüfungsfach Pflanzenkenntnisse – alle Fachrichtungen.
+ * Gliederung und Fachbegriffe nach: „Beispielfragen für Zwischen- und
+ * Abschlussprüfungen im Ausbildungsberuf Gärtner/Gärtnerin, Prüfungsfach
+ * Pflanzenkenntnisse – alle Fachrichtungen“ (Version August 2019).
+ * Erklärungen, Beispielsätze und Übersetzungen KI-generiert, ungeprüft.
+ * fuer = Fachrichtungen, für die das Kapitel besonders wichtig ist.
+ */
+const PK_SRC = 'Fragenkatalog Pflanzenkenntnisse 2019';
+
+DATA.lf.push({ id: 'pk01', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '01', fuer: ['alle'], titel: 'Bau und Leben der Pflanze', subs: [
+  { id: 'pk01-gewebe', titel: 'Zelle, Gewebe, Wurzel und Spross', w: [
+    "das|Meristem|die Meristeme||Ein Gewebe, dessen Zellen sich noch teilen können. Hier wächst die Pflanze.|Das Meristem sitzt an den Spitzen von Wurzel und Spross.|🔬|النسيج الإنشائي (المرستيم)|меристема (твірна тканина)|مریستم (بافت سازنده)|meristem doku|меристема (образовательная ткань)|meristem|merystem (tkanka twórcza)|meristem",
+    "das|Kambium|die Kambien||Eine dünne Schicht unter der Rinde. Sie macht Stamm und Äste dicker.|Das Kambium ist für das Dickenwachstum verantwortlich.|🌳|الكامبيوم|камбій|کامبیوم|kambiyum|камбий|cambium|kambium|cambiu",
+    "der|Kallus|die Kalli||Ein Wundgewebe. Es wächst an Schnittstellen und Verletzungen und verschließt die Wunde.|Am Steckling bildet sich zuerst ein Kallus.|🩹|الكالوس (نسيج الالتئام)|калюс (ранова тканина)|کالوس (بافت ترمیمی)|kallus (yara dokusu)|каллус (раневая ткань)|callus|kalus|calus",
+    "das|Xylem|die Xyleme||Leitungsbahnen, die Wasser und Nährsalze von der Wurzel nach oben leiten.|Das Xylem leitet Wasser nach oben.|💧|النسيج الخشبي الناقل للماء (الزيلم)|ксилема|آوند چوبی (گزیلم)|ksilem (odun borusu)|ксилема|xylem|ksylem|xilem",
+    "das|Phloem|die Phloeme||Leitungsbahnen, die Zucker aus den Blättern in die ganze Pflanze verteilen.|Das Phloem verteilt Zucker in der Pflanze.|🍬|اللحاء الناقل للغذاء (الفلويم)|флоема|آوند آبکش (فلوئم)|floem (soymuk borusu)|флоэма|phloem|floem|floem",
+    "die|Adventivwurzel|die Adventivwurzeln||Eine Wurzel, die am Spross oder Blatt entsteht, zum Beispiel am Steckling.|Am Steckling entsteht eine Adventivwurzel.|🌱|الجذر العرضي|додатковий корінь|ریشه نابجا|adventif kök|придаточный корень|adventitious root|korzeń przybyszowy|rădăcină adventivă",
+    "das|Wurzelhaar|die Wurzelhaare||Ein sehr feines Haar an der Wurzelspitze. Es nimmt Wasser und Nährstoffe auf.|Das Wurzelhaar nimmt Wasser aus dem Boden auf.|🌱|الشعيرة الجذرية|кореневий волосок|تار کشنده|kök tüyü|корневой волосок|root hair|włośnik|perișor radicular",
+    "das|Rhizom|die Rhizome||Ein Spross unter der Erde. Er speichert Nährstoffe und bildet neue Triebe.|Das Rhizom der Quecke wächst weit unter der Erde.|🫚|الجذمور|кореневище|زمین‌ساقه (ریزوم)|rizom (toprak altı gövde)|корневище|rhizome|kłącze|rizom",
+    "das|Internodium|die Internodien||Das Stück Spross zwischen zwei Knoten, an denen Blätter sitzen.|Das Internodium ist bei Pflanzen im Schatten lang.|📏|السُّلامية (ما بين عقدتين)|міжвузля|میان‌گره|boğum arası|междоузлие|internode|międzywęźle|internod",
+    "die|Endknospe|die Endknospen||Die Knospe an der Spitze eines Triebes (Terminalknospe).|Die Endknospe bildet den neuen Leittrieb.|🌿|البرعم الطرفي|верхівкова брунька|جوانه انتهایی|uç tomurcuğu|верхушечная почка|terminal bud|pąk szczytowy|mugur terminal",
+    "die|Sprossknolle|die Sprossknollen||Ein verdickter Spross, der Nährstoffe speichert, zum Beispiel die Kartoffel.|Die Kartoffel ist eine Sprossknolle.|🥔|الدرنة الساقية|стеблова бульба|غده ساقه‌ای|gövde yumrusu|стеблевой клубень|stem tuber|bulwa pędowa|tubercul tulpinal",
+    "der|Ausläufer|die Ausläufer||Ein Trieb, der über den Boden wächst und neue Pflanzen bildet, zum Beispiel bei der Erdbeere.|Der Ausläufer der Erdbeere bildet eine neue Pflanze.|🍓|المِداد (الساق الزاحفة)|вус (столон)|ساقه رونده (استولون)|stolon (kol)|ус (столон)|runner (stolon)|rozłóg|stolon"
+  ]},
+  { id: 'pk01-blatt', titel: 'Blatt und Blüte', w: [
+    "die|Kutikula|die Kutikulas||Eine dünne Wachsschicht auf dem Blatt. Sie schützt vor Wasserverlust.|Die Kutikula ist bei immergrünen Pflanzen dicker.|🍃|البشرة الشمعية (الكيوتيكل)|кутикула|کوتیکول|kütikula|кутикула|cuticle|kutykula|cuticulă",
+    "die|Spaltöffnung|die Spaltöffnungen||Eine kleine Öffnung im Blatt. Hier tauscht die Pflanze Gase und Wasserdampf aus.|Die Spaltöffnung liegt meist auf der Blattunterseite.|🫧|الثغر|продих|روزنه|stoma (gözenek)|устьице|stoma|szparka|stomată",
+    "die|Sukkulenz|–||Pflanzen speichern Wasser in dicken Blättern oder Stämmen.|Durch Sukkulenz überleben Pflanzen lange Trockenheit.|🌵|العُصارية (تخزين الماء)|сукулентність|گوشتی بودن (ساکولنت بودن)|sukulentlik|суккулентность|succulence|sukulentność|suculență",
+    "das|Hochblatt|die Hochblätter||Ein farbiges Blatt unter der Blüte. Es sieht aus wie eine Blüte (Braktee).|Beim Weihnachtsstern ist das rote Hochblatt auffällig.|🌺|الورقة القنابية|приквітковий лист (брактея)|برگک گل (براکته)|brakte (çiçek altı yaprağı)|прицветник (брактея)|bract|podsadka|bractee",
+    "die|Panaschierung|die Panaschierungen||Weiße oder gelbe Flecken oder Streifen auf grünen Blättern.|Durch die Panaschierung wächst die Pflanze langsamer.||تبرقش الأوراق|строкатість листя|ابلقی برگ|alacalı yapraklılık|пестролистность|variegation|pstrość liści|variegare",
+    "der|Blütenstand|die Blütenstände||Viele Blüten an einem Stiel, zum Beispiel Traube oder Dolde.|Der Blütenstand des Flieders ist eine Rispe.|💐|النورة|суцвіття|گل‌آذین|çiçek durumu|соцветие|inflorescence|kwiatostan|inflorescență",
+    "die|Befruchtung|die Befruchtungen||Pollen und Eizelle verschmelzen. Danach entstehen Samen und Frucht.|Nach der Befruchtung entsteht die Frucht.|🐝|الإخصاب|запліднення|لقاح (باروری)|döllenme|оплодотворение|fertilisation|zapłodnienie|fecundare",
+    "der|Windbestäuber|die Windbestäuber||Eine Pflanze, deren Blütenstaub der Wind trägt, zum Beispiel Hasel oder Gräser.|Die Birke ist ein Windbestäuber.|🌬️|نبات يُلقَّح بالرياح|вітрозапильна рослина|گیاه بادگرده‌افشان|rüzgârla tozlaşan bitki|ветроопыляемое растение|wind-pollinated plant|roślina wiatropylna|plantă anemofilă",
+    "die|Zweihäusigkeit|–||Männliche und weibliche Blüten wachsen auf verschiedenen Pflanzen.|Wegen der Zweihäusigkeit braucht der Sanddorn eine männliche Pflanze.|♂️|ثنائية المسكن|дводомність|دوپایه‌ای|iki evciklilik|двудомность|dioecy|dwupienność|dioicie",
+    "die|Jungfernfrüchtigkeit|–||Früchte wachsen ohne Befruchtung und haben keine Samen (Parthenokarpie).|Durch Jungfernfrüchtigkeit hat die Gurke keine Samen.|🥒|الإثمار العذري|партенокарпія|بکرباری|partenokarpi|партенокарпия|parthenocarpy|partenokarpia|partenocarpie"
+  ]},
+  { id: 'pk01-wachstum', titel: 'Wachstum, Vermehrung und Systematik', w: [
+    "die|Symbiose|die Symbiosen||Zwei Lebewesen leben zusammen und haben beide einen Nutzen.|Die Symbiose von Klee und Knöllchenbakterien bringt Stickstoff in den Boden.|🤝|التكافل (التعايش)|симбіоз|همزیستی|ortak yaşam (simbiyoz)|симбиоз|symbiosis|symbioza|simbioză",
+    "die|Mykorrhiza|die Mykorrhizen||Eine Symbiose von Pilzen und Pflanzenwurzeln. Der Pilz hilft bei Wasser und Nährstoffen.|Die Mykorrhiza hilft dem Baum, Wasser aufzunehmen.|🍄|الفطريات الجذرية (الميكوريزا)|мікориза|میکوریزا (قارچ‌ریشه)|mikoriza|микориза|mycorrhiza|mikoryza|micoriză",
+    "die|vegetative Vermehrung|–||Vermehrung ohne Samen, zum Beispiel durch Stecklinge oder Teilung. Die neuen Pflanzen sind wie die Mutterpflanze.|Die vegetative Vermehrung ergibt gleiche Pflanzen.|✂️|التكاثر الخضري|вегетативне розмноження|تکثیر رویشی|vejetatif çoğaltma|вегетативное размножение|vegetative propagation|rozmnażanie wegetatywne|înmulțire vegetativă",
+    "die|generative Vermehrung|–||Vermehrung durch Samen.|Die generative Vermehrung bringt neue Eigenschaften.|🌰|التكاثر بالبذور|насіннєве (генеративне) розмноження|تکثیر جنسی (با بذر)|tohumla (generatif) çoğaltma|семенное (генеративное) размножение|propagation from seed|rozmnażanie generatywne|înmulțire generativă",
+    "die|Gewebekultur|die Gewebekulturen||Pflanzen werden im Labor aus winzigen Teilen vermehrt (In-vitro-Vermehrung).|In der Gewebekultur entstehen viele gleiche Pflanzen.|🧫|زراعة الأنسجة|культура тканин|کشت بافت|doku kültürü|культура тканей|tissue culture|kultura tkankowa|cultură de țesuturi",
+    "die|Systematik|–||Die Lehre von der Verwandtschaft der Pflanzen.|Die Systematik ordnet Pflanzen in Familien und Gattungen.|🗂️|علم التصنيف|систематика|رده‌بندی (سیستماتیک)|sistematik|систематика|systematics|systematyka|sistematică",
+    "die|binäre Nomenklatur|–||Die Regel: Jede Pflanzenart hat einen Namen aus zwei Teilen, Gattung und Art.|Die binäre Nomenklatur stammt von Carl von Linné.|🏷️|التسمية الثنائية|бінарна номенклатура|نام‌گذاری دوجزئی|ikili adlandırma|бинарная номенклатура|binomial nomenclature|nazewnictwo dwuimienne|nomenclatură binară",
+    "das|Keimblatt|die Keimblätter||Das erste Blatt, das aus dem Samen kommt.|Gräser haben nur ein Keimblatt.|🌱|الورقة الفلقية|сім'ядоля|لپه|çenek yaprağı|семядоля|seed leaf (cotyledon)|liścień|cotiledon",
+    "die|einkeimblättrige Pflanze|die einkeimblättrigen Pflanzen||Eine Pflanze mit einem Keimblatt und parallelen Blattadern, zum Beispiel Gräser und Tulpen.|Die Tulpe ist eine einkeimblättrige Pflanze.|🌷|نبات أحادي الفلقة|однодольна рослина|گیاه تک‌لپه|tek çenekli bitki|однодольное растение|monocot|roślina jednoliścienna|plantă monocotiledonată",
+    "die|Spore|die Sporen||Ein winziges Teilchen, mit dem sich Farne, Moose und Pilze vermehren.|Eine Spore ist viel kleiner als ein Samen.|🍄|البوغ|спора|هاگ|spor|спора|spore|zarodnik|spor"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk02', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '02', fuer: ['alle'], titel: 'Saatgut', subs: [
+  { id: 'pk02-saat', titel: 'Saatgut und Aussaat', w: [
+    "die|Keimfähigkeit|–||Wie viele Samen keimen können, angegeben in Prozent.|Die Keimfähigkeit steht auf der Saatgutpackung.|🌱|القدرة على الإنبات|схожість|قوه نامیه|çimlenme gücü|всхожесть|germination capacity|zdolność kiełkowania|capacitate germinativă",
+    "die|F1-Hybride|die F1-Hybriden||Die erste Generation nach einer Kreuzung von zwei reinerbigen Elternlinien. Sie ist sehr gleichmäßig und kräftig.|Die F1-Hybride bringt einen hohen Ertrag.|🧬|هجين الجيل الأول (F1)|гібрид F1|هیبرید F1|F1 hibrit|гибрид F1|F1 hybrid|mieszaniec F1|hibrid F1",
+    "der|Heterosiseffekt|die Heterosiseffekte||Kreuzungen sind oft kräftiger und ertragreicher als ihre Eltern.|Der Heterosiseffekt macht F1-Sorten wüchsig.|💪|تأثير قوة الهجين|ефект гетерозису|اثر هتروزیس|heterosis etkisi|эффект гетерозиса|heterosis (hybrid vigour)|efekt heterozji|efect de heterozis",
+    "das|Beizen|–||Saatgut wird mit einem Mittel behandelt. Es schützt vor Pilzen und Schädlingen.|Das Beizen schützt das Saatgut vor Pilzen.|🧪|تطهير البذور|протруювання насіння|ضدعفونی بذر|tohum ilaçlama|протравливание семян|seed dressing|zaprawianie nasion|tratarea semințelor",
+    "der|Frostkeimer|die Frostkeimer||Ein Samen, der Frost braucht, damit er keimt.|Der Frostkeimer wird im Herbst ausgesät.|❄️|بذرة تحتاج إلى الصقيع لتنبت|насіння, якому потрібен мороз|بذر نیازمند یخبندان|don isteyen tohum|семена, прорастающие после мороза|frost germinator|nasiona wymagające przemrożenia|sămânță care germinează după îngheț",
+    "die|samenfeste Sorte|die samenfesten Sorten||Eine Sorte, deren Samen wieder gleiche Pflanzen ergeben. Man kann selbst Samen gewinnen.|Die samenfeste Sorte kann der Gärtner selbst vermehren.|🌾|صنف ثابت البذور|сорт, що зберігає ознаки з насіння|رقم بذرپایدار|tohumdan aynı çıkan çeşit|сорт, стабильный при семенном размножении|open-pollinated variety|odmiana ustalona (nasienna)|soi stabil prin semințe",
+    "die|Saattiefe|die Saattiefen||Wie tief der Samen in die Erde kommt. Faustregel: zwei- bis dreimal so tief, wie der Samen dick ist.|Die Saattiefe für Möhren ist etwa 1 bis 2 cm.|📏|عمق البذر|глибина посіву|عمق کاشت|ekim derinliği|глубина посева|sowing depth|głębokość siewu|adâncimea de semănat",
+    "das|Priming|–||Saatgut wird vorgequollen und wieder getrocknet. Dann keimt es schneller und gleichmäßiger.|Durch Priming keimt der Samen schneller.|💧|التحضير المسبق للبذور|праймінг насіння|پرایمینگ بذر|tohum ön uyarımı (priming)|прайминг семян|seed priming|kondycjonowanie nasion|pregerminare controlată (priming)",
+    "das|zertifizierte Saatgut|–||Geprüftes Saatgut mit amtlichem Etikett. Sorte, Reinheit und Keimfähigkeit sind garantiert.|Das zertifizierte Saatgut hat ein amtliches Etikett.|🏷️|البذور المعتمدة|сертифіковане насіння|بذر گواهی‌شده|sertifikalı tohum|сертифицированные семена|certified seed|kwalifikowany materiał siewny|sămânță certificată"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk03', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '03', fuer: ['gemuese'], titel: 'Gemüsepflanzen', subs: [
+  { id: 'pk03-gruppen', titel: 'Gemüsegruppen', w: [
+    "das|Blattgemüse|die Blattgemüse||Gemüse, bei dem man die Blätter isst, zum Beispiel Salat oder Spinat.|Spinat ist ein Blattgemüse.|🥬|الخضراوات الورقية|листові овочі|سبزی برگی|yaprak sebze|листовые овощи|leaf vegetable|warzywo liściowe|legumă frunzoasă",
+    "das|Fruchtgemüse|die Fruchtgemüse||Gemüse, bei dem man die Frucht isst, zum Beispiel Tomate oder Gurke.|Die Tomate ist ein Fruchtgemüse.|🍅|الخضراوات الثمرية|плодові овочі|سبزی میوه‌ای|meyve sebze|плодовые овощи|fruit vegetable|warzywo owocowe|legumă de fruct",
+    "das|Wurzelgemüse|die Wurzelgemüse||Gemüse, bei dem man die verdickte Wurzel isst, zum Beispiel die Möhre.|Die Möhre ist ein Wurzelgemüse.|🥕|الخضراوات الجذرية|коренеплоди|سبزی ریشه‌ای|kök sebze|корнеплоды|root vegetable|warzywo korzeniowe|legumă rădăcinoasă",
+    "das|Kohlgemüse|die Kohlgemüse||Gemüse aus der Gattung Brassica, zum Beispiel Weißkohl oder Brokkoli.|Rosenkohl ist ein Kohlgemüse.|🥦|خضراوات الملفوف|капустяні овочі|سبزی‌های کلمی|lahana sebzeleri|капустные овощи|brassica vegetable|warzywo kapustne|legumă din grupa verzei",
+    "das|Hülsenfruchtgemüse|die Hülsenfruchtgemüse||Gemüse mit Hülsen, zum Beispiel Bohnen und Erbsen.|Die Erbse ist ein Hülsenfruchtgemüse.|🫛|الخضراوات البقولية|бобові овочі|سبزی بقولات|baklagil sebze|бобовые овощи|legume vegetable|warzywo strączkowe|legumă păstăioasă",
+    "das|Zwiebelgemüse|die Zwiebelgemüse||Gemüse aus der Gattung Allium, zum Beispiel Zwiebel, Porree und Knoblauch.|Porree gehört zum Zwiebelgemüse.|🧅|الخضراوات البصلية|цибулеві овочі|سبزی پیازی|soğangil sebzeler|луковые овощи|allium vegetable|warzywo cebulowe|legumă aliacee",
+    "das|Küchenkraut|die Küchenkräuter||Eine Pflanze zum Würzen von Speisen, zum Beispiel Petersilie oder Basilikum.|Das Küchenkraut wächst im Topf auf der Fensterbank.|🌿|عشب الطبخ|пряна трава|سبزی معطر آشپزی|mutfak otu|пряная трава|culinary herb|zioło kuchenne|plantă aromatică",
+    "das|Nachtschattengewächs|die Nachtschattengewächse||Eine Pflanzenfamilie (Solanaceae), zum Beispiel Tomate, Paprika und Kartoffel.|Die Tomate ist ein Nachtschattengewächs.|🍆|نبات من الفصيلة الباذنجانية|пасльонова рослина|گیاه تیره بادمجانیان|patlıcangil bitki|паслёновое растение|nightshade (Solanaceae)|roślina psiankowata|solanacee"
+  ]},
+  { id: 'pk03-anbau', titel: 'Anbau von Gemüse', w: [
+    "das|Schossen|–||Die Pflanze bildet zu früh einen Blütenstängel. Dann kann man sie nicht mehr gut verkaufen.|Bei Hitze kommt es beim Salat zum Schossen.|🌿|الإزهار المبكر (الحنطنة)|стрілкування|به ساقه رفتن|erken sapa kalkma|стрелкование|bolting|wybijanie w pędy kwiatostanowe|emiterea tulpinii florale",
+    "die|Vernalisation|–||Eine Kältezeit, die manche Pflanzen brauchen, damit sie später blühen.|Die Vernalisation löst beim Blumenkohl die Blüte aus.|❄️|الارتباع (التعرض للبرودة)|яровизація|بهاره‌سازی|vernalizasyon|яровизация|vernalisation|wernalizacja|vernalizare",
+    "das|Ausgeizen|–||Man entfernt die Seitentriebe aus den Blattachseln, zum Beispiel bei Tomaten.|Das Ausgeizen der Tomaten machen wir jede Woche.|✂️|إزالة الفروع الجانبية|пасинкування|جانبی‌زنی|koltuk alma|пасынкование|removing side shoots|usuwanie pędów bocznych|copilit",
+    "das|Häufeln|–||Man zieht Erde an die Pflanzen heran, zum Beispiel bei Kartoffeln oder Spargel.|Das Häufeln schützt den Spargel vor Licht.|⛰️|تكويم التربة حول النبات|підгортання|خاک‌دادن پای بوته|boğaz doldurma|окучивание|earthing up|obsypywanie|mușuroit",
+    "die|Vorfrucht|die Vorfrüchte||Die Kultur, die vorher auf derselben Fläche gewachsen ist.|Die Vorfrucht beeinflusst den Boden für die nächste Kultur.|🔁|المحصول السابق|попередник|کشت قبلی|ön bitki|предшественник|preceding crop|przedplon|cultură premergătoare",
+    "die|Anbaupause|die Anbaupausen||Eine Zeit, in der dieselbe Kultur nicht auf derselben Fläche angebaut wird.|Die Anbaupause beugt Krankheiten im Boden vor.|⏸️|فترة الاستراحة الزراعية|перерва у вирощуванні|وقفه کشت|ekim arası (dinlendirme)|перерыв в выращивании|crop break|przerwa w uprawie|pauză de cultură",
+    "die|Dauerkultur|die Dauerkulturen||Eine Kultur, die viele Jahre auf derselben Fläche steht, zum Beispiel Spargel.|Spargel ist eine Dauerkultur.|📅|محصول معمّر|багаторічна культура|کشت دائمی|çok yıllık kültür|многолетняя культура|perennial crop|uprawa trwała|cultură perenă",
+    "der|Nitratgehalt|die Nitratgehalte||Wie viel Nitrat im Gemüse ist. Zu viel Nitrat ist ungesund.|Der Nitratgehalt ist im Spinat oft hoch.|🧪|محتوى النترات|вміст нітратів|میزان نیترات|nitrat içeriği|содержание нитратов|nitrate content|zawartość azotanów|conținut de nitrați"
+  ]},
+  { id: 'pk03-arten', titel: 'Weitere Gemüsearten', w: [
+    "der|Spinat|–|Spinacia oleracea|Ein Blattgemüse mit dunkelgrünen Blättern.|Der Spinat wird im Frühjahr und Herbst angebaut.|🥬|السبانخ|шпинат|اسفناج|ıspanak|шпинат|spinach|szpinak|spanac",
+    "der|Blumenkohl|die Blumenkohle|Brassica oleracea var. botrytis|Ein Kohl mit einem weißen Kopf aus Blütenknospen.|Der Blumenkohl wird geerntet, wenn der Kopf fest ist.|🥦|القرنبيط|цвітна капуста|گل‌کلم|karnabahar|цветная капуста|cauliflower|kalafior|conopidă",
+    "der|Brokkoli|die Brokkolis|Brassica oleracea var. italica|Ein grüner Kohl. Man isst die Blütenknospen.|Der Brokkoli wird vor der Blüte geerntet.|🥦|البروكلي|броколі|کلم بروکلی|brokoli|брокколи|broccoli|brokuł|broccoli",
+    "der|Rosenkohl|–|Brassica oleracea var. gemmifera|Ein Kohl mit kleinen Röschen am Stängel. Die Röschen sind Knospen.|Der Rosenkohl wird im Winter geerntet.|🥬|كرنب بروكسل|брюссельська капуста|کلم بروکسل|Brüksel lahanası|брюссельская капуста|Brussels sprouts|brukselka|varză de Bruxelles",
+    "der|Rhabarber|–|Rheum rhabarbarum|Eine mehrjährige Pflanze. Man isst die Blattstiele.|Der Rhabarber wird bis Ende Juni geerntet.||الراوند|ревінь|ریواس|ravent|ревень|rhubarb|rabarbar|revent",
+    "die|Gartenbohne|die Gartenbohnen|Phaseolus vulgaris|Ein Hülsenfruchtgemüse. Man muss es vor dem Essen kochen.|Die Gartenbohne ist roh giftig.|🫛|الفاصولياء|квасоля звичайна|لوبیا|fasulye|фасоль обыкновенная|common bean|fasola zwykła|fasole",
+    "die|Erbse|die Erbsen|Pisum sativum|Ein Hülsenfruchtgemüse mit runden, grünen Samen.|Die Erbse sammelt Stickstoff im Boden.|🫛|البازلاء|горох|نخود فرنگی|bezelye|горох|pea|groch|mazăre",
+    "der|Porree|die Porrees|Allium porrum|Ein langes Zwiebelgemüse. Man sagt auch Lauch.|Der Porree steht auch im Winter auf dem Feld.||الكرّاث|цибуля-порей|تره فرنگی|pırasa|лук-порей|leek|por|praz"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk04', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '04', fuer: ['obst', 'baum'], titel: 'Obstgehölze', subs: [
+  { id: 'pk04-gruppen', titel: 'Obstgruppen', w: [
+    "das|Kernobst|–||Obst mit einem Kerngehäuse in der Mitte, zum Beispiel Apfel und Birne.|Apfel und Birne gehören zum Kernobst.|🍎|الفاكهة اللبّية (التفاحيات)|зерняткові|میوه دانه‌دار|yumuşak çekirdekli meyve|семечковые|pome fruit|owoce ziarnkowe|fructe semințoase",
+    "das|Steinobst|–||Obst mit einem harten Kern (Stein), zum Beispiel Kirsche und Pflaume.|Die Kirsche ist Steinobst.|🍒|الفاكهة ذات النواة الحجرية|кісточкові|میوه هسته‌دار|sert çekirdekli meyve|косточковые|stone fruit|owoce pestkowe|fructe sâmburoase",
+    "das|Beerenobst|–||Kleine, weiche Früchte an Sträuchern oder Stauden, zum Beispiel Johannisbeere und Erdbeere.|Die Himbeere gehört zum Beerenobst.|🫐|الفاكهة التوتية|ягідні культури|میوه‌های ریز (توت‌ها)|üzümsü meyveler|ягодные культуры|soft fruit (berries)|owoce jagodowe|arbuști fructiferi (fructe de pădure)",
+    "das|Schalenobst|–||Obst mit harter Schale, zum Beispiel Walnuss und Haselnuss.|Die Walnuss gehört zum Schalenobst.|🌰|المكسرات|горіхоплідні|خشکبار پوست‌سخت|sert kabuklu meyve|орехоплодные|nuts|owoce łupinowe|fructe cu coajă tare",
+    "das|Wildobst|–||Essbare Früchte von Wildgehölzen, zum Beispiel Sanddorn und Holunder.|Wildobst ist reich an Vitamin C.|🫐|الفاكهة البرية|дикорослі плоди|میوه وحشی|yabani meyve|дикорастущие плоды|wild fruit|owoce dzikie|fructe sălbatice",
+    "die|Streuobstwiese|die Streuobstwiesen||Eine Wiese mit großen, hochstämmigen Obstbäumen. Sie ist ein wichtiger Lebensraum.|Auf der Streuobstwiese stehen alte Apfelsorten.|🌳|بستان فاكهة تقليدي في مرج|сад на луці|باغ میوه مرتعی|çayır meyve bahçesi|луговой сад|traditional meadow orchard|sad łąkowy|livadă tradițională pe pajiște",
+    "die|Sauerkirsche|die Sauerkirschen|Prunus cerasus|Eine Kirsche mit saurem Geschmack, oft für Kuchen und Saft.|Die Sauerkirsche ist meist selbstfruchtbar.|🍒|الكرز الحامض|вишня|آلبالو|vişne|вишня|sour cherry|wiśnia|vișină",
+    "die|Walnuss|die Walnüsse|Juglans regia|Ein großer Baum mit essbaren Nüssen.|Die Walnuss sollte man nicht beim Austrieb im Frühjahr schneiden.|🌰|الجوز|волоський горіх|گردو|ceviz|грецкий орех|walnut|orzech włoski|nuc"
+  ]},
+  { id: 'pk04-anbau', titel: 'Sorten, Unterlagen und Anbau', w: [
+    "die|Zwischenveredlung|die Zwischenveredlungen||Zwischen Unterlage und Sorte wird ein weiteres Stück veredelt, wenn beide nicht gut zusammenpassen.|Die Birne auf Quitte braucht oft eine Zwischenveredlung.||التطعيم الوسيط|проміжне щеплення|پیوند واسطه|ara aşı|промежуточная прививка|interstem grafting|wstawka pośrednia|altoire intermediară",
+    "die|Affinität|–||Wie gut Unterlage und Edelreis zusammenpassen und zusammenwachsen.|Eine gute Affinität ist wichtig für die Veredelung.|🤝|التوافق|сумісність (афінітет)|سازگاری پیوندی|uyum (afinite)|совместимость (аффинитет)|compatibility (affinity)|zgodność (powinowactwo)|afinitate",
+    "die|Selbststerilität|–||Eine Sorte kann sich nicht selbst befruchten. Sie braucht Blütenstaub einer anderen Sorte.|Wegen der Selbststerilität braucht der Apfel eine Befruchtersorte.|🐝|العقم الذاتي|самобезпліддя|خودناسازگاری|kendine kısırlık|самобесплодие|self-sterility|samobezpłodność|autosterilitate",
+    "die|Mutante|die Mutanten||Eine Pflanze mit einer zufälligen Veränderung im Erbgut, zum Beispiel mit röteren Früchten.|Die Mutante hat eine bessere Fruchtfarbe.|🧬|النبات الطافر|мутант|جهش‌یافته|mutant|мутант|mutant (sport)|mutant|mutant",
+    "der|Klon|die Klone||Pflanzen, die vegetativ aus einer einzigen Pflanze vermehrt wurden und gleich sind.|Jeder Klon hat das gleiche Erbgut.|🧬|النسيلة|клон|کلون|klon|клон|clone|klon|clonă",
+    "die|Königsblüte|die Königsblüten||Die mittlere Blüte in einem Blütenbüschel beim Apfel. Sie blüht zuerst und bringt die beste Frucht.|Die Königsblüte bringt den größten Apfel.|👑|الزهرة المركزية (الملكية)|центральна (королівська) квітка|گل مرکزی|merkez (kral) çiçeği|центральный (королевский) цветок|king flower|kwiat królewski|floarea centrală",
+    "der|Schorf|–||Eine Pilzkrankheit beim Apfel mit dunklen Flecken auf Blättern und Früchten.|Gegen Schorf gibt es robuste Apfelsorten.|🍏|مرض الجرب الفطري|парша|بیماری لکه‌سیاه (اسکب)|karaleke|парша|scab|parch|rapăn",
+    "die|Kronenerziehung|–||Der Baum wird durch Schnitt in eine gute Kronenform gebracht.|Die Kronenerziehung beginnt im ersten Standjahr.|🌳|تربية تاج الشجرة|формування крони|تربیت تاج|taç terbiyesi|формирование кроны|crown training|formowanie korony|formarea coroanei"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk05', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '05', fuer: ['baum', 'gala', 'fried'], titel: 'Baumschulgehölze', subs: [
+  { id: 'pk05-familien', titel: 'Gehölzfamilien und -arten', w: [
+    "das|Rosengewächs|die Rosengewächse||Eine Pflanzenfamilie (Rosaceae), zum Beispiel Rose, Apfel, Kirsche und Weißdorn.|Der Apfel ist ein Rosengewächs.|🌹|نبات من الفصيلة الوردية|розоцвіта рослина|گیاه تیره گل‌سرخیان|gülgil bitki|розоцветное растение|rose family plant (Rosaceae)|roślina różowata|rozacee",
+    "das|Heidekrautgewächs|die Heidekrautgewächse||Eine Pflanzenfamilie (Ericaceae), zum Beispiel Rhododendron, Heide und Heidelbeere. Sie braucht sauren Boden.|Der Rhododendron ist ein Heidekrautgewächs.|💜|نبات من الفصيلة الخلنجية|вересова рослина|گیاه تیره خلنگیان|fundagil bitki|вересковое растение|heath family plant (Ericaceae)|roślina wrzosowata|ericacee",
+    "der|Schmetterlingsblütler|die Schmetterlingsblütler||Eine Pflanzenfamilie (Fabaceae). Die Blüten sehen aus wie Schmetterlinge, zum Beispiel bei Goldregen und Klee.|Der Goldregen ist ein Schmetterlingsblütler.|🦋|نبات من الفصيلة البقولية|бобова (метеликоцвіта) рослина|گیاه تیره پروانه‌آساها|baklagil bitki|мотыльковое (бобовое) растение|legume family plant (Fabaceae)|roślina motylkowata|fabacee",
+    "das|Buchengewächs|die Buchengewächse||Eine Pflanzenfamilie (Fagaceae), zum Beispiel Buche, Eiche und Esskastanie.|Die Eiche ist ein Buchengewächs.|🌳|نبات من الفصيلة الزانية|букова рослина|گیاه تیره راش|kayıngil bitki|буковое растение|beech family plant (Fagaceae)|roślina bukowata|fagacee",
+    "der|Berg-Ahorn|die Berg-Ahorne|Acer pseudoplatanus|Ein großer, heimischer Baum. Seine Blätter haben stumpfe Lappen.|Der Berg-Ahorn hat keinen Milchsaft.|🍁|القيقب الجبلي|клен-явір|افرای کوهی|dağ akçaağacı|клён ложноплатановый (явор)|sycamore maple|klon jawor|paltin de munte",
+    "die|Gewöhnliche Rosskastanie|die Gewöhnlichen Rosskastanien|Aesculus hippocastanum|Ein großer Baum mit weißen Blütenkerzen und braunen Kastanien.|Die Gewöhnliche Rosskastanie blüht im Mai.|🌰|كستناء الحصان|гіркокаштан звичайний|شاه‌بلوط هندی|at kestanesi|конский каштан обыкновенный|horse chestnut|kasztanowiec zwyczajny|castan porcesc",
+    "die|Trauben-Eiche|die Trauben-Eichen|Quercus petraea|Eine heimische Eiche. Ihre Eicheln sitzen fast ohne Stiel am Zweig.|Die Trauben-Eiche wächst auf trockeneren Böden als die Stiel-Eiche.|🌳|البلوط الصخري|дуб скельний|بلوط صخره‌ای|sapsız meşe|дуб скальный|sessile oak|dąb bezszypułkowy|gorun",
+    "der|Blumen-Hartriegel|die Blumen-Hartriegel|Cornus kousa|Ein Strauch mit großen, weißen Hochblättern. Die eigentlichen Blüten sind klein.|Der Blumen-Hartriegel hat auffällige Hochblätter.|🌸|قرانيا كوسا|дерен коуза|زغال‌اخته کوسا|kousa kızılcığı|кизил коуза|kousa dogwood|dereń kousa|corn japonez"
+  ]},
+  { id: 'pk05-rosen', titel: 'Rosen, Koniferen und Hecken', w: [
+    "die|Beetrose|die Beetrosen||Eine Rose, die in Gruppen im Beet gepflanzt wird und reich blüht.|Die Beetrose blüht von Juni bis zum Herbst.|🌹|وردة الأحواض|клумбова троянда|رز باغچه‌ای|tarh gülü|клумбовая роза|bedding rose|róża rabatowa|trandafir pentru straturi",
+    "die|Bodendeckerrose|die Bodendeckerrosen||Eine niedrige Rose, die breit wächst und den Boden bedeckt.|Die Bodendeckerrose eignet sich für Böschungen.|🌹|وردة مغطية للتربة|ґрунтопокривна троянда|رز پوششی|yer örtücü gül|почвопокровная роза|ground cover rose|róża okrywowa|trandafir acoperitor de sol",
+    "die|ADR-Rose|die ADR-Rosen||Eine Rose mit Gütesiegel. Sie ist besonders gesund und robust.|Die ADR-Rose braucht kaum Pflanzenschutz.|🏅|وردة حاصلة على شهادة ADR|троянда з відзнакою ADR|رز دارای نشان ADR|ADR sertifikalı gül|роза с сертификатом ADR|ADR-certified rose|róża z certyfikatem ADR|trandafir certificat ADR",
+    "der|Wildtrieb|die Wildtriebe||Ein Trieb aus der Unterlage. Er hat andere Blätter und muss entfernt werden.|Den Wildtrieb reißen wir an der Rose ab.|🌿|الفرع البري من الأصل|дикий пагін (поросль)|پاجوش وحشی|yabani sürgün|дикая поросль|sucker|odrost dziki|lăstar sălbatic",
+    "die|Konifere|die Koniferen||Ein Nadelgehölz mit Zapfen, zum Beispiel Kiefer, Fichte oder Tanne.|Die Konifere bleibt im Winter grün.|🌲|نبات صنوبري (مخروطي)|хвойна рослина|درخت مخروطی (سوزنی‌برگ)|kozalaklı ağaç|хвойное растение|conifer|roślina iglasta|conifer",
+    "der|Ginkgo|die Ginkgos|Ginkgo biloba|Ein sehr alter Baum mit fächerförmigen Blättern. Er verliert im Herbst die Blätter.|Der Ginkgo ist sehr robust in der Stadt.|🍂|الجنكة|гінкго дволопатеве|جینکو|ginkgo|гинкго двулопастный|ginkgo|miłorząb dwuklapowy|ginkgo",
+    "die|Zwergkonifere|die Zwergkoniferen||Ein Nadelgehölz, das sehr klein bleibt.|Die Zwergkonifere passt gut auf ein Grab.|🌲|صنوبرية قزمة|карликова хвойна рослина|سوزنی‌برگ پاکوتاه|cüce kozalaklı|карликовое хвойное растение|dwarf conifer|iglak karłowy|conifer pitic",
+    "die|Schnitthecke|die Schnitthecken||Eine Hecke, die regelmäßig in Form geschnitten wird.|Die Schnitthecke aus Hainbuche ist sehr dicht.|✂️|سياج نباتي مُقلَّم|формований живопліт|پرچین هرس‌شده|budanmış çit|стриженая живая изгородь|clipped hedge|żywopłot formowany|gard viu tuns"
+  ]},
+  { id: 'pk05-merkmale', titel: 'Wuchs, Standort und Pflege', w: [
+    "die|Trauerform|die Trauerformen||Ein Baum mit hängenden Zweigen.|Die Trauerform der Birke hat hängende Äste.|🌳|الشكل المتدلي|плакуча форма|فرم مجنون (آویزان)|ağlayan form|плакучая форма|weeping form|forma płacząca|formă pendulă",
+    "die|Säulenform|die Säulenformen||Ein Baum oder Strauch, der schmal und hoch wie eine Säule wächst.|Die Säulenform passt in enge Straßen.|🌲|الشكل العمودي|колоноподібна форма|فرم ستونی|sütun form|колоновидная форма|columnar form|forma kolumnowa|formă columnară",
+    "das|Pioniergehölz|die Pioniergehölze||Ein Gehölz, das als erstes auf freien, kargen Flächen wächst, zum Beispiel die Birke.|Die Birke ist ein Pioniergehölz.|🌱|نبات خشبي رائد|піонерна деревна рослина|گیاه چوبی پیشگام|öncü odunsu bitki|пионерное древесное растение|pioneer tree|gatunek pionierski|specie pionieră",
+    "die|Frosttrocknis|–||Im Winter verdunsten Blätter Wasser, aber der Boden ist gefroren. Die Pflanze vertrocknet.|Frosttrocknis schadet immergrünen Gehölzen.|❄️|الجفاف بسبب الصقيع|зимове висушування|خشکی ناشی از یخبندان|don kuruması|зимнее иссушение|winter desiccation|susza mrozowa|uscare de iarnă",
+    "das|Bluten|–||Nach dem Schnitt läuft viel Pflanzensaft aus der Wunde, zum Beispiel bei Birke oder Walnuss.|Das Bluten der Birke ist im Frühjahr stark.|💧|نزف العصارة|сокотеча («плач» рослини)|شیره‌روی پس از هرس|özsu akıtma|сокотечение («плач» растения)|bleeding (sap flow)|płacz (wyciek soków)|sângerarea sevei",
+    "das|schlafende Auge|die schlafenden Augen||Eine Knospe, die lange nicht austreibt. Nach einem starken Schnitt kann sie austreiben.|Das schlafende Auge treibt nach dem Rückschnitt aus.|👁️|البرعم الساكن|спляча брунька|جوانه خفته|uyuyan göz (tomurcuk)|спящая почка|dormant bud|pąk śpiący|mugur dorminde",
+    "der|Wurzelausläufer|die Wurzelausläufer||Ein Trieb, der aus der Wurzel kommt und weit von der Pflanze austreibt.|Der Wurzelausläufer der Robinie wächst im Rasen.|🌱|الخلفة الجذرية|кореневий паросток|پاجوش ریشه|kök sürgünü|корневой отпрыск|root sucker|odrost korzeniowy|drajon",
+    "die|Treiberei|–||Pflanzen oder Zweige werden durch Wärme früher zum Blühen gebracht.|Durch Treiberei blühen Forsythienzweige schon im Februar.|🌸|الإجبار على الإزهار المبكر|вигонка|زودگل‌دهی (فورسینگ)|zorlama (erken çiçeklendirme)|выгонка|forcing|pędzenie|forțare",
+    "das|Vogelnährgehölz|die Vogelnährgehölze||Ein Gehölz, dessen Früchte Vögel im Winter fressen, zum Beispiel die Eberesche.|Das Vogelnährgehölz ist wichtig für die Natur.|🐦|نبات خشبي يغذّي الطيور|кормова деревна рослина для птахів|درختچه غذای پرندگان|kuş besin bitkisi|кормовое растение для птиц|bird food plant|krzew pokarmowy dla ptaków|arbust hrănitor pentru păsări",
+    "der|Neophyt|die Neophyten||Eine Pflanze, die aus einem anderen Erdteil eingeführt wurde. Invasive Neophyten verdrängen heimische Pflanzen.|Der Riesen-Bärenklau ist ein invasiver Neophyt.|⚠️|نبات دخيل (نيوفايت)|неофіт (рослина-прибулець)|گیاه غیربومی (نئوفیت)|neofit (yabancı bitki)|неофит (растение-пришелец)|neophyte (non-native plant)|neofit|neofit"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk06', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '06', fuer: ['stauden', 'gala', 'fried'], titel: 'Stauden und Gräser', subs: [
+  { id: 'pk06-gruppen', titel: 'Staudenfamilien und -gruppen', w: [
+    "der|Korbblütler|die Korbblütler||Eine Pflanzenfamilie (Asteraceae). Viele kleine Blüten bilden ein Körbchen, zum Beispiel bei Aster oder Sonnenblume.|Die Aster ist ein Korbblütler.|🌼|نبات من الفصيلة النجمية|айстрова (складноцвіта) рослина|گیاه تیره کاسنی|papatyagil bitki|сложноцветное растение|daisy family plant (Asteraceae)|roślina astrowata|asteracee",
+    "der|Lippenblütler|die Lippenblütler||Eine Pflanzenfamilie (Lamiaceae) mit vierkantigen Stängeln und duftenden Blättern, zum Beispiel Lavendel.|Der Lavendel ist ein Lippenblütler.|💜|نبات من الفصيلة الشفوية|губоцвіта (глухокропивна) рослина|گیاه تیره نعناعیان|ballıbabagil bitki|губоцветное растение|mint family plant (Lamiaceae)|roślina jasnotowata|lamiacee",
+    "das|Hahnenfußgewächs|die Hahnenfußgewächse||Eine Pflanzenfamilie (Ranunculaceae), zum Beispiel Rittersporn, Akelei und Anemone.|Der Rittersporn ist ein Hahnenfußgewächs.|🌼|نبات من الفصيلة الحوذانية|жовтецева рослина|گیاه تیره آلاله|düğünçiçeğigil bitki|лютиковое растение|buttercup family plant (Ranunculaceae)|roślina jaskrowata|ranunculacee",
+    "der|Rittersporn|–|Delphinium|Eine hohe Staude mit blauen Blütenkerzen.|Der Rittersporn blüht im Juni blau.|💙|العائق (الدلفينيوم)|дельфіній (сокирки)|دلفینیوم|hezaren (delfinyum)|дельфиниум (живокость)|delphinium (larkspur)|ostróżka|nemțișor",
+    "der|Farn|die Farne||Eine Pflanze ohne Blüten. Sie vermehrt sich durch Sporen und wächst gern im Schatten.|Der Farn wächst im Schatten unter Bäumen.|🌿|السرخس|папороть|سرخس|eğrelti otu|папоротник|fern|paproć|ferigă",
+    "das|Ziergras|die Ziergräser||Ein Gras, das man wegen seiner Schönheit pflanzt.|Das Ziergras sieht auch im Winter schön aus.|🌾|عشب الزينة|декоративна трава|علف زینتی|süs otu|декоративный злак|ornamental grass|trawa ozdobna|iarbă ornamentală",
+    "die|Regelsaatgutmischung|die Regelsaatgutmischungen||Eine genormte Mischung aus Rasengräsern für einen bestimmten Zweck (RSM).|Für den Spielrasen nehmen wir eine Regelsaatgutmischung.|🌱|خلطة بذور عشب قياسية|стандартна травосуміш|مخلوط استاندارد بذر چمن|standart çim tohumu karışımı|стандартная травосмесь|standard seed mixture (RSM)|standardowa mieszanka traw|amestec standard de semințe",
+    "die|Polsterstaude|die Polsterstauden||Eine niedrige Staude, die wie ein dichtes Kissen wächst.|Die Polsterstaude wächst in der Trockenmauer.|🟢|نبات معمّر وسائدي|подушкоподібна рослина|گیاه بالشتکی|yastık formlu bitki|подушковидное растение|cushion perennial|bylina poduszkowa|plantă perenă în pernă",
+    "die|Schnittstaude|die Schnittstauden||Eine Staude, deren Blüten man für Sträuße schneidet.|Die Pfingstrose ist eine beliebte Schnittstaude.|💐|نبات معمّر للقطف|багаторічник для зрізу|گیاه چندساله برای گل بریده|kesme çiçeklik bitki|многолетник на срезку|perennial for cutting|bylina na kwiat cięty|plantă perenă pentru tăiere",
+    "die|Wildstaude|die Wildstauden||Eine Staude, die bei uns von Natur aus wild wächst.|Die Wildstaude ist wichtig für Insekten.|🐝|نبات معمّر بري|дикорослий багаторічник|گیاه چندساله وحشی|yabani çok yıllık bitki|дикорастущий многолетник|native wild perennial|bylina dzika|plantă perenă sălbatică"
+  ]},
+  { id: 'pk06-pflege', titel: 'Vermehrung und Verwendung von Stauden', w: [
+    "der|Rhizomschnittling|die Rhizomschnittlinge||Ein Stück Rhizom, aus dem eine neue Pflanze wächst.|Der Rhizomschnittling der Iris treibt neu aus.||عقلة جذمورية|живець кореневища|قلمه ریزوم|rizom çeliği|черенок корневища|rhizome cutting|sadzonka z kłącza|butaș de rizom",
+    "die|Blattrosette|die Blattrosetten||Blätter, die kreisförmig dicht am Boden wachsen.|Die Blattrosette bildet sich im ersten Jahr.|🌀|الوريدة الورقية|розетка листків|روزت برگ|yaprak rozeti|розетка листьев|leaf rosette|rozeta liściowa|rozetă de frunze",
+    "das|Remontieren|–||Eine Pflanze blüht nach dem Rückschnitt ein zweites Mal.|Durch das Remontieren blüht der Rittersporn im Herbst noch einmal.|🔁|الإزهار المتكرر|повторне цвітіння|گلدهی مجدد|tekrar çiçeklenme|повторное цветение|repeat flowering|powtórne kwitnienie|reînflorire",
+    "das|Mutterpflanzenquartier|die Mutterpflanzenquartiere||Ein Feld mit Mutterpflanzen, von denen man Stecklinge oder Teilstücke nimmt.|Das Mutterpflanzenquartier muss frei von Beikraut sein.|🌿|حقل النباتات الأم|маточник|قطعه گیاهان مادری|ana bitki parseli|маточник|stock plant bed|kwatera mateczna|câmp de plante-mamă",
+    "der|Spätfrost|die Spätfröste||Frost im Frühjahr, wenn die Pflanzen schon austreiben.|Der Spätfrost schadet den jungen Trieben.|❄️|الصقيع المتأخر|пізній заморозок|سرمای دیررس بهاره|geç don|поздний заморозок|late frost|przymrozek późny|îngheț târziu",
+    "die|Fugenbepflanzung|die Fugenbepflanzungen||Pflanzen wachsen in den Fugen einer Mauer oder eines Weges.|Die Fugenbepflanzung der Trockenmauer blüht im Mai.||الزراعة في فواصل الجدران|озеленення швів|کاشت در درزها|derz bitkilendirmesi|озеленение швов|crevice planting|obsadzenie spoin|plantare în rosturi",
+    "die|Symbolpflanze|die Symbolpflanzen||Eine Pflanze mit besonderer Bedeutung, zum Beispiel Efeu für Treue.|Die Symbolpflanze passt gut auf ein Grab.|🕊️|نبات رمزي|рослина-символ|گیاه نمادین|sembol bitki|растение-символ|symbolic plant|roślina symboliczna|plantă simbolică",
+    "die|Kräuterspirale|die Kräuterspiralen||Ein spiralförmiges Beet aus Steinen für Kräuter. Oben ist es trocken, unten feucht.|Auf der Kräuterspirale wächst oben der Thymian.|🌀|حوض أعشاب حلزوني|спіральна грядка для трав|باغچه مارپیچ سبزی‌ها|spiral bitki tarhı|спиральная грядка для трав|herb spiral|spirala ziołowa|spirală de plante aromatice"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk07', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '07', fuer: ['stauden', 'zier', 'fried', 'gala'], titel: 'Zwiebel- und Knollengewächse', subs: [
+  { id: 'pk07-zwiebel', titel: 'Zwiebeln und Knollen', w: [
+    "die|Blumenzwiebel|die Blumenzwiebeln||Eine Zwiebel, aus der eine Blume wächst, zum Beispiel Tulpe oder Narzisse.|Die Blumenzwiebel pflanzen wir im Herbst.|🌷|بصلة الزهور|цибулина квітки|پیاز گل|çiçek soğanı|луковица цветка|flower bulb|cebulka kwiatowa|bulb de flori",
+    "die|Knolle|die Knollen||Ein verdicktes Speicherorgan an Spross oder Wurzel, zum Beispiel bei der Dahlie.|Die Knolle der Dahlie überwintert frostfrei im Keller.|🥔|الدرنة|бульба|غده|yumru|клубень|tuber|bulwa|tubercul",
+    "das|Einziehen|–||Die Blätter werden im Sommer gelb und sterben ab. Die Pflanze ruht in der Erde.|Nach dem Einziehen der Blätter mähen wir den Rasen.|🍂|ذبول الأوراق ودخول النبات في السكون|відмирання надземної частини|خشک شدن بخش هوایی|toprak üstü kısmın çekilmesi|отмирание надземной части|dying back|zamieranie części nadziemnych|retragerea frunzelor",
+    "das|Verwildern|–||Pflanzen vermehren sich von selbst und breiten sich in Rasen oder Wiese aus.|Das Verwildern klappt gut bei Krokussen.|🌼|الانتشار الطبيعي|натуралізація (здичавіння)|خودرو شدن|doğallaşma|натурализация|naturalising|naturalizacja|naturalizare",
+    "der|Frühjahrsblüher|die Frühjahrsblüher||Eine Pflanze, die im Frühling blüht, oft eine Zwiebelpflanze.|Der Frühjahrsblüher ist wichtig für Bienen.|🌷|نبات يزهر في الربيع|весняноквітуча рослина|گل بهاره|ilkbahar çiçeği|весеннецветущее растение|spring bloomer|roślina kwitnąca wiosną|plantă cu înflorire de primăvară",
+    "die|Dahlie|die Dahlien|Dahlia|Eine Knollenpflanze mit großen Blüten im Spätsommer. Sie ist nicht winterhart.|Die Dahlie blüht von Juli bis zum Frost.|🌺|الداليا|жоржина|کوکب (دالیا)|yıldız çiçeği (dalya)|георгин|dahlia|dalia|dalie",
+    "das|Kleine Schneeglöckchen|die Kleinen Schneeglöckchen|Galanthus nivalis|Eine kleine Zwiebelpflanze mit weißen Blüten im Februar.|Das Kleine Schneeglöckchen blüht schon im Februar.|🤍|زهرة اللبن الثلجية (الجلانثوس)|підсніжник білосніжний|گل حسرت (گالانتوس)|kardelen|подснежник белоснежный|snowdrop|śnieżyczka przebiśnieg|ghiocel",
+    "der|Krokus|die Krokusse|Crocus|Eine kleine Knollenpflanze mit lila, weißen oder gelben Blüten im Frühling.|Der Krokus ist eine frühe Nahrung für Bienen.|💜|الزعفران الزهري (الكروكوس)|крокус (шафран)|زعفران زینتی (کروکوس)|çiğdem|крокус|crocus|krokus|brândușă"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk08', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '08–10', fuer: ['zier', 'fried'], titel: 'Sommerblumen, Kübel- und Zimmerpflanzen', subs: [
+  { id: 'pk08-sommer', titel: 'Sommerblumen und Kübelpflanzen', w: [
+    "die|Balkonpflanze|die Balkonpflanzen||Eine Pflanze für Balkonkästen, die den ganzen Sommer blüht.|Die Balkonpflanze braucht viel Wasser und Dünger.|🌺|نبات الشرفة|балконна рослина|گیاه بالکنی|balkon bitkisi|балконное растение|balcony plant|roślina balkonowa|plantă de balcon",
+    "die|Schnittblume|die Schnittblumen||Eine Blume, deren Stiele man für Sträuße schneidet.|Die Schnittblume steht in der Vase.|💐|زهرة القطف|квітка на зріз|گل شاخه‌بریده|kesme çiçek|срезочный цветок|cut flower|kwiat cięty|floare tăiată",
+    "die|Kübelpflanze|die Kübelpflanzen||Eine Pflanze in einem großen Topf. Sie steht im Sommer draußen und im Winter frostfrei.|Die Kübelpflanze überwintert im kühlen Wintergarten.|🪴|نبات في حوض كبير|кадкова рослина|گیاه گلدانی بزرگ|büyük saksı bitkisi|кадочное растение|tub plant|roślina donicowa|plantă în ghiveci mare",
+    "die|Ampelpflanze|die Ampelpflanzen||Eine Pflanze mit hängenden Trieben für Hängetöpfe.|Die Ampelpflanze hängt am Balkon.|🌿|نبات متدلٍّ|ампельна рослина|گیاه آویز|sarkan bitki|ампельное растение|trailing plant|roślina zwisająca|plantă curgătoare",
+    "der|Wintergarten|die Wintergärten||Ein Raum aus Glas am Haus. Dort stehen Pflanzen im Winter hell.|Im Wintergarten ist es im Winter mindestens 5 Grad warm.|🏡|الحديقة الشتوية|зимовий сад|زمستان‌خانه (گلخانه خانگی)|kış bahçesi|зимний сад|conservatory|ogród zimowy|grădină de iarnă",
+    "der|Herbstblüher|die Herbstblüher||Eine Pflanze, die im Herbst blüht, zum Beispiel Heide oder Chrysantheme.|Der Herbstblüher schmückt den Balkon im Oktober.|🍂|نبات يزهر في الخريف|осінньоквітуча рослина|گل پاییزی|sonbahar çiçeği|осеннецветущее растение|autumn bloomer|roślina kwitnąca jesienią|plantă cu înflorire de toamnă",
+    "das|Ethylen|–||Ein Gas, das reifes Obst abgibt. Es lässt Blumen schneller welken.|Das Ethylen aus Äpfeln lässt Schnittblumen welken.|🍎|الإيثيلين|етилен|اتیلن|etilen|этилен|ethylene|etylen|etilenă",
+    "die|Kissen-Primel|die Kissen-Primeln|Primula vulgaris|Eine kleine Pflanze mit bunten Blüten im Frühjahr.|Die Kissen-Primel blüht schon im März.|🌸|زهرة الربيع (البريمولا)|первоцвіт звичайний|پامچال|çuha çiçeği|первоцвет обыкновенный|primrose|pierwiosnek bezłodygowy|ciuboțica-cucului"
+  ]},
+  { id: 'pk10-zimmer', titel: 'Zimmerpflanzen', w: [
+    "die|Zimmerpflanze|die Zimmerpflanzen||Eine Pflanze, die in der Wohnung wächst.|Die Zimmerpflanze braucht einen hellen Platz.|🪴|نبات منزلي|кімнатна рослина|گیاه آپارتمانی|ev bitkisi|комнатное растение|houseplant|roślina pokojowa|plantă de apartament",
+    "der|Epiphyt|die Epiphyten||Eine Pflanze, die auf anderen Pflanzen wächst, aber kein Parasit ist, zum Beispiel viele Orchideen.|Der Epiphyt wächst auf Ästen im Regenwald.|🌳|نبات هوائي (ينمو على نبات آخر)|епіфіт|گیاه هواروی (اپی‌فیت)|epifit|эпифит|epiphyte|epifit|epifit",
+    "die|Schmetterlingsorchidee|die Schmetterlingsorchideen|Phalaenopsis|Eine beliebte Zimmerorchidee. Ihre Wurzeln brauchen Licht.|Die Schmetterlingsorchidee steht im durchsichtigen Topf.|🌸|أوركيد الفراشة|фаленопсис|ارکیده پروانه‌ای|kelebek orkide|фаленопсис|moth orchid|storczyk ćmowy|orhidee fluture",
+    "die|Sukkulente|die Sukkulenten||Eine Pflanze, die Wasser in dicken Blättern oder Stämmen speichert.|Die Sukkulente braucht wenig Wasser.|🌵|نبات عصاري|сукулент|گیاه گوشتی (ساکولنت)|sukulent|суккулент|succulent|sukulent|suculentă",
+    "der|Kaktus|die Kakteen||Eine Sukkulente mit Dornen aus trockenen Gebieten.|Der Kaktus braucht viel Sonne.|🌵|الصبار|кактус|کاکتوس|kaktüs|кактус|cactus|kaktus|cactus",
+    "die|fleischfressende Pflanze|die fleischfressenden Pflanzen||Eine Pflanze, die kleine Insekten fängt und verdaut, zum Beispiel die Venusfliegenfalle.|Die fleischfressende Pflanze wächst auf nährstoffarmem Boden.|🪰|نبات آكل للحشرات|м'ясоїдна рослина|گیاه گوشتخوار|etçil bitki|насекомоядное растение|carnivorous plant|roślina mięsożerna|plantă carnivoră",
+    "das|Pinzieren|–||Man entfernt mit den Fingern die weiche Triebspitze. Die Pflanze verzweigt sich dann besser.|Durch das Pinzieren wird die Pflanze buschiger.|🤏|قرص القمة النامية|прищипування|سرزنی با دست|uç alma|прищипка|pinching out|uszczykiwanie|ciupit",
+    "das|Stutzen|–||Man schneidet die Triebe mit Schere oder Messer kürzer.|Nach dem Stutzen bildet die Pflanze neue Triebe.|✂️|تقصير الفروع|вкорочування пагонів|کوتاه کردن شاخه|uç kısaltma|укорачивание побегов|cutting back|przycinanie pędów|scurtarea lăstarilor",
+    "die|Blüteninduktion|die Blüteninduktionen||Die Pflanze bekommt ein Signal, Blüten zu bilden, zum Beispiel durch kurze Tage.|Die Blüteninduktion beim Weihnachtsstern erfolgt durch kurze Tage.|🌙|تحفيز الإزهار|індукція цвітіння|القای گلدهی|çiçek uyarımı|индукция цветения|flower induction|indukcja kwitnienia|inducerea înfloririi",
+    "das|Zimmeralpenveilchen|die Zimmeralpenveilchen|Cyclamen persicum|Eine Topfpflanze mit Knolle, die im Winter blüht.|Das Zimmeralpenveilchen mag es kühl.|🌸|بخور مريم|цикламен перський|سیکلامن|siklamen|цикламен персидский|florist's cyclamen|cyklamen perski|ciclamă"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk11', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '11', fuer: ['alle'], titel: 'Begleitvegetation (Wildkräuter)', subs: [
+  { id: 'pk11-kraut', titel: 'Wildkräuter und Unkräuter', w: [
+    "das|Wildkraut|die Wildkräuter||Eine Pflanze, die von selbst wächst, oft zwischen Kulturen (Beikraut, Unkraut).|Das Wildkraut konkurriert mit dem Gemüse um Wasser.|🌿|العشب البري|дикоросла трава|گیاه خودرو|yabani ot|дикорастущая трава|wild herb (weed)|dzikie zioło (chwast)|plantă spontană",
+    "das|Samenunkraut|die Samenunkräuter||Ein Unkraut, das sich vor allem durch Samen vermehrt, zum Beispiel die Vogelmiere.|Das Samenunkraut muss vor der Blüte weg.|🌱|عشب ضار يتكاثر بالبذور|насіннєвий бур'ян|علف هرز بذری|tohumla çoğalan yabani ot|семенной сорняк|seed-propagated weed|chwast nasienny|buruiană anuală",
+    "das|Wurzelunkraut|die Wurzelunkräuter||Ein Unkraut, das sich durch Wurzeln oder Rhizome vermehrt, zum Beispiel Quecke und Giersch.|Das Wurzelunkraut treibt aus kleinen Wurzelstücken neu aus.|🫚|عشب ضار يتكاثر بالجذور|кореневищний бур'ян|علف هرز ریشه‌ای|kökle çoğalan yabani ot|корневищный сорняк|perennial root weed|chwast korzeniowy|buruiană perenă",
+    "die|Gewöhnliche Quecke|die Gewöhnlichen Quecken|Elymus repens|Ein Gras mit langen, weißen Rhizomen. Es ist schwer zu bekämpfen.|Die Gewöhnliche Quecke wächst aus jedem Rhizomstück neu.|🌾|النجيل الزاحف|пирій повзучий|مرغ (علف هرز چمنی)|ayrık otu|пырей ползучий|couch grass|perz właściwy|pir",
+    "der|Giersch|–|Aegopodium podagraria|Eine Pflanze mit weißen Blütendolden. Sie breitet sich mit Rhizomen aus.|Der Giersch ist im Schatten schwer zu bekämpfen.|🌿|عشب الإيغوبوديوم|яглиця звичайна|اگوپودیوم|keçiayağı|сныть обыкновенная|ground elder|podagrycznik pospolity|piciorul-caprei",
+    "der|Gewöhnliche Löwenzahn|die Gewöhnlichen Löwenzähne|Taraxacum sect. Ruderalia|Eine Pflanze mit gelben Blüten und Pusteblumen. Sie hat eine lange Pfahlwurzel.|Der Gewöhnliche Löwenzahn wächst auf nährstoffreichem Boden.|🌼|الهندباء البرية|кульбаба лікарська|قاصدک|karahindiba|одуванчик лекарственный|dandelion|mniszek lekarski|păpădie",
+    "die|Vogelmiere|die Vogelmieren|Stellaria media|Ein kleines Samenunkraut mit weißen Blüten. Es wächst fast das ganze Jahr.|Die Vogelmiere zeigt nährstoffreichen Boden.|🐦|عشب الطيور (ستيلاريا)|зірочник середній (мокрець)|گندمک|kuş otu|звездчатка средняя (мокрица)|chickweed|gwiazdnica pospolita|rocoțel",
+    "der|Riesen-Bärenklau|die Riesen-Bärenklaue|Heracleum mantegazzianum|Eine sehr große Pflanze. Ihr Saft verursacht mit Sonnenlicht schwere Verbrennungen auf der Haut.|Den Riesen-Bärenklau fasst man nur mit Schutzkleidung an.|☠️|الهرقليوم العملاق|борщівник Мантегацці|گلپر غول‌پیکر|dev baldıran|борщевик Мантегацци|giant hogweed|barszcz Mantegazziego|crucea-pământului gigantică"
+  ]}
+]});
+
+DATA.lf.push({ id: 'pk12', nr: 0, jahr: 0, fr: 'alle', kat: 'pk', kap: '12–13', fuer: ['alle'], titel: 'Artenschutz und Sortenschutz', subs: [
+  { id: 'pk12-schutz', titel: 'Arten- und Sortenschutz', w: [
+    "der|Artenschutz|–||Maßnahmen, damit seltene Tiere und Pflanzen nicht aussterben.|Der Artenschutz verbietet das Ausgraben wilder Orchideen.|🛡️|حماية الأنواع|охорона видів|حفاظت از گونه‌ها|türlerin korunması|охрана видов|species protection|ochrona gatunkowa|protecția speciilor",
+    "die|Rote Liste|die Roten Listen||Eine Liste von Tier- und Pflanzenarten, die gefährdet sind.|Die Rote Liste zeigt gefährdete Pflanzen.|📕|القائمة الحمراء|Червоний список|فهرست سرخ|Kırmızı Liste|Красный список|Red List|Czerwona lista|Lista Roșie",
+    "die|Biodiversität|–||Die Vielfalt von Lebewesen und Lebensräumen.|Blühende Hecken fördern die Biodiversität.|🦋|التنوع الحيوي|біорізноманіття|تنوع زیستی|biyoçeşitlilik|биоразнообразие|biodiversity|bioróżnorodność|biodiversitate",
+    "die|geschützte Pflanze|die geschützten Pflanzen||Eine Pflanze, die man in der Natur nicht pflücken oder ausgraben darf.|Die geschützte Pflanze darf nur aus Gärtnereien verkauft werden.|🌸|نبات محمي|рослина під охороною|گیاه حفاظت‌شده|koruma altındaki bitki|охраняемое растение|protected plant|roślina chroniona|plantă ocrotită",
+    "der|Naturschutz|–||Schutz von Natur, Landschaft, Tieren und Pflanzen.|Der Naturschutz schützt Lebensräume wie Moore und Hecken.|🌍|حماية الطبيعة|охорона природи|حفاظت از طبیعت|doğa koruma|охрана природы|nature conservation|ochrona przyrody|protecția naturii",
+    "der|Sortenschutz|–||Ein Recht für Züchter: Nur sie dürfen die neue Sorte vermehren und verkaufen.|Der Sortenschutz gilt viele Jahre.|®️|حماية الأصناف النباتية|охорона прав на сорт|حمایت از ارقام گیاهی|çeşit koruma|охрана прав на сорт|plant variety protection|ochrona prawna odmian|protecția soiurilor",
+    "das|Bundessortenamt|–||Die Behörde in Deutschland, die neue Sorten prüft und schützt.|Das Bundessortenamt prüft neue Sorten.|🏛️|المكتب الاتحادي للأصناف النباتية|Федеральне відомство з сортів рослин|اداره فدرال ارقام گیاهی|Federal Çeşit Ofisi|Федеральное ведомство по сортам растений|Federal Plant Variety Office|Federalny Urząd ds. Odmian Roślin|Oficiul Federal pentru Soiuri",
+    "die|Neuzüchtung|die Neuzüchtungen||Eine neue Sorte, die durch Kreuzung und Auslese entstanden ist.|Die Neuzüchtung muss neu, einheitlich und beständig sein.|🧬|صنف جديد مُستنبَط|нова селекційна форма (сорт)|رقم جدید اصلاح‌شده|yeni ıslah çeşidi|новый селекционный сорт|new variety|nowa odmiana hodowlana|soi nou ameliorat"
+  ]}
+]});
 </script>
 <script>
 (function(){
@@ -1047,7 +1489,7 @@ const FRS=[
   {id:'obst',n:'Obstbau',k:'Obstbau',i:'🍎'},
   {id:'stauden',n:'Staudengärtnerei',k:'Staudengärtnerei',i:'🌼'}
 ];
-const LF_ICON={zp1:'🌺',zp2:'💐',bs1:'🌱',bs2:'🚚',fg1:'🪦',fg2:'🕯️',gm1:'🥕',gm2:'🧺',ob1:'🍎',ob2:'🍏',st1:'🌼',st2:'🗺️',lf1:'🦺',lf2:'🌱',lf3:'🪱',lf4:'💧',lf5:'📐',lf6:'🚜',lf7:'🧱',lf8:'🌳',lf9:'🪨',lf10:'🪵',lf11:'🌾',lf12:'🧾',pfl:'🌿'};
+const LF_ICON={pk01:'🔬',pk02:'🌰',pk03:'🥕',pk04:'🍎',pk05:'🌳',pk06:'🌼',pk07:'🌷',pk08:'🪴',pk11:'🌿',pk12:'🛡️',zp1:'🌺',zp2:'💐',bs1:'🌱',bs2:'🚚',fg1:'🪦',fg2:'🕯️',gm1:'🥕',gm2:'🧺',ob1:'🍎',ob2:'🍏',st1:'🌼',st2:'🗺️',lf1:'🦺',lf2:'🌱',lf3:'🪱',lf4:'💧',lf5:'📐',lf6:'🚜',lf7:'🧱',lf8:'🌳',lf9:'🪨',lf10:'🪵',lf11:'🌾',lf12:'🧾',pfl:'🌿'};
 
 /* Oberflächentexte zweisprachig (KI-übersetzt, bitte prüfen) */
 const UI_KEYS=['chooseLang','help','topics','practice','learn','learnD','match','matchD','quiz','quizD','fb','fbD','tap','expl','ex','right','wrong','qMeaning','qTrans','qToTr','qArticle','qPlural','qGap','qBot','qType','matchHint','know','again'];
@@ -1183,7 +1625,8 @@ R.start=()=>{
 R.select=()=>{
   const n=selWords().length;
   setBar(`<div class="bar-info"><b>${n}</b> Wörter gewählt${S.sel.length?` · <button class="linkbtn" data-act="clearsel">leeren</button>`:''}</div><button class="btn primary" data-act="go" data-v="path" ${n?'':'disabled'}>Üben ${ICON.next}</button>`);
-  const lfs=DATA.lf.filter(lf=>lf.jahr===S.year&&(lf.fr==='alle'||lf.fr===S.fr));
+  const lfs=DATA.lf.filter(lf=>lf.jahr===S.year&&(lf.fr==='alle'||lf.fr===S.fr))
+    .map((lf,i)=>[lf,i]).sort((a,b)=>(a[0].kat==='pk'&&b[0].kat==='pk')?((fits(b[0])-fits(a[0]))||(a[1]-b[1])):(a[1]-b[1])).map(x=>x[0]);
   const intro=S.year===0?`<button class="intro-card" data-act="go" data-v="botanik"><span class="lf-ico" aria-hidden="true">🏷️</span><span><b>Zuerst: Was bedeutet der botanische Name?</b><span class="s">Gattung, Art, Sorte – kurz erklärt mit Beispielen</span></span>${ICON.next}</button>`:'';
   return `<section class="screen">
     ${head('Fachwortschatz-Trainer','','start')}
@@ -1195,15 +1638,22 @@ R.select=()=>{
     ${S.year>1&&S.fr!=='gala'?`<p class="note">Fachstufe ${esc(frObj().n)}: vorläufige Themen, noch ohne Unterlagen der Schule.</p>`:''}
     ${intro}
     <div class="lf-list">${lfs.map(lfHTML).join('')}</div>
-    <p class="note">Die Lernfelder sind vorläufig gegliedert und werden an die Jahresplanung der Schule angepasst.</p>
+    <p class="note">${S.year===0?'Quellen: Fragenkatalog Pflanzenkenntnisse (alle Fachrichtungen, 2019) und Beispielaufgaben der Landwirtschaftskammer NRW. Die Erklärungen sind vereinfacht.':'Die Lernfelder sind vorläufig gegliedert und werden an die Jahresplanung der Schule angepasst.'}</p>
     <div class="foot"><button class="linkbtn" data-act="go" data-v="teacher">Bereich für Lehrkräfte</button></div>
   </section>`;
 };
 function frBtn(f){return `<button class="frb ${S.fr===f.id?'on':''}" data-act="fr" data-v="${f.id}" aria-pressed="${S.fr===f.id}"><span class="fi" aria-hidden="true">${f.i}</span><span>${esc(f.n)}</span></button>`}
+function lfLabel(lf){
+  if(lf.nr) return 'Lernfeld '+lf.nr;
+  if(lf.kat==='pk') return 'Prüfung Pflanzenkenntnisse · Kap. '+lf.kap;
+  return lf.jahr?'Fachstufe '+esc(frObj(lf.fr).k):'Grundlagen für alle';
+}
+const fits=lf=>!lf.fuer||lf.fuer.includes('alle')||lf.fuer.includes(S.fr);
 function lfHTML(lf){
   const all=lf.subs.every(s=>S.sel.includes(s.id)), n=lf.subs.reduce((a,s)=>a+s.words.length,0);
   return `<article class="lf">
-    <header class="lf-h"><span class="lf-ico" aria-hidden="true">${LF_ICON[lf.id]||'🌿'}</span><h3><small>${lf.nr?'Lernfeld '+lf.nr:(lf.jahr?'Fachstufe '+esc(frObj(lf.fr).k):'alle Ausbildungsjahre')} · ${n} Fachwörter</small>${esc(lf.titel)}</h3><button class="allbtn" data-act="lfall" data-v="${lf.id}">${all?'keine':'alle wählen'}</button></header>
+    <header class="lf-h"><span class="lf-ico" aria-hidden="true">${LF_ICON[lf.id]||'🌿'}</span><h3><small>${lfLabel(lf)} · ${n} Fachwörter</small>${esc(lf.titel)}</h3><button class="allbtn" data-act="lfall" data-v="${lf.id}">${all?'keine':'alle wählen'}</button></header>
+    ${lf.kat==='pk'?`<p class="fit ${fits(lf)?'on':''}">${fits(lf)?'✓ wichtig für deine Fachrichtung':'besonders für: '+lf.fuer.map(f=>esc(frObj(f).k)).join(', ')}</p>`:''}
     <div class="subs">${lf.subs.map(s=>{
       const on=S.sel.includes(s.id), c=counts(s.words), k=s.words.length;
       return `<button class="sub ${on?'on':''}" data-act="sub" data-v="${s.id}" aria-pressed="${on}">
@@ -1551,9 +2001,9 @@ R.teacher=()=>{
   </section>`;
 };
 function csvText(){
-  const headR=['Fachrichtung','Lernfeld','Jahr','Thema','Artikel','Wort','Plural','Botanisch','Erklärung','Beispielsatz'].concat(TR_ORDER.map(c=>LANGS.find(l=>l.c===c).n),['Status']);
+  const headR=['Fachrichtung','Lernfeld','Jahr','Thema','Artikel','Wort','Plural','Botanisch','Erklärung','Beispielsatz'].concat(TR_ORDER.map(c=>LANGS.find(l=>l.c===c).n),['Quelle','Status']);
   const q=s=>'"'+String(s).replace(/"/g,'""')+'"';
-  const rows=WORDS.map(w=>[frName(w.lf),w.lf.nr?'LF '+w.lf.nr:(w.lf.jahr?w.lf.titel:'Pflanzenkunde'),w.lf.jahr||'alle',w.sub.titel,w.art,w.w,w.pl,w.bot,w.ex,w.bsp].concat(TR_ORDER.map(c=>w.tr[c]),['KI – ungeprüft']).map(q).join(';'));
+  const rows=WORDS.map(w=>[frName(w.lf),w.lf.nr?'LF '+w.lf.nr:(w.lf.kat==='pk'?'Pflanzenkenntnisse Kap. '+w.lf.kap:(w.lf.jahr?w.lf.titel:'Pflanzenkunde')),w.lf.jahr||'alle',w.sub.titel,w.art,w.w,w.pl,w.bot,w.ex,w.bsp].concat(TR_ORDER.map(c=>w.tr[c]),[w.sub.src||(w.lf.kat==='pk'?PK_SRC:'eigene Auswahl'),'KI – ungeprüft']).map(q).join(';'));
   return [headR.map(q).join(';')].concat(rows).join('\r\n');
 }
 function copyText(txt,ok){

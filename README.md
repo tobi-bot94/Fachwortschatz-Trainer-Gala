@@ -5,13 +5,27 @@ Eine einzige HTML-Datei: kein Login, keine App, keine Kosten.
 
 ## Inhalt
 
-- **394 Fachwörter**
+- **692 Fachwörter**
   - **Grundstufe (1. Jahr)** für alle Fachrichtungen: Lernfelder 1–4
   - **Garten- und Landschaftsbau:** Lernfelder 5–12 (2. und 3. Jahr)
   - **Weitere Fachrichtungen** mit eigenen Themen für das 2. und 3. Jahr:
     Zierpflanzenbau, Baumschule, Friedhofsgärtnerei, Gemüsebau, Obstbau, Staudengärtnerei
     (vorläufig, aus Fachwissen zusammengestellt – noch ohne Unterlagen der Schule)
-  - **Pflanzenkunde** für alle (zuerst: Was bedeutet der botanische Name? Danach Laub- und Nadelgehölze, Stauden, Gräser, Kletterpflanzen)
+  - **Pflanzenkunde** für alle (zuerst: Was bedeutet der botanische Name? Danach Laub- und Nadelgehölze, Stauden, Gräser, Kletterpflanzen,
+    Standort und Zeigerpflanzen, Kletterformen, Teichpflanzen, giftige Gehölze, Wildhecke)
+  - **Prüfungsfach Pflanzenkenntnisse:** Fachbegriffe nach den Kapiteln des Fragenkatalogs
+    (Bau und Leben der Pflanze, Saatgut, Gemüse, Obst, Baumschulgehölze, Stauden und Gräser,
+    Zwiebel- und Knollengewächse, Sommerblumen/Kübel-/Zimmerpflanzen, Wildkräuter, Arten- und Sortenschutz);
+    Kapitel, die zur gewählten Fachrichtung passen, werden markiert und oben angezeigt
+
+### Quellen für die Fachbegriffe
+
+- Fragenkatalog „Beispielfragen für Zwischen- und Abschlussprüfungen im Ausbildungsberuf Gärtner/Gärtnerin,
+  Prüfungsfach Pflanzenkenntnisse – alle Fachrichtungen“ (Version August 2019)
+- Landwirtschaftskammer NRW: Beispielaufgaben schriftliche Abschlussprüfung, Fachrichtung GaLaBau
+  (Pflanzenkenntnisse, Betriebliche Zusammenhänge)
+- Erklärungen, Beispielsätze und Übersetzungen sind KI-generiert und vereinfacht; die Spalte „Quelle“
+  in der Übersetzungstabelle zeigt, woher ein Begriff stammt.
 - Jedes Wort mit Artikel, Plural, Erklärung in einfacher Sprache, Beispielsatz und Bildhilfe.
 - **Übersetzungen in 8 Sprachen:** Arabisch, Ukrainisch, Persisch/Dari, Türkisch, Russisch, Englisch, Polnisch, Rumänisch.
   Arabisch und Persisch werden von rechts nach links angezeigt.
