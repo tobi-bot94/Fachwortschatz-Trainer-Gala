@@ -68,6 +68,8 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .head-t span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .pill-btn{border:0;background:var(--card);box-shadow:var(--shadow);border-radius:999px;padding:9px 16px;font-weight:800;display:inline-flex;gap:8px;align-items:center;white-space:nowrap;max-width:46vw}
 .pill-btn span{overflow:hidden;text-overflow:ellipsis}
+.pill-btn .pn-code{display:none}
+@media (max-width:480px){.pill-btn .pn-nat{display:none}.pill-btn .pn-code{display:inline}}
 .pill-btn svg{width:20px;height:20px;color:var(--teal);flex:none}
 
 /* Titelbereich Start */
@@ -105,6 +107,14 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .lvl.on{border-color:var(--teal)}
 .lvl.on .badge{background:var(--teal);color:var(--teal-ink)}
 
+.fr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.frb{display:flex;align-items:center;gap:12px;padding:14px 16px;border:2px solid transparent;background:var(--card);border-radius:20px;box-shadow:var(--shadow);text-align:left;font-weight:800}
+.frb .fi{width:42px;height:42px;flex:none;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:1.4rem}
+.frb.on{border-color:var(--teal)}
+.frb.on .fi{background:var(--teal-soft)}
+.frchips{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none}
+.frchip{flex:none;border:2px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.92rem;display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.frchip.on{border-color:var(--teal);background:var(--teal-soft);color:var(--teal)}
 .info{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:16px 18px;font-size:.95rem;color:var(--muted);display:grid;gap:10px}
 .info b{color:var(--ink)}
 .foot{text-align:center;font-size:.85rem;color:var(--muted);display:grid;gap:4px;justify-items:center}
@@ -340,7 +350,16 @@ const LEVELS=[
   {c:'C',n:'Ohne Hilfe',d:'Keine Farben · Fachwort selbst schreiben · Tipps nur im Notfall'}
 ];
 const YEARS=[{v:1,n:'1. Jahr'},{v:2,n:'2. Jahr'},{v:3,n:'3. Jahr'},{v:0,n:'Pflanzen'}];
-const LF_ICON={lf1:'🦺',lf2:'🌱',lf3:'🪱',lf4:'💧',lf5:'📐',lf6:'🚜',lf7:'🧱',lf8:'🌳',lf9:'🪨',lf10:'🪵',lf11:'🌾',lf12:'🧾',pfl:'🌿'};
+const FRS=[
+  {id:'gala',n:'Garten- und Landschaftsbau',k:'GaLaBau',i:'🧱'},
+  {id:'zier',n:'Zierpflanzenbau',k:'Zierpflanzenbau',i:'🌺'},
+  {id:'baum',n:'Baumschule',k:'Baumschule',i:'🌳'},
+  {id:'fried',n:'Friedhofsgärtnerei',k:'Friedhofsgärtnerei',i:'🕯️'},
+  {id:'gemuese',n:'Gemüsebau',k:'Gemüsebau',i:'🥕'},
+  {id:'obst',n:'Obstbau',k:'Obstbau',i:'🍎'},
+  {id:'stauden',n:'Staudengärtnerei',k:'Staudengärtnerei',i:'🌼'}
+];
+const LF_ICON={zp1:'🌺',zp2:'💐',bs1:'🌱',bs2:'🚚',fg1:'🪦',fg2:'🕯️',gm1:'🥕',gm2:'🧺',ob1:'🍎',ob2:'🍏',st1:'🌼',st2:'🗺️',lf1:'🦺',lf2:'🌱',lf3:'🪱',lf4:'💧',lf5:'📐',lf6:'🚜',lf7:'🧱',lf8:'🌳',lf9:'🪨',lf10:'🪵',lf11:'🌾',lf12:'🧾',pfl:'🌿'};
 
 /* Oberflächentexte zweisprachig (KI-übersetzt, bitte prüfen) */
 const UI_KEYS=['chooseLang','help','topics','practice','learn','learnD','match','matchD','quiz','quizD','fb','fbD','tap','expl','ex','right','wrong','qMeaning','qTrans','qToTr','qArticle','qPlural','qGap','qBot','qType','matchHint','know','again'];
@@ -377,7 +396,7 @@ DATA.lf.forEach(lf=>lf.subs.forEach(s=>{
 }));
 
 /* ---------- Zustand ---------- */
-let S={lang:null,lvl:'A',sel:[],stats:{},best:{},year:1,botSeen:false,onlyWeak:false};
+let S={lang:null,lvl:'A',fr:'gala',sel:[],stats:{},best:{},year:1,botSeen:false,onlyWeak:false};
 try{const raw=localStorage.getItem(KEY); if(raw) S=Object.assign(S,JSON.parse(raw));}catch(e){}
 S.sel=S.sel.filter(id=>SUBS[id]); S.best=S.best||{};
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
@@ -388,6 +407,8 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const lang=()=>LANGS.find(l=>l.c===S.lang)||LANGS[0];
+const frObj=id=>FRS.find(f=>f.id===(id||S.fr))||FRS[0];
+const frName=lf=>lf.fr==='alle'?'alle Fachrichtungen':frObj(lf.fr).n;
 const isDe=()=>!S.lang||S.lang==='de';
 const hasTr=w=>!isDe()&&!!w.tr[S.lang];
 const la=l=>`lang="${l.c}" dir="${l.dir||'ltr'}"`;
@@ -420,7 +441,7 @@ function trBig(w,say){
 const head=(title,icon,backTo)=>`<header class="head">
   ${backTo?`<button class="back" data-act="go" data-v="${backTo}" aria-label="Zurück">${ICON.back}</button>`:''}
   <div class="head-t">${icon?`<b aria-hidden="true">${icon}</b>`:''}<span>${esc(title)}</span></div>
-  ${S.lang?`<button class="pill-btn" data-act="go" data-v="start" aria-label="Sprache und Hilfe-Stufe ändern">${ICON.globe}<span ${la(lang())}>${esc(lang().nat)}</span><span>· ${S.lvl}</span></button>`:''}
+  ${S.lang?`<button class="pill-btn" data-act="go" data-v="start" aria-label="Sprache und Hilfe-Stufe ändern">${ICON.globe}<span class="pn-nat" ${la(lang())}>${esc(lang().nat)}</span><span class="pn-code">${lang().code}</span><span>· ${S.lvl}</span></button>`:''}
 </header>`;
 function selTitle(){
   const subs=S.sel.map(id=>SUBS[id]);
@@ -455,41 +476,47 @@ R.start=()=>{
   return `<section class="screen">
     ${S.lang?head('Fachwortschatz-Trainer','','select'):`<header class="head"><div class="head-t"><span>Fachwortschatz-Trainer</span></div></header>`}
     <div class="hero">
-      <span class="school">Duale Ausbildung NRW · Gärtner/in GaLaBau</span>
+      <span class="school">Elly-Heuss-Knapp-Schule · Gärtner/in</span>
       <h1>Fachwortschatz-<em>Trainer</em></h1>
-      <p>Deutsche Fachwörter für deine Ausbildung im Garten- und Landschaftsbau – lernen, üben, Quiz spielen.</p>
+      <p>Deutsche Fachwörter für deine Ausbildung als Gärtnerin oder Gärtner – lernen, üben, Quiz spielen.</p>
     </div>
     <div class="sec-h"><h2><span class="ico" aria-hidden="true">🌐</span>Wähle deine Sprache / Choose your language</h2><span class="sub2">Die Übersetzungen helfen dir beim Lernen.</span></div>
     <div class="lang-grid">${LANGS.map(l=>`<button class="lang ${S.lang===l.c?'on':''}" data-act="lang" data-v="${l.c}" aria-pressed="${S.lang===l.c}"><span class="code">${l.code}</span><span class="nm"><span class="nat" ${la(l)}>${esc(l.nat)}</span><span class="lname">${esc(l.n)}</span></span></button>`).join('')}</div>
+    <div class="sec-h"><h2><span class="ico" aria-hidden="true">🧑‍🌾</span>Meine Fachrichtung</h2><span class="sub2">Das 1. Ausbildungsjahr und die Pflanzenkunde sind für alle gleich.</span></div>
+    <div class="fr-grid">${FRS.map(frBtn).join('')}</div>
     <div class="sec-h"><h2><span class="ico" aria-hidden="true">🪜</span>${ui('help')}</h2>${uiTr('help')}</div>
     <div class="lvl-list">${LEVELS.map(x=>`<button class="lvl ${S.lvl===x.c?'on':''}" data-act="lvl" data-v="${x.c}" aria-pressed="${S.lvl===x.c}"><span class="top"><span class="badge">${x.c}</span><b>${x.n}</b></span><span class="d">${x.d}</span></button>`).join('')}</div>
     <div class="btn-row center"><button class="btn primary" data-act="go" data-v="select" ${S.lang?'':'disabled'}>Weiter zu den Lernfeldern ${ICON.next}</button></div>
-    <div class="info"><div><span aria-hidden="true">ℹ️</span> <b>Hinweis für Lehrkräfte:</b> Fachwortschatz zur Ausbildung Gärtner/in, Fachrichtung Garten- und Landschaftsbau, nach Lernfeldern für alle drei Ausbildungsjahre, dazu ein Teil Pflanzenkunde. Drei Hilfe-Stufen, Lernkarten mit Vorlesefunktion, Zuordnen, Quiz und Rückmeldung. Die Übersetzungen wurden KI-gestützt erstellt – bitte vor dem Einsatz von Muttersprachler:innen prüfen lassen.</div>
+    <div class="info"><div><span aria-hidden="true">ℹ️</span> <b>Hinweis für Lehrkräfte:</b> Fachwortschatz zur Ausbildung Gärtner/in an der Elly-Heuss-Knapp-Schule: Grundstufe für alle, Fachstufe für Garten- und Landschaftsbau (nach Lernfeldern) sowie Zierpflanzenbau, Baumschule, Friedhofsgärtnerei, Gemüsebau, Obstbau und Staudengärtnerei, dazu ein Teil Pflanzenkunde. Drei Hilfe-Stufen, Lernkarten mit Vorlesefunktion, Zuordnen, Quiz und Rückmeldung. Die Übersetzungen wurden KI-gestützt erstellt – bitte vor dem Einsatz von Muttersprachler:innen prüfen lassen.</div>
       <div><button class="linkbtn" data-act="go" data-v="teacher">Zum Bereich für Lehrkräfte (QR-Code, Übersetzungstabelle)</button></div></div>
-    <div class="foot"><span>Fachwortschatz-Trainer GaLaBau · ohne Login, ohne App, kostenlos</span><span>Der Lernstand bleibt nur auf diesem Gerät gespeichert.</span></div>
+    <div class="foot"><span>Fachwortschatz-Trainer Gärtner/in · ohne Login, ohne App, kostenlos</span><span>Der Lernstand bleibt nur auf diesem Gerät gespeichert.</span></div>
   </section>`;
 };
 
 R.select=()=>{
   const n=selWords().length;
   setBar(`<div class="bar-info"><b>${n}</b> Wörter gewählt${S.sel.length?` · <button class="linkbtn" data-act="clearsel">leeren</button>`:''}</div><button class="btn primary" data-act="go" data-v="path" ${n?'':'disabled'}>Üben ${ICON.next}</button>`);
-  const lfs=DATA.lf.filter(lf=>lf.jahr===S.year);
+  const lfs=DATA.lf.filter(lf=>lf.jahr===S.year&&(lf.fr==='alle'||lf.fr===S.fr));
   const intro=S.year===0?`<button class="intro-card" data-act="go" data-v="botanik"><span class="lf-ico" aria-hidden="true">🏷️</span><span><b>Zuerst: Was bedeutet der botanische Name?</b><span class="s">Gattung, Art, Sorte – kurz erklärt mit Beispielen</span></span>${ICON.next}</button>`:'';
   return `<section class="screen">
     ${head('Fachwortschatz-Trainer','','start')}
     <div class="sec-h"><h2><span class="ico" aria-hidden="true">🧑‍🌾</span>${ui('topics')}</h2>${uiTr('topics')}</div>
     <p class="note">Wähle ein Ausbildungsjahr und tippe auf ein oder mehrere Themen. Du kannst Themen aus verschiedenen Lernfeldern mischen.</p>
+    <div class="frchips" aria-label="Fachrichtung">${FRS.map(f=>`<button class="frchip ${S.fr===f.id?'on':''}" data-act="fr" data-v="${f.id}" aria-pressed="${S.fr===f.id}"><span aria-hidden="true">${f.i}</span>${esc(f.k)}</button>`).join('')}</div>
     <div class="tabs" role="tablist">${YEARS.map(y=>`<button class="tab" role="tab" aria-selected="${S.year===y.v}" data-act="year" data-v="${y.v}">${y.n}</button>`).join('')}</div>
+    ${S.year===1?`<p class="note">Das 1. Jahr ist die Grundstufe für alle Fachrichtungen.</p>`:''}
+    ${S.year>1&&S.fr!=='gala'?`<p class="note">Fachstufe ${esc(frObj().n)}: vorläufige Themen, noch ohne Unterlagen der Schule.</p>`:''}
     ${intro}
     <div class="lf-list">${lfs.map(lfHTML).join('')}</div>
     <p class="note">Die Lernfelder sind vorläufig gegliedert und werden an die Jahresplanung der Schule angepasst.</p>
     <div class="foot"><button class="linkbtn" data-act="go" data-v="teacher">Bereich für Lehrkräfte</button></div>
   </section>`;
 };
+function frBtn(f){return `<button class="frb ${S.fr===f.id?'on':''}" data-act="fr" data-v="${f.id}" aria-pressed="${S.fr===f.id}"><span class="fi" aria-hidden="true">${f.i}</span><span>${esc(f.n)}</span></button>`}
 function lfHTML(lf){
   const all=lf.subs.every(s=>S.sel.includes(s.id)), n=lf.subs.reduce((a,s)=>a+s.words.length,0);
   return `<article class="lf">
-    <header class="lf-h"><span class="lf-ico" aria-hidden="true">${LF_ICON[lf.id]||'🌿'}</span><h3><small>${lf.nr?'Lernfeld '+lf.nr+' · '+n+' Fachwörter':'alle Ausbildungsjahre · '+n+' Fachwörter'}</small>${esc(lf.titel)}</h3><button class="allbtn" data-act="lfall" data-v="${lf.id}">${all?'keine':'alle wählen'}</button></header>
+    <header class="lf-h"><span class="lf-ico" aria-hidden="true">${LF_ICON[lf.id]||'🌿'}</span><h3><small>${lf.nr?'Lernfeld '+lf.nr:(lf.jahr?'Fachstufe '+esc(frObj(lf.fr).k):'alle Ausbildungsjahre')} · ${n} Fachwörter</small>${esc(lf.titel)}</h3><button class="allbtn" data-act="lfall" data-v="${lf.id}">${all?'keine':'alle wählen'}</button></header>
     <div class="subs">${lf.subs.map(s=>{
       const on=S.sel.includes(s.id), c=counts(s.words), k=s.words.length;
       return `<button class="sub ${on?'on':''}" data-act="sub" data-v="${s.id}" aria-pressed="${on}">
@@ -825,8 +852,8 @@ R.teacher=()=>{
     <div class="panel">
       <h2>Inhalt</h2>
       <p class="note">${WORDS.length} Fachwörter in ${Object.keys(SUBS).length} Themen. Die Lernfelder sind vorläufig und werden an die didaktische Jahresplanung angepasst.</p>
-      <div class="tbl-wrap"><table><thead><tr><th>Lernfeld</th><th>Jahr</th><th style="text-align:right">Wörter</th></tr></thead><tbody>
-        ${DATA.lf.map(lf=>`<tr><td>${lf.nr?'LF '+lf.nr+' · ':''}${esc(lf.titel)}</td><td>${lf.jahr||'alle'}</td><td class="num">${lf.subs.reduce((a,s)=>a+s.words.length,0)}</td></tr>`).join('')}
+      <div class="tbl-wrap"><table><thead><tr><th>Lernfeld / Thema</th><th>Fachrichtung</th><th>Jahr</th><th style="text-align:right">Wörter</th></tr></thead><tbody>
+        ${DATA.lf.map(lf=>`<tr><td>${lf.nr?'LF '+lf.nr+' · ':''}${esc(lf.titel)}</td><td>${esc(frName(lf))}</td><td>${lf.jahr||'alle'}</td><td class="num">${lf.subs.reduce((a,s)=>a+s.words.length,0)}</td></tr>`).join('')}
       </tbody></table></div>
     </div>
     <div class="panel">
@@ -837,9 +864,9 @@ R.teacher=()=>{
   </section>`;
 };
 function csvText(){
-  const headR=['Lernfeld','Jahr','Thema','Artikel','Wort','Plural','Botanisch','Erklärung','Beispielsatz'].concat(TR_ORDER.map(c=>LANGS.find(l=>l.c===c).n),['Status']);
+  const headR=['Fachrichtung','Lernfeld','Jahr','Thema','Artikel','Wort','Plural','Botanisch','Erklärung','Beispielsatz'].concat(TR_ORDER.map(c=>LANGS.find(l=>l.c===c).n),['Status']);
   const q=s=>'"'+String(s).replace(/"/g,'""')+'"';
-  const rows=WORDS.map(w=>[w.lf.nr?'LF '+w.lf.nr:'Pflanzen',w.lf.jahr||'alle',w.sub.titel,w.art,w.w,w.pl,w.bot,w.ex,w.bsp].concat(TR_ORDER.map(c=>w.tr[c]),['KI – ungeprüft']).map(q).join(';'));
+  const rows=WORDS.map(w=>[frName(w.lf),w.lf.nr?'LF '+w.lf.nr:(w.lf.jahr?w.lf.titel:'Pflanzenkunde'),w.lf.jahr||'alle',w.sub.titel,w.art,w.w,w.pl,w.bot,w.ex,w.bsp].concat(TR_ORDER.map(c=>w.tr[c]),['KI – ungeprüft']).map(q).join(';'));
   return [headR.map(q).join(';')].concat(rows).join('\r\n');
 }
 function copyText(txt,ok){
@@ -855,7 +882,11 @@ function makeQR(){
 }
 
 /* ---------- Rendern & Aktionen ---------- */
-function render(){ $('#app').innerHTML=(R[V.screen]||R.select)(); }
+function render(){
+  $('#app').innerHTML=(R[V.screen]||R.select)();
+  const on=document.querySelector('.frchips .on'); // gewählte Fachrichtung sichtbar halten
+  if(on){const row=on.parentElement; row.scrollLeft=on.offsetLeft-row.offsetLeft-16;}
+}
 function go(s){
   if(s==='cards') startCards();
   if(s==='match') startMatch();
@@ -893,6 +924,7 @@ const ACT={
   qr:()=>makeQR(),
   copyurl:()=>copyText($('#qrurl').value.trim(),'Link kopiert.'),
   csv:()=>{try{const blob=new Blob(['﻿'+csvText()],{type:'text/csv;charset=utf-8'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='fachwortschatz-galabau-uebersetzungen.csv'; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500); toast('Download gestartet. Falls nichts passiert: „Tabelle kopieren“ nutzen.')}catch(e){toast('Download nicht möglich. Bitte „Tabelle kopieren“ nutzen.')}},
+  fr:v=>{S.fr=v; const keep=id=>{const f=SUBS[id].lf.fr; return f==='alle'||f===v}; S.sel=S.sel.filter(keep); save(); render()},
   csvcopy:()=>copyText(csvText(),'Tabelle kopiert. In Excel einfügen.'),
   reset:(v,b)=>{if(b.dataset.armed){S.stats={}; S.best={}; save(); toast('Lernstand gelöscht.'); render()} else {b.dataset.armed='1'; b.textContent='Wirklich löschen? Nochmal tippen'; b.classList.add('primary')}}
 };

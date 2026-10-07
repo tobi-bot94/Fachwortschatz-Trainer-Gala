@@ -1,6 +1,6 @@
 /* 3. Ausbildungsjahr (vorläufige Struktur) */
 DATA.lf.push({
-  id: 'lf9', nr: 9, jahr: 3, titel: 'Mauern und Treppen bauen',
+  id: 'lf9', nr: 9, jahr: 3, fr: 'gala', titel: 'Mauern und Treppen bauen',
   subs: [
     { id: 'lf9-mauer', titel: 'Mauern', w: [
       "die|Mauer|die Mauern||Eine Wand aus Steinen im Garten.|Die Mauer ist 80 cm hoch.|🧱|الجدار|мур (стіна)|دیوار|duvar|стена|wall|mur|መንደቕ|zid",
@@ -26,7 +26,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf10', nr: 10, jahr: 3, titel: 'Holzbauteile im Garten errichten',
+  id: 'lf10', nr: 10, jahr: 3, fr: 'gala', titel: 'Holzbauteile im Garten errichten',
   subs: [
     { id: 'lf10-holz', titel: 'Holzbau', w: [
       "der|Zaun|die Zäune||Eine Grenze aus Holz oder Metall um ein Grundstück.|Der Zaun ist 1,80 m hoch.||السياج|паркан|نرده (حصار)|çit|забор|fence|płot|ሓጹር|gard",
@@ -42,7 +42,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf11', nr: 11, jahr: 3, titel: 'Rasen, Bauwerksbegrünung und Wasseranlagen herstellen',
+  id: 'lf11', nr: 11, jahr: 3, fr: 'gala', titel: 'Rasen, Bauwerksbegrünung und Wasseranlagen herstellen',
   subs: [
     { id: 'lf11-rasen', titel: 'Rasen', w: [
       "der|Rasen|die Rasen||Eine Fläche mit kurzem, dichtem Gras.|Der Rasen muss jede Woche gemäht werden.|🌱|المرجة (العشب)|газон|چمن|çim alan|газон|lawn|trawnik|ሳዕሪ ጀርዲን|gazon",
@@ -68,7 +68,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf12', nr: 12, jahr: 3, titel: 'Freianlagen pflegen und Aufträge abwickeln',
+  id: 'lf12', nr: 12, jahr: 3, fr: 'gala', titel: 'Freianlagen pflegen und Aufträge abwickeln',
   subs: [
     { id: 'lf12-pflege', titel: 'Pflege von Anlagen', w: [
       "die|Pflege|–||Alle Arbeiten, damit eine Anlage schön und gesund bleibt.|Die Pflege der Anlage machen wir jeden Monat.|🧹|العناية (الصيانة)|догляд|نگهداری|bakım|уход|maintenance|pielęgnacja|ክንክን|întreținere",

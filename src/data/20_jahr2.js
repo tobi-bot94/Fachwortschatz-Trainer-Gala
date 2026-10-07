@@ -1,6 +1,6 @@
 /* 2. Ausbildungsjahr (vorläufige Struktur) */
 DATA.lf.push({
-  id: 'lf5', nr: 5, jahr: 2, titel: 'Baustellen einrichten und vermessen',
+  id: 'lf5', nr: 5, jahr: 2, fr: 'gala', titel: 'Baustellen einrichten und vermessen',
   subs: [
     { id: 'lf5-baustelle', titel: 'Baustelle einrichten', w: [
       "die|Baustelleneinrichtung|die Baustelleneinrichtungen||Alles, was man vor der Arbeit auf der Baustelle aufbaut: Zaun, Toilette, Lager.|Die Baustelleneinrichtung dauert einen halben Tag.|🏗️|تجهيز موقع البناء|облаштування будмайданчика|تجهیز کارگاه|şantiye kurulumu|обустройство стройплощадки|site setup|zagospodarowanie placu budowy|ምድላው ቦታ ስራሕ|organizarea șantierului",
@@ -36,7 +36,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf6', nr: 6, jahr: 2, titel: 'Erdarbeiten durchführen und Flächen entwässern',
+  id: 'lf6', nr: 6, jahr: 2, fr: 'gala', titel: 'Erdarbeiten durchführen und Flächen entwässern',
   subs: [
     { id: 'lf6-erde', titel: 'Erdarbeiten', w: [
       "der|Aushub|die Aushübe||Die Erde, die man beim Graben herausholt.|Den Aushub fahren wir mit dem Dumper weg.|⛏️|ناتج الحفر|виймковий ґрунт|خاک حفاری|hafriyat|вынутый грунт|excavated material (spoil)|urobek|ዝተኹዓተ ሓመድ|pământ excavat",
@@ -62,7 +62,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf7', nr: 7, jahr: 2, titel: 'Wege und Plätze befestigen',
+  id: 'lf7', nr: 7, jahr: 2, fr: 'gala', titel: 'Wege und Plätze befestigen',
   subs: [
     { id: 'lf7-aufbau', titel: 'Aufbau von Wegen', w: [
       "der|Oberbau|die Oberbauten||Alle Schichten über dem Planum: Tragschicht, Bettung und Belag.|Der Oberbau ist bei einer Einfahrt dicker als bei einem Gartenweg.||البنية العلوية للطريق|дорожній одяг (верхня будова)|روسازی|üst yapı|дорожная одежда|pavement construction|nawierzchnia (konstrukcja)|ላዕለዋይ ህንጻ መገዲ|structura căii (suprastructură)",
@@ -88,7 +88,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf8', nr: 8, jahr: 2, titel: 'Gehölze pflanzen und schneiden',
+  id: 'lf8', nr: 8, jahr: 2, fr: 'gala', titel: 'Gehölze pflanzen und schneiden',
   subs: [
     { id: 'lf8-pflanzung', titel: 'Pflanzung', w: [
       "die|Pflanzgrube|die Pflanzgruben||Das Loch, in das eine Pflanze kommt.|Die Pflanzgrube ist doppelt so breit wie der Ballen.|🕳️|حفرة الزراعة|посадкова яма|چاله کاشت|dikim çukuru|посадочная яма|planting pit|dół do sadzenia|ጉድጓድ ተኽሊ|groapă de plantare",

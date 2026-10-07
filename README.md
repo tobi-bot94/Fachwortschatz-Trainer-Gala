@@ -1,12 +1,17 @@
 # Fachwortschatz-Trainer GaLaBau
 
-Lern-App für den Fachwortschatz in der dualen Ausbildung **Gärtner/in, Fachrichtung Garten- und Landschaftsbau (NRW)**.
+Lern-App für den Fachwortschatz in der dualen Ausbildung **Gärtner/in (NRW)** an der **Elly-Heuss-Knapp-Schule**.
 Eine einzige HTML-Datei: kein Login, keine App, keine Kosten.
 
 ## Inhalt
 
-- **258 Fachwörter** in 12 Lernfeldern (1.–3. Ausbildungsjahr) und dem Teil **Pflanzenkunde**
-  (zuerst: Was bedeutet der botanische Name? Danach Laub- und Nadelgehölze, Stauden, Gräser, Kletterpflanzen).
+- **394 Fachwörter**
+  - **Grundstufe (1. Jahr)** für alle Fachrichtungen: Lernfelder 1–4
+  - **Garten- und Landschaftsbau:** Lernfelder 5–12 (2. und 3. Jahr)
+  - **Weitere Fachrichtungen** mit eigenen Themen für das 2. und 3. Jahr:
+    Zierpflanzenbau, Baumschule, Friedhofsgärtnerei, Gemüsebau, Obstbau, Staudengärtnerei
+    (vorläufig, aus Fachwissen zusammengestellt – noch ohne Unterlagen der Schule)
+  - **Pflanzenkunde** für alle (zuerst: Was bedeutet der botanische Name? Danach Laub- und Nadelgehölze, Stauden, Gräser, Kletterpflanzen)
 - Jedes Wort mit Artikel, Plural, Erklärung in einfacher Sprache, Beispielsatz und Bildhilfe.
 - **Übersetzungen in 9 Sprachen:** Arabisch, Ukrainisch, Persisch/Dari, Türkisch, Russisch, Englisch, Polnisch, Tigrinya, Rumänisch.
   Arabisch und Persisch werden von rechts nach links angezeigt.
@@ -19,7 +24,7 @@ Eine einzige HTML-Datei: kein Login, keine App, keine Kosten.
    - **A – Viel Hilfe:** Übersetzung immer sichtbar, Artikel in Farbe, 3 Antworten, Tipps
    - **B – Etwas Hilfe:** Karte umdrehen für die Übersetzung, 4 Antworten, Tipps
    - **C – Ohne Hilfe:** keine Farben, Fachwort mit Artikel selbst schreiben
-2. Ausbildungsjahr und **Themen (Unterkategorien)** der Lernfelder wählen, auch gemischt.
+2. **Fachrichtung**, Ausbildungsjahr und **Themen (Unterkategorien)** wählen, auch gemischt.
 3. Üben: **Lernen** (Lernkarten mit Vorlesen) → **Zuordnen** → **Quiz** → **Rückmeldung**.
    Die Rückmeldung zeigt, welche Wörter sitzen und welche wiederholt werden sollten.
    Die Wörter zum Wiederholen lassen sich gezielt üben.

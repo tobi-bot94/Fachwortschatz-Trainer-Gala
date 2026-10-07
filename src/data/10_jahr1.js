@@ -1,6 +1,6 @@
 /* 1. Ausbildungsjahr (vorläufige Struktur) */
 DATA.lf.push({
-  id: 'lf1', nr: 1, jahr: 1, titel: 'Im Ausbildungsbetrieb sicher arbeiten',
+  id: 'lf1', nr: 1, jahr: 1, fr: 'alle', titel: 'Im Ausbildungsbetrieb sicher arbeiten',
   subs: [
     { id: 'lf1-betrieb', titel: 'Betrieb und Ausbildung', w: [
       "der|Ausbildungsbetrieb|die Ausbildungsbetriebe||Die Firma, in der man den Beruf lernt.|Mein Ausbildungsbetrieb baut Gärten und Wege.|🏢|شركة التدريب المهني|навчальне підприємство|شرکت محل کارآموزی|eğitim işletmesi|предприятие, где проходят обучение|training company|zakład szkoleniowy|ናይ ስልጠና ትካል|firmă de formare profesională",
@@ -36,7 +36,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf2', nr: 2, jahr: 1, titel: 'Pflanzen untersuchen und zuordnen',
+  id: 'lf2', nr: 2, jahr: 1, fr: 'alle', titel: 'Pflanzen untersuchen und zuordnen',
   subs: [
     { id: 'lf2-bau', titel: 'Bau der Pflanze', w: [
       "die|Wurzel|die Wurzeln||Der Teil der Pflanze in der Erde. Sie nimmt Wasser auf.|Die Wurzel holt Wasser aus dem Boden.|🌱|الجذر|корінь|ریشه|kök|корень|root|korzeń|ሱር|rădăcină",
@@ -72,7 +72,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf3', nr: 3, jahr: 1, titel: 'Böden beurteilen und verbessern',
+  id: 'lf3', nr: 3, jahr: 1, fr: 'alle', titel: 'Böden beurteilen und verbessern',
   subs: [
     { id: 'lf3-arten', titel: 'Bodenarten und Schichten', w: [
       "der|Boden|die Böden||Die oberste Schicht der Erde. Darin wachsen Pflanzen.|Der Boden im Garten ist sehr fest.|🟫|التربة|ґрунт|خاک|toprak|почва|soil|gleba|ሓመድ|sol",
@@ -98,7 +98,7 @@ DATA.lf.push({
 });
 
 DATA.lf.push({
-  id: 'lf4', nr: 4, jahr: 1, titel: 'Pflanzen ernähren, schützen und bewässern',
+  id: 'lf4', nr: 4, jahr: 1, fr: 'alle', titel: 'Pflanzen ernähren, schützen und bewässern',
   subs: [
     { id: 'lf4-duengung', titel: 'Düngung', w: [
       "der|Dünger|die Dünger||Ein Mittel, das Pflanzen Nährstoffe gibt.|Im Frühjahr streuen wir Dünger auf den Rasen.||السماد|добриво|کود|gübre|удобрение|fertiliser|nawóz|ድኹዒ|îngrășământ",

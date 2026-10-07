@@ -4,7 +4,7 @@
  * der in allen Sprachen gleich ist.
  */
 DATA.lf.push({
-  id: 'pfl', nr: 0, jahr: 0, titel: 'Pflanzenkunde: botanische Namen und Pflanzen',
+  id: 'pfl', nr: 0, jahr: 0, fr: 'alle', titel: 'Pflanzenkunde: botanische Namen und Pflanzen',
   subs: [
     { id: 'pfl-grund', titel: 'Grundbegriffe: botanische Namen', w: [
       "der|botanische Name|die botanischen Namen||Der wissenschaftliche Name einer Pflanze. Er ist Latein und gilt auf der ganzen Welt.|Der botanische Name der Stiel-Eiche ist Quercus robur.|🏷️|الاسم العلمي للنبات|ботанічна назва|نام علمی گیاه|bilimsel (botanik) ad|ботаническое название|botanical name|nazwa botaniczna|ሳይንሳዊ ስም ተኽሊ|denumire botanică",
