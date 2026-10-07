@@ -1,0 +1,1363 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Fachwortschatz-Trainer für die Ausbildung Gärtner/in im Garten- und Landschaftsbau (NRW) – mit Übersetzungen in 9 Sprachen.">
+<meta name="theme-color" content="#25402f">
+<title>Fachwortschatz GaLaBau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap">
+<style>
+/* Layout: zentrierte Spalte (max. 800px) auf hellem Grund mit zwei großen, weichen Kreisen;
+   alles Bedienbare sind weiße, stark gerundete Karten. Aufbau angelehnt an den
+   Fachwortschatz-Trainer von unterrichten.digital. */
+:root{
+  --bg:#eef3f4;
+  --blob1:#dcebec;
+  --blob2:#efede4;
+  --card:#ffffff;
+  --soft:#eef3f4;
+  --ink:#16343b;
+  --muted:#5d7379;
+  --line:#dde7e9;
+  --teal:#13808a;
+  --teal-ink:#ffffff;
+  --teal-soft:#dff0f1;
+  --sand:#fbefd6;
+  --rose:#fbe3e8;
+  --good:#1f8a52; --good-soft:#dcf3e5;
+  --review:#c07a12; --review-soft:#fcefd8;
+  --bad:#d23d5a; --bad-soft:#fbe1e6;
+  --der:#2f6fe0; --die:#d63e5c; --das:#14935a;
+  --star:#f2b01e;
+  --shadow:0 2px 6px rgba(22,52,59,.05),0 10px 24px rgba(22,52,59,.06);
+  --f-head:"Baloo 2","Nunito",system-ui,sans-serif;
+  --f-body:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-arab:"Noto Naskh Arabic","Geeza Pro",Tahoma,serif;
+  --f-eth:"Noto Sans Ethiopic",Nyala,"Abyssinica SIL",sans-serif;
+  --r:24px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1c1f; --blob1:#13292d; --blob2:#1d211c; --card:#172a2e; --soft:#1e3539; --ink:#e3eef0; --muted:#97adb2; --line:#28434a;
+  --teal:#3fc0c9; --teal-ink:#06262a; --teal-soft:#16393d; --sand:#3a3220; --rose:#3d2229;
+  --good:#5fd394; --good-soft:#163526; --review:#f0b95b; --review-soft:#3a2d15; --bad:#ff8098; --bad-soft:#3f1d25;
+  --der:#7eaaff; --die:#ff8098; --das:#55d496; --star:#f6c34b; --shadow:0 2px 10px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1c1f; --blob1:#13292d; --blob2:#1d211c; --card:#172a2e; --soft:#1e3539; --ink:#e3eef0; --muted:#97adb2; --line:#28434a;
+  --teal:#3fc0c9; --teal-ink:#06262a; --teal-soft:#16393d; --sand:#3a3220; --rose:#3d2229;
+  --good:#5fd394; --good-soft:#163526; --review:#f0b95b; --review-soft:#3a2d15; --bad:#ff8098; --bad-soft:#3f1d25;
+  --der:#7eaaff; --die:#ff8098; --das:#55d496; --star:#f6c34b; --shadow:0 2px 10px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.55 var(--f-body);-webkit-text-size-adjust:100%;overflow-x:clip;min-height:100vh}
+body::before,body::after{content:"";position:fixed;border-radius:50%;z-index:-1;pointer-events:none}
+body::before{width:min(70vw,640px);aspect-ratio:1;background:var(--blob1);top:-18vmin;left:-22vmin}
+body::after{width:min(80vw,760px);aspect-ratio:1;background:var(--blob2);bottom:-30vmin;right:-26vmin}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+[lang=ar],[lang=fa]{font-family:var(--f-arab)}
+[lang=ti]{font-family:var(--f-eth)}
+
+main{max-width:800px;margin:0 auto;padding-inline:16px;padding-block:18px 120px;position:relative}
+.screen{display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{margin:0;text-wrap:balance}
+
+/* Kopfzeile */
+.head{display:flex;align-items:center;gap:12px;min-height:56px}
+.back{width:52px;height:52px;flex:none;border:0;border-radius:16px;background:var(--card);box-shadow:var(--shadow);display:grid;place-items:center;color:var(--teal)}
+.back svg{width:24px;height:24px}
+.head-t{flex:1;min-width:0;font:700 1.25rem/1.15 var(--f-head);color:var(--teal);display:flex;gap:8px;align-items:center}
+.head-t span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pill-btn{border:0;background:var(--card);box-shadow:var(--shadow);border-radius:999px;padding:9px 16px;font-weight:800;display:inline-flex;gap:8px;align-items:center;white-space:nowrap;max-width:46vw}
+.pill-btn span{overflow:hidden;text-overflow:ellipsis}
+.pill-btn svg{width:20px;height:20px;color:var(--teal);flex:none}
+
+/* Titelbereich Start */
+.hero{text-align:center;display:grid;gap:10px;justify-items:center;padding-block:10px 4px}
+.school{background:var(--teal-soft);color:var(--teal);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;padding:7px 16px;border-radius:999px}
+.hero h1{font:800 clamp(2rem,7vw,2.9rem)/1.05 var(--f-head)}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero p{margin:0;color:var(--muted);font-size:1.1rem;max-width:46ch}
+
+.sec-h{display:grid;gap:2px}
+.sec-h h2{font:800 1.45rem/1.15 var(--f-head);display:flex;gap:10px;align-items:center}
+.sec-h .trl{color:var(--muted);font-weight:700;font-size:1rem}
+.sec-h .sub2{color:var(--muted);font-size:1rem}
+.sec-h .ico{font-size:1.3rem}
+.muted{color:var(--muted)}
+.note{font-size:.92rem;color:var(--muted);margin:0}
+
+/* Sprachkacheln */
+.lang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.lang{display:flex;align-items:center;gap:12px;padding:16px;border:2px solid transparent;background:var(--card);border-radius:20px;box-shadow:var(--shadow);text-align:left;min-height:76px}
+.lang .code{flex:none;width:42px;height:42px;border-radius:12px;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;font:800 .95rem/1 var(--f-body);letter-spacing:.04em}
+.lang .nm{display:grid;line-height:1.2;min-width:0}
+.lang .nat{font-weight:800;font-size:1.12rem}
+.lang .lname{font-size:.85rem;color:var(--muted)}
+.lang.on{border-color:var(--teal)}
+.lang.on .code{background:var(--teal);color:var(--teal-ink)}
+
+/* Hilfe-Stufen */
+.lvl-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.lvl{display:grid;gap:4px;padding:16px;border:2px solid transparent;background:var(--card);border-radius:20px;box-shadow:var(--shadow);text-align:left;align-content:start}
+.lvl .top{display:flex;align-items:center;gap:10px}
+.lvl .badge{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font:800 1.2rem/1 var(--f-head);background:var(--soft);color:var(--teal)}
+.lvl b{font-size:1.08rem}
+.lvl span.d{font-size:.88rem;color:var(--muted)}
+.lvl.on{border-color:var(--teal)}
+.lvl.on .badge{background:var(--teal);color:var(--teal-ink)}
+
+.info{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:16px 18px;font-size:.95rem;color:var(--muted);display:grid;gap:10px}
+.info b{color:var(--ink)}
+.foot{text-align:center;font-size:.85rem;color:var(--muted);display:grid;gap:4px;justify-items:center}
+.linkbtn{background:none;border:0;color:var(--teal);font-weight:800;padding:2px;text-decoration:underline;text-underline-offset:3px;text-align:left}
+
+/* Jahre-Tabs */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none}
+.tab{flex:1 0 auto;border:0;background:var(--card);box-shadow:var(--shadow);border-radius:999px;padding:10px 18px;font-weight:800;white-space:nowrap}
+.tab[aria-selected=true]{background:var(--teal);color:var(--teal-ink)}
+
+/* Lernfeld-Liste */
+.lf-list{display:grid;gap:14px}
+.lf{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;display:grid;gap:12px}
+.lf-h{display:grid;grid-template-columns:auto 1fr auto;gap:8px 14px;align-items:center}
+.lf-ico{width:52px;height:52px;border-radius:16px;background:var(--soft);display:grid;place-items:center;font-size:1.7rem}
+.lf-h h3{font:800 1.12rem/1.2 var(--f-head)}
+.lf-h small{display:block;font:700 .82rem/1.3 var(--f-body);color:var(--muted)}
+.subs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.sub{position:relative;display:grid;gap:4px;text-align:left;padding:12px 14px 12px 46px;border:2px solid var(--line);border-radius:16px;background:var(--card)}
+.sub::before{content:"";position:absolute;left:14px;top:14px;width:20px;height:20px;border:2px solid var(--muted);border-radius:6px;background:var(--card)}
+.sub.on{border-color:var(--teal);background:var(--teal-soft)}
+.sub.on::before{border-color:var(--teal);background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 7' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.sub-t{font-weight:800;line-height:1.25}
+.sub-m{font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.meter{height:6px;border-radius:3px;background:var(--soft);overflow:hidden;display:flex}
+.meter i{display:block;height:100%}
+.meter .g{background:var(--good)} .meter .r{background:var(--review)}
+.allbtn{border:0;background:var(--soft);color:var(--teal);font-weight:800;border-radius:999px;padding:6px 12px;font-size:.88rem;white-space:nowrap}
+.intro-card{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:18px;border-radius:var(--r);background:var(--teal);color:var(--teal-ink);border:0;text-align:left;box-shadow:var(--shadow)}
+.intro-card .lf-ico{background:rgba(255,255,255,.18)}
+.intro-card b{font:800 1.15rem/1.2 var(--f-head);display:block}
+.intro-card span.s{font-size:.92rem;opacity:.9}
+.intro-card svg{width:24px;height:24px}
+
+/* Leiste unten (nur Themenauswahl) */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 70%,transparent)}
+.bar-in{max-width:768px;margin:0 auto;display:flex;gap:12px;align-items:center;background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:10px 10px 10px 18px}
+.bar-info{flex:1;min-width:0;font-size:.95rem;color:var(--muted)}
+.bar-info b{color:var(--ink);font-size:1.15rem}
+
+.btn{border:0;background:var(--card);box-shadow:var(--shadow);border-radius:16px;padding:12px 20px;font-weight:800;display:inline-flex;gap:8px;align-items:center;justify-content:center;min-height:50px}
+.btn.primary{background:var(--teal);color:var(--teal-ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.small{min-height:40px;padding:8px 14px;font-size:.92rem;border-radius:12px}
+.btn svg{width:22px;height:22px}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px}
+.btn-row.center{justify-content:center}
+
+/* Modus-Auswahl */
+.arts{display:flex;gap:10px;justify-content:center}
+.apill{color:#fff;font-weight:800;border-radius:999px;padding:6px 18px;font-size:1.05rem}
+.apill.der,.pill.der{background:var(--der)} .apill.die,.pill.die{background:var(--die)} .apill.das,.pill.das{background:var(--das)}
+.modes{display:grid;gap:14px}
+.mode{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;text-align:left;border:0;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px}
+.mode .mi{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;font-size:1.9rem}
+.mode .mt1{font:800 1.2rem/1.2 var(--f-head)}
+.mode .mt1 .trl{color:var(--teal)}
+.mode .md{font-size:.95rem;color:var(--muted);display:block}
+.stars{color:var(--star);font-size:1.15rem;letter-spacing:2px;white-space:nowrap;align-self:start}
+.stars .off{color:var(--line)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.tile{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:12px;display:grid;gap:2px;text-align:center}
+.tile b{font:800 1.8rem/1 var(--f-head);font-variant-numeric:tabular-nums}
+.tile span{font-size:.8rem;color:var(--muted)}
+.tile.g b{color:var(--good)} .tile.r b{color:var(--review)}
+.toggle{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:16px;background:var(--review-soft);font-size:.95rem;font-weight:700}
+.toggle input{width:22px;height:22px;accent-color:var(--review);flex:none}
+
+/* Hinweiszeile mit Übersetzung */
+.hintline{display:grid;gap:2px;color:var(--muted)}
+.hintline .trl{font-weight:800}
+
+/* Lernkarte */
+.card{position:relative;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:28px 22px 24px 32px;display:grid;gap:16px;min-height:360px;align-content:center;justify-items:center;text-align:center;overflow:hidden;touch-action:pan-y}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--stripe,var(--line))}
+.card.der{--stripe:var(--der)} .card.die{--stripe:var(--die)} .card.das{--stripe:var(--das)}
+.card.tap{cursor:pointer}
+.card .pic{font-size:3rem;line-height:1}
+.pill{display:inline-block;color:#fff;font-weight:800;border-radius:999px;padding:3px 16px;font-size:1.25rem;line-height:1.5}
+.nocolor .pill{background:var(--muted)!important}
+.card.nocolor{--stripe:var(--line)}
+.wordrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center}
+.lemma{font:800 clamp(2rem,8vw,3rem)/1.05 var(--f-head);overflow-wrap:anywhere}
+.say{width:52px;height:52px;flex:none;border-radius:50%;border:0;background:var(--teal);color:var(--teal-ink);display:inline-grid;place-items:center;padding:0;box-shadow:var(--shadow)}
+.say svg{width:24px;height:24px}
+.say.sm{width:42px;height:42px}.say.sm svg{width:20px;height:20px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;color:var(--muted)}
+.meta b{color:var(--ink)}
+.bot{font-style:italic}
+.bot .cv{font-style:normal}
+.small-de{font-weight:800;font-size:.95rem}
+.small-de.der{color:var(--der)} .small-de.die{color:var(--die)} .small-de.das{color:var(--das)}
+.big-tr{font:800 clamp(1.6rem,6vw,2.2rem)/1.25 var(--f-head);color:var(--teal);display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.big-tr[lang=ar],.big-tr[lang=fa]{font-family:var(--f-arab);font-weight:700}
+.big-tr[lang=ti]{font-family:var(--f-eth)}
+.missing{color:var(--muted);font-size:.95rem;margin:0}
+.box{width:100%;text-align:left;background:var(--soft);border-radius:18px;padding:14px 16px;display:grid;gap:4px}
+.box .lab{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.box .row{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.box p{margin:0}
+.tapnote{color:var(--muted);font-size:.98rem;margin:0}
+.dots{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.dots i.g{background:var(--good)} .dots i.r{background:var(--review)}
+.dots i.on{background:var(--teal);transform:scale(1.3)}
+.lin{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.lin i{display:block;height:100%;background:var(--teal)}
+.cnav{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+.rate{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sq{width:60px;height:60px;border:0;border-radius:18px;background:var(--card);box-shadow:var(--shadow);display:grid;place-items:center;color:var(--teal)}
+.sq.primary{background:var(--teal);color:var(--teal-ink)}
+.sq svg{width:26px;height:26px}
+.sq:disabled{opacity:.4}
+.btn.know{background:var(--good-soft);color:var(--good)}
+.btn.again{background:var(--review-soft);color:var(--review)}
+.count{text-align:center;font:800 1.2rem/1 var(--f-head);color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Zuordnen */
+.stat{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-weight:800;font-variant-numeric:tabular-nums}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.match .col{display:grid;gap:12px;align-content:start;min-width:0}
+.mtile{min-height:72px;padding:12px;border:2px solid transparent;border-radius:20px;background:var(--card);box-shadow:var(--shadow);font-weight:800;font-size:1.05rem;line-height:1.3;overflow-wrap:anywhere;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center}
+.mtile .pill{font-size:.9rem;padding:1px 10px}
+.mtile.ex{font-weight:600;font-size:.95rem}
+.mtile.pick{border-color:var(--teal);background:var(--teal-soft)}
+.mtile.done{border-color:var(--good);background:var(--good-soft);opacity:.7}
+.mtile.wrong{animation:shake .35s;border-color:var(--bad);background:var(--bad-soft)}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* Quiz */
+.qcard{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;display:grid;gap:16px}
+.qlab{display:grid;gap:2px}
+.qlab .de{font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.qlab .trl{color:var(--muted);font-weight:700}
+.qword{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.qword .lemma{font-size:clamp(1.7rem,6vw,2.3rem)}
+.qtext{font-size:1.2rem;font-weight:700;margin:0}
+.gap{display:inline-block;min-width:5.5em;border-bottom:3px solid var(--teal)}
+.opts{display:grid;gap:12px}
+@media (min-width:560px){.opts.two{grid-template-columns:1fr 1fr}}
+.opts.three{grid-template-columns:repeat(3,1fr)}
+.opt{padding:16px 18px;border:2px solid var(--line);border-radius:18px;background:var(--card);text-align:left;font-size:1.1rem;font-weight:800;display:flex;gap:8px;align-items:center;flex-wrap:wrap;min-height:62px}
+.opt .pill{font-size:.9rem;padding:1px 10px}
+.opt.artopt{justify-content:center;font:800 1.6rem/1 var(--f-head);color:#fff;border-color:transparent;background:var(--muted)}
+.opt.artopt.der{background:var(--der)} .opt.artopt.die{background:var(--die)} .opt.artopt.das{background:var(--das)}
+.opt.correct{border-color:var(--good)!important;background:var(--good-soft);color:var(--ink)}
+.opt.false{border-color:var(--bad)!important;background:var(--bad-soft);color:var(--ink)}
+.opt.artopt.correct,.opt.artopt.false{border-width:3px}
+.opt:disabled{cursor:default}
+.opt.dim{opacity:.4}
+.opt:not(:disabled):hover{border-color:var(--teal)}
+.type{display:flex;gap:10px}
+.type input{flex:1;min-width:0;padding:14px 16px;border:2px solid var(--line);border-radius:16px;background:var(--card);font-size:1.15rem}
+.hints{display:grid;gap:8px}
+.hint{padding:10px 14px;border-radius:14px;background:var(--sand);font-size:.98rem}
+.fb{border-radius:20px;padding:16px;display:grid;gap:10px;justify-items:start}
+.fb.ok{background:var(--good-soft)} .fb.no{background:var(--bad-soft)}
+.fb h3{font:800 1.4rem/1.1 var(--f-head);display:grid}
+.fb h3 .trl{font:700 1rem/1.3 var(--f-body);color:var(--muted)}
+
+/* Rückmeldung */
+.stack{display:flex;height:16px;border-radius:8px;overflow:hidden;background:var(--line)}
+.stack i{display:block;height:100%}
+.group{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;display:grid;gap:10px}
+.group h3{display:flex;align-items:center;gap:8px;font:800 1.25rem/1 var(--f-head)}
+.dot{width:14px;height:14px;border-radius:50%;flex:none}
+.wchips{display:flex;flex-wrap:wrap;gap:8px}
+.wchip{padding:5px 12px 5px 6px;border-radius:999px;background:var(--soft);font-weight:700;display:inline-flex;gap:6px;align-items:center}
+.wchip .pill{font-size:.8rem;padding:0 8px}
+
+/* Botanik & Lehrkraft */
+.panel{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;display:grid;gap:12px}
+.panel h2{font:800 1.3rem/1.15 var(--f-head)}
+.botname{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:clamp(1.6rem,6vw,2.3rem);font-family:Georgia,"Times New Roman",serif}
+.botname span{display:grid;gap:6px}
+.botname small{font:800 .75rem/1.2 var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-style:normal}
+.b1{font-style:italic;border-bottom:5px solid var(--teal)}
+.b2{font-style:italic;border-bottom:5px solid var(--star)}
+.b3{border-bottom:5px dashed var(--muted)}
+.rules{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.tbl-wrap{overflow-x:auto;border-radius:16px;background:var(--soft)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;text-align:right}
+.field{display:grid;gap:4px}
+.field label{font-size:.85rem;color:var(--muted);font-weight:800}
+.field input{padding:12px;border:2px solid var(--line);border-radius:14px;background:var(--soft);min-width:0}
+#qr{display:grid;place-items:center;padding:14px;background:#fff;border-radius:16px;width:max-content;max-width:100%}
+#qr img,#qr canvas{display:block;max-width:100%;height:auto}
+
+.toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:700;z-index:50;max-width:calc(100% - 32px);box-shadow:var(--shadow)}
+
+@media (max-width:480px){
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .mode{grid-template-columns:auto 1fr;padding:16px}
+  .mode .mi{width:52px;height:52px;font-size:1.6rem}
+  .mode .stars{grid-column:2;grid-row:2}
+  .card{padding:24px 16px 20px 26px;min-height:320px}
+  .mtile{min-height:64px;font-size:.98rem;padding:10px;border-radius:16px}
+  .lf-h{grid-template-columns:auto 1fr}
+  .lf-h .allbtn{grid-column:2;justify-self:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<main id="app" aria-live="polite"></main>
+<div class="bar" id="bar" hidden><div class="bar-in" id="barIn"></div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>/* Fachwortschatz-Trainer GaLaBau – Datenformat
+ *
+ * Jede Zeile in "w" ist ein Wort, Felder getrennt mit |
+ *  0 Artikel (der/die/das)
+ *  1 Wort (ohne Artikel)
+ *  2 Plural mit Artikel ("die Spaten") oder "–" wenn es keinen Plural gibt
+ *  3 botanischer Name (nur bei Pflanzen, sonst leer)
+ *  4 Erklärung in einfacher Sprache
+ *  5 Beispielsatz (enthält das Wort genau so wie in Feld 1)
+ *  6 Bildhilfe (Emoji, darf leer sein)
+ *  7–15 Übersetzungen: ar | uk | fa | tr | ru | en | pl | ti | ro
+ *       (leer = Übersetzung fehlt noch)
+ *
+ * ALLE Übersetzungen sind KI-generiert und müssen vor dem Einsatz geprüft werden.
+ * Die Lernfeld-Struktur ist vorläufig und wird an die DJP der Schule angepasst.
+ */
+const TR_ORDER = ['ar', 'uk', 'fa', 'tr', 'ru', 'en', 'pl', 'ti', 'ro'];
+const DATA = { lf: [] };
+
+/* 1. Ausbildungsjahr (vorläufige Struktur) */
+DATA.lf.push({
+  id: 'lf1', nr: 1, jahr: 1, titel: 'Im Ausbildungsbetrieb sicher arbeiten',
+  subs: [
+    { id: 'lf1-betrieb', titel: 'Betrieb und Ausbildung', w: [
+      "der|Ausbildungsbetrieb|die Ausbildungsbetriebe||Die Firma, in der man den Beruf lernt.|Mein Ausbildungsbetrieb baut Gärten und Wege.|🏢|شركة التدريب المهني|навчальне підприємство|شرکت محل کارآموزی|eğitim işletmesi|предприятие, где проходят обучение|training company|zakład szkoleniowy|ናይ ስልጠና ትካል|firmă de formare profesională",
+      "das|Berichtsheft|die Berichtshefte||Ein Heft. Man schreibt jede Woche hinein, was man gelernt hat.|Ich schreibe jeden Freitag in mein Berichtsheft.|📓|دفتر تقارير التدريب|щоденник практики|دفتر گزارش کارآموزی|rapor defteri (eğitim günlüğü)|дневник обучения (отчётная тетрадь)|record book (training log)|dzienniczek praktyk|መዝገብ ጸብጻብ ስልጠና|caiet de rapoarte (jurnal de ucenicie)",
+      "die|Baustelle|die Baustellen||Der Ort, an dem gebaut wird.|Heute arbeiten wir auf der Baustelle im Park.|🚧|موقع البناء|будівельний майданчик|کارگاه ساختمانی|şantiye|стройплощадка|construction site|plac budowy|ቦታ ህንጻ|șantier",
+      "der|Kunde|die Kunden||Die Person, die den Auftrag gibt und bezahlt.|Der Kunde wünscht sich eine neue Terrasse.|🤝|الزبون|клієнт|مشتری|müşteri|клиент|customer|klient|ዓሚል|client",
+      "der|Auftrag|die Aufträge||Eine Arbeit, die ein Kunde bestellt hat.|Wir haben einen neuen Auftrag für einen Garten.|📋|طلبية عمل|замовлення|سفارش کار|sipariş (iş emri)|заказ|order (job)|zlecenie|ትእዛዝ ስራሕ|comandă (lucrare)",
+      "der|Vorarbeiter|die Vorarbeiter||Die Person, die die Gruppe auf der Baustelle leitet.|Der Vorarbeiter erklärt uns die Aufgabe.|👷|رئيس العمال|бригадир|سرکارگر|ustabaşı|бригадир|foreman|brygadzista|ሓላፊ ጉጅለ ሰራሕተኛታት|șef de echipă",
+      "die|Berufsschule|die Berufsschulen||Die Schule, in der man die Theorie für den Beruf lernt.|Am Montag gehe ich in die Berufsschule.|🏫|المدرسة المهنية|професійна школа|هنرستان (مدرسه حرفه‌ای)|meslek okulu|профессиональное училище|vocational school|szkoła zawodowa|ሞያዊ ቤት ትምህርቲ|școală profesională",
+      "die|Arbeitszeit|die Arbeitszeiten||Die Zeit, in der man arbeitet.|Unsere Arbeitszeit beginnt um 7 Uhr.|⏰|ساعات العمل|робочий час|ساعت کاری|çalışma saati|рабочее время|working hours|czas pracy|ሰዓታት ስራሕ|program de lucru"
+    ]},
+    { id: 'lf1-schutz', titel: 'Arbeitsschutz', w: [
+      "der|Schutzhelm|die Schutzhelme||Ein harter Hut. Er schützt den Kopf.|Auf der Baustelle trage ich immer einen Schutzhelm.|⛑️|خوذة الحماية|захисна каска|کلاه ایمنی|baret|защитная каска|safety helmet|kask ochronny|ቆብዕ ድሕነት|cască de protecție",
+      "die|Schutzbrille|die Schutzbrillen||Eine Brille, die die Augen schützt.|Beim Steineschneiden brauche ich eine Schutzbrille.|🥽|نظارة الحماية|захисні окуляри|عینک ایمنی|koruyucu gözlük|защитные очки|safety goggles|okulary ochronne|መነጽር ድሕነት|ochelari de protecție",
+      "der|Gehörschutz|–||Er schützt die Ohren vor lautem Lärm.|Bei der Rüttelplatte trage ich einen Gehörschutz.|🎧|واقي السمع|засоби захисту слуху|محافظ گوش|kulak koruyucu|средства защиты слуха|hearing protection|ochronniki słuchu|መከላኸሊ እዝኒ|antifoane",
+      "der|Sicherheitsschuh|die Sicherheitsschuhe||Ein fester Schuh mit Stahlkappe. Er schützt die Füße.|Ohne Sicherheitsschuh darf ich nicht auf die Baustelle.|🥾|حذاء السلامة|захисний черевик|کفش ایمنی|iş güvenliği ayakkabısı|защитный ботинок|safety shoe|but ochronny|ጫማ ድሕነት|bocanc de protecție",
+      "die|Warnweste|die Warnwesten||Eine helle Weste. Andere Menschen sehen mich damit gut.|An der Straße trage ich eine Warnweste.|🦺|سترة عاكسة|сигнальний жилет|جلیقه شب‌رنگ|reflektörlü yelek|сигнальный жилет|high-visibility vest|kamizelka odblaskowa|ሰደርያ መጠንቀቕታ|vestă reflectorizantă",
+      "der|Arbeitshandschuh|die Arbeitshandschuhe||Er schützt die Hände bei der Arbeit.|Mit dem Arbeitshandschuh schütze ich meine Hände.|🧤|قفاز العمل|робоча рукавиця|دستکش کار|iş eldiveni|рабочая перчатка|work glove|rękawica robocza|ጓንቲ ስራሕ|mănușă de lucru",
+      "der|Verbandkasten|die Verbandkästen||Eine Box mit Material für die Erste Hilfe.|Der Verbandkasten steht im Firmenwagen.|🩹|صندوق الإسعافات الأولية|аптечка|جعبه کمک‌های اولیه|ilk yardım çantası|аптечка|first-aid kit|apteczka|ሳጹን ቀዳማይ ረድኤት|trusă de prim ajutor",
+      "die|Unfallverhütung|–||Alle Regeln, damit kein Unfall passiert.|Unfallverhütung ist auf jeder Baustelle wichtig.|⚠️|الوقاية من الحوادث|запобігання нещасним випадкам|پیشگیری از حوادث|kaza önleme|предотвращение несчастных случаев|accident prevention|zapobieganie wypadkom|ምክልኻል ሓደጋ|prevenirea accidentelor"
+    ]},
+    { id: 'lf1-werkzeug', titel: 'Handwerkzeuge', w: [
+      "der|Spaten|die Spaten||Ein Werkzeug mit flachem Blatt. Man gräbt damit.|Mit dem Spaten grabe ich ein Pflanzloch.||رفش الحفر|штикова лопата|بیل|bel küreği|штыковая лопата|spade|szpadel|ባዴላ|cazma",
+      "die|Schaufel|die Schaufeln||Ein Werkzeug zum Aufnehmen von Erde, Sand oder Kies.|Ich lade den Sand mit der Schaufel in die Schubkarre.||المجرفة|совкова лопата|بیل پهن (خاک‌انداز)|kürek|совковая лопата|shovel|łopata|ሰፊሕ ባዴላ|lopată",
+      "die|Schubkarre|die Schubkarren||Ein Wagen mit einem Rad. Man transportiert damit Material.|Die Schubkarre ist voll mit Erde.||عربة اليد|тачка|فرغون|el arabası|тачка|wheelbarrow|taczka|ካርሬላ|roabă",
+      "der|Rechen|die Rechen||Ein Werkzeug mit Zinken. Man zieht damit Erde glatt oder sammelt Laub.|Mit dem Rechen ziehe ich die Erde glatt.|🍂|مشط الحديقة (المدمّة)|граблі|شن‌کش|tırmık|грабли|rake|grabie|ራስትሮ|greblă",
+      "die|Hacke|die Hacken||Ein Werkzeug zum Lockern des Bodens und gegen Beikraut.|Mit der Hacke lockere ich den Boden im Beet.|⛏️|المعزقة|сапа|کج‌بیل|çapa|мотыга (тяпка)|hoe|motyka|ዶማ|sapă",
+      "die|Gartenschere|die Gartenscheren||Eine Schere für Zweige und Blumen.|Mit der Gartenschere schneide ich die Rose.|✂️|مقص الحديقة|секатор|قیچی باغبانی|bahçe makası|секатор|secateurs (pruning shears)|sekator|መቐስ ጀርዲን|foarfecă de grădină",
+      "die|Grabegabel|die Grabegabeln||Eine Gabel mit starken Zinken. Man lockert damit die Erde.|Die Grabegabel ist gut für schweren Boden.||مذراة الحفر|садові вила|چنگک بیلی|bahçe çatalı|садовые вилы|digging fork|widły ogrodowe|መንሽ|furcă de săpat",
+      "die|Handsäge|die Handsägen||Eine Säge, die man mit der Hand bewegt.|Den dicken Ast säge ich mit der Handsäge ab.|🪚|منشار يدوي|ножівка|اره دستی|el testeresi|ножовка|hand saw|piła ręczna|መጋዝ ኢድ|ferăstrău de mână"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf2', nr: 2, jahr: 1, titel: 'Pflanzen untersuchen und zuordnen',
+  subs: [
+    { id: 'lf2-bau', titel: 'Bau der Pflanze', w: [
+      "die|Wurzel|die Wurzeln||Der Teil der Pflanze in der Erde. Sie nimmt Wasser auf.|Die Wurzel holt Wasser aus dem Boden.|🌱|الجذر|корінь|ریشه|kök|корень|root|korzeń|ሱር|rădăcină",
+      "der|Spross|die Sprosse||Der Teil der Pflanze über der Erde: Stängel, Blätter und Blüten.|Der Spross wächst zum Licht.|🌿|المجموع الخضري (الساق والأوراق)|пагін|اندام هوایی (ساقه و برگ)|sürgün (gövde)|побег|shoot|pęd|ልዕሊ መሬት ዘሎ ክፋል ተኽሊ|lăstar (tulpină cu frunze)",
+      "der|Stängel|die Stängel||Der dünne Teil, der Blätter und Blüten trägt.|Der Stängel der Tulpe ist grün.|🌷|الساق|стебло|ساقه|sap|стебель|stem|łodyga|ጉንዲ|tulpină",
+      "das|Blatt|die Blätter||Der grüne, flache Teil der Pflanze. Hier macht die Pflanze Zucker.|Das Blatt der Buche ist oval.|🍃|الورقة|листок|برگ|yaprak|лист|leaf|liść|ቆጽሊ|frunză",
+      "die|Blüte|die Blüten||Der bunte Teil der Pflanze. Aus ihr wird die Frucht.|Die Blüte lockt Bienen an.|🌸|الزهرة|квітка|گل (شکوفه)|çiçek|цветок|flower (blossom)|kwiat|ዕምባባ|floare",
+      "die|Frucht|die Früchte||Sie wächst aus der Blüte und enthält Samen.|Die Frucht des Apfelbaums ist der Apfel.|🍎|الثمرة|плід|میوه|meyve|плод|fruit|owoc|ፍረ|fruct",
+      "der|Samen|die Samen||Daraus wächst eine neue Pflanze.|Der Samen braucht Wasser zum Keimen.|🌰|البذرة|насінина|بذر (دانه)|tohum|семя|seed|nasiono|ዘርኢ|sămânță",
+      "die|Knospe|die Knospen||Daraus wachsen später Blätter oder Blüten.|Im Frühling öffnet sich die Knospe.||البرعم|брунька|جوانه|tomurcuk|почка|bud|pąk||mugur"
+    ]},
+    { id: 'lf2-leben', titel: 'Lebensvorgänge', w: [
+      "die|Fotosynthese|–||Die Pflanze macht mit Licht aus Wasser und CO₂ Zucker und Sauerstoff.|Ohne Licht gibt es keine Fotosynthese.|☀️|التمثيل الضوئي|фотосинтез|فتوسنتز|fotosentez|фотосинтез|photosynthesis|fotosynteza|ፎቶሲንተሲስ|fotosinteză",
+      "das|Chlorophyll|–||Der grüne Farbstoff in den Blättern.|Das Chlorophyll macht die Blätter grün.||الكلوروفيل (اليخضور)|хлорофіл|کلروفیل (سبزینه)|klorofil|хлорофилл|chlorophyll|chlorofil|ክሎሮፊል|clorofilă",
+      "die|Keimung|die Keimungen||Aus dem Samen wächst eine kleine Pflanze.|Für die Keimung braucht der Samen Wärme und Wasser.|🌱|الإنبات|проростання|جوانه‌زنی|çimlenme|прорастание|germination|kiełkowanie|ምብቋል|germinare",
+      "die|Verdunstung|–||Wasser geht als Dampf aus den Blättern in die Luft.|Bei Hitze ist die Verdunstung hoch.|💧|النتح (تبخر الماء من الأوراق)|випаровування|تعرق (تبخیر از برگ)|terleme (buharlaşma)|испарение (транспирация)|transpiration (evaporation)|transpiracja (parowanie)|ምትናን ማይ|transpirație (evaporare)",
+      "die|Atmung|–||Die Pflanze nimmt Sauerstoff auf und gibt CO₂ ab.|Die Atmung findet Tag und Nacht statt.||التنفس|дихання|تنفس|solunum|дыхание|respiration|oddychanie|ምስትንፋስ|respirație",
+      "das|Wachstum|–||Die Pflanze wird größer.|Dünger fördert das Wachstum.|📈|النمو|ріст|رشد|büyüme|рост|growth|wzrost|ዕቤት|creștere",
+      "die|Bestäubung|die Bestäubungen||Blütenstaub kommt von einer Blüte zur anderen.|Bienen helfen bei der Bestäubung.|🐝|التلقيح|запилення|گرده‌افشانی|tozlaşma|опыление|pollination|zapylanie||polenizare",
+      "der|Nährstoff|die Nährstoffe||Ein Stoff, den die Pflanze zum Wachsen braucht.|Stickstoff ist ein wichtiger Nährstoff.|🧪|العنصر الغذائي|поживна речовина|ماده مغذی|besin maddesi|питательное вещество|nutrient|składnik odżywczy|ኣልሚ ነገር|substanță nutritivă"
+    ]},
+    { id: 'lf2-gruppen', titel: 'Pflanzengruppen', w: [
+      "der|Baum|die Bäume||Eine große Pflanze mit einem Stamm aus Holz.|Der Baum gibt im Sommer Schatten.|🌳|الشجرة|дерево|درخت|ağaç|дерево|tree|drzewo|ኦም|copac",
+      "der|Strauch|die Sträucher||Eine Pflanze aus Holz mit vielen Trieben, ohne Stamm.|Der Strauch blüht im Mai gelb.|🌿|الشجيرة|кущ|درختچه|çalı|кустарник|shrub|krzew|ቆጥቋጥ|arbust",
+      "die|Staude|die Stauden||Eine Pflanze ohne Holz, die viele Jahre lebt. Sie kommt jedes Jahr wieder.|Die Staude treibt im Frühling neu aus.|🌼|نبات عشبي معمّر|багаторічна трав'яниста рослина|گیاه علفی چندساله|çok yıllık otsu bitki|многолетнее травянистое растение|herbaceous perennial|bylina||plantă perenă",
+      "das|Gehölz|die Gehölze||Sammelname für Pflanzen mit Holz: Bäume und Sträucher.|Im Herbst pflanzen wir das Gehölz.|🌲|نبات خشبي|деревна рослина|گیاه چوبی|odunsu bitki|древесное растение|woody plant|roślina drzewiasta|ዕንጨይታዊ ተኽሊ|plantă lemnoasă",
+      "die|Zwiebelpflanze|die Zwiebelpflanzen||Eine Pflanze, die aus einer Zwiebel wächst, zum Beispiel die Tulpe.|Die Tulpe ist eine Zwiebelpflanze.|🌷|نبات بصلي|цибулинна рослина|گیاه پیازدار|soğanlı bitki|луковичное растение|bulb plant|roślina cebulowa||plantă cu bulb",
+      "das|Gras|die Gräser||Eine Pflanze mit langen, schmalen Blättern.|Das Gras wächst nach dem Regen schnell.|🌾|العشب|трава|علف|ot|трава|grass|trawa|ሳዕሪ|iarbă",
+      "die|Sommerblume|die Sommerblumen||Eine Blume, die nur einen Sommer lebt.|Die Sommerblume blüht bis zum ersten Frost.|🌺|زهرة حولية صيفية|однорічна квітка (літник)|گل فصلی یک‌ساله|yazlık çiçek|однолетний цветок (летник)|annual (bedding plant)|kwiat jednoroczny|ዕምባባ ሓደ ዓመት|floare anuală",
+      "die|Kletterpflanze|die Kletterpflanzen||Eine Pflanze, die an Wänden oder Gerüsten nach oben wächst.|Die Kletterpflanze wächst an der Pergola hoch.||نبات متسلق|витка рослина|گیاه بالارونده|tırmanıcı bitki|вьющееся растение|climbing plant|pnącze||plantă cățărătoare"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf3', nr: 3, jahr: 1, titel: 'Böden beurteilen und verbessern',
+  subs: [
+    { id: 'lf3-arten', titel: 'Bodenarten und Schichten', w: [
+      "der|Boden|die Böden||Die oberste Schicht der Erde. Darin wachsen Pflanzen.|Der Boden im Garten ist sehr fest.|🟫|التربة|ґрунт|خاک|toprak|почва|soil|gleba|ሓመድ|sol",
+      "der|Sand|die Sande||Boden mit großen Körnern. Wasser läuft schnell durch.|Sand ist locker und trocknet schnell.|🏖️|الرمل|пісок|ماسه|kum|песок|sand|piasek|ሑጻ|nisip",
+      "der|Ton|die Tone||Boden mit sehr feinen Teilchen. Er hält viel Wasser.|Ton ist schwer und klebt an den Schuhen.||الطين (الصلصال)|глина|رس|kil|глина|clay|ił|ጭቃ|argilă",
+      "der|Schluff|die Schluffe||Boden mit mittelfeinen Teilchen. Er ist feiner als Sand.|Schluff fühlt sich an wie Mehl.||الغرين (الطمي)|пил (мулиста частка ґрунту)|سیلت (لای)|silt|пылеватая фракция (алеврит)|silt|pył||praf (silt)",
+      "der|Lehm|die Lehme||Eine Mischung aus Sand, Schluff und Ton.|Lehm ist ein guter Gartenboden.||التربة الطفلية (لوم)|суглинок|خاک لومی|tın (balçık)|суглинок|loam|glina|ሓመድ ጭቃ|lut",
+      "der|Humus|–||Dunkler Boden aus verrotteten Pflanzen. Er ist sehr fruchtbar.|Humus macht den Boden fruchtbar.|🍂|الدبال|гумус|هوموس (خاک‌برگ)|humus|гумус|humus|próchnica|ሑሙስ|humus",
+      "der|Oberboden|die Oberböden||Die oberste, dunkle und fruchtbare Bodenschicht.|Den Oberboden lagern wir am Rand der Baustelle.||التربة السطحية|верхній шар ґрунту|خاک سطحی|üst toprak|верхний слой почвы|topsoil|wierzchnia warstwa gleby|ላዕለዋይ ሓመድ|strat superior de sol",
+      "der|Unterboden|die Unterböden||Die Bodenschicht unter dem Oberboden. Sie ist heller und fester.|Der Unterboden enthält wenig Humus.||التربة التحتية|підґрунтя|خاک زیرین|alt toprak|подпочва|subsoil|podglebie|ታሕተዋይ ሓመድ|subsol"
+    ]},
+    { id: 'lf3-verbessern', titel: 'Boden untersuchen und verbessern', w: [
+      "der|pH-Wert|die pH-Werte||Er zeigt, ob der Boden sauer oder basisch ist.|Der pH-Wert im Beet liegt bei 6,5.|🧪|قيمة الحموضة (pH)|показник pH|مقدار pH|pH değeri|значение pH|pH value|odczyn pH|መጠን pH|valoarea pH",
+      "die|Bodenprobe|die Bodenproben||Ein wenig Boden. Er wird im Labor untersucht.|Wir schicken die Bodenprobe ins Labor.||عينة التربة|проба ґрунту|نمونه خاک|toprak numunesi|проба почвы|soil sample|próbka gleby|ናሙና ሓመድ|probă de sol",
+      "der|Kompost|die Komposte||Verrottete Pflanzenreste. Er verbessert den Boden.|Wir arbeiten Kompost in das Beet ein.|♻️|السماد العضوي (الكمبوست)|компост|کمپوست|kompost|компост|compost|kompost|ኮምፖስት|compost",
+      "die|Bodenlockerung|die Bodenlockerungen||Fester Boden wird wieder locker gemacht.|Nach der Bodenlockerung wachsen die Wurzeln besser.||تفكيك التربة|розпушування ґрунту|سست کردن خاک|toprak gevşetme|рыхление почвы|soil loosening|spulchnianie gleby||afânarea solului",
+      "die|Bodenverdichtung|die Bodenverdichtungen||Der Boden ist zu fest gedrückt. Es fehlen Wasser und Luft.|Schwere Maschinen machen eine Bodenverdichtung.|🚜|انضغاط التربة|ущільнення ґрунту|فشردگی خاک|toprak sıkışması|уплотнение почвы|soil compaction|zagęszczenie gleby||compactarea solului",
+      "der|Rindenmulch|–||Zerkleinerte Baumrinde. Man legt sie auf das Beet.|Rindenmulch hält den Boden feucht.|🪵|نشارة اللحاء|мульча з кори|مالچ پوست درخت|ağaç kabuğu malçı|мульча из коры|bark mulch|kora (ściółka)||mulci din scoarță",
+      "das|Substrat|die Substrate||Eine besondere Erde, zum Beispiel für Töpfe oder Dachgärten.|Für den Pflanzkübel nehmen wir ein Substrat.|🪴|وسط الزراعة (الركيزة)|субстрат|بستر کشت|yetiştirme ortamı (substrat)|субстрат|growing medium|podłoże||substrat",
+      "die|Gründüngung|die Gründüngungen||Man sät Pflanzen und arbeitet sie später in den Boden ein.|Klee ist eine gute Gründüngung.|☘️|السماد الأخضر|сидерація (зелене добриво)|کود سبز|yeşil gübre|зелёное удобрение (сидерат)|green manure|nawóz zielony||îngrășământ verde"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf4', nr: 4, jahr: 1, titel: 'Pflanzen ernähren, schützen und bewässern',
+  subs: [
+    { id: 'lf4-duengung', titel: 'Düngung', w: [
+      "der|Dünger|die Dünger||Ein Mittel, das Pflanzen Nährstoffe gibt.|Im Frühjahr streuen wir Dünger auf den Rasen.||السماد|добриво|کود|gübre|удобрение|fertiliser|nawóz|ድኹዒ|îngrășământ",
+      "der|Stickstoff|–||Ein Nährstoff (N). Er macht Blätter groß und grün.|Stickstoff fördert das Blattwachstum.|🍃|النيتروجين|азот|نیتروژن|azot|азот|nitrogen|azot|ናይትሮጅን|azot",
+      "der|Phosphor|–||Ein Nährstoff (P). Er ist wichtig für Wurzeln und Blüten.|Phosphor hilft beim Wurzelwachstum.||الفوسفور|фосфор|فسفر|fosfor|фосфор|phosphorus|fosfor|ፎስፎረስ|fosfor",
+      "das|Kalium|–||Ein Nährstoff (K). Er macht die Pflanze stark gegen Frost und Trockenheit.|Kalium stärkt die Pflanze im Winter.||البوتاسيوم|калій|پتاسیم|potasyum|калий|potassium|potas|ፖታስዩም|potasiu",
+      "der|Kalk|die Kalke||Ein Stoff, der sauren Boden verbessert.|Saurer Boden braucht Kalk.||الجير|вапно|آهک|kireç|известь|lime|wapno|ኖራ|var",
+      "der|Nährstoffmangel|die Nährstoffmängel||Der Pflanze fehlt ein Nährstoff. Man sieht es oft an den Blättern.|Gelbe Blätter zeigen einen Nährstoffmangel.|🟡|نقص العناصر الغذائية|нестача поживних речовин|کمبود مواد مغذی|besin eksikliği|недостаток питательных веществ|nutrient deficiency|niedobór składników odżywczych|ጉድለት ኣልሚ ነገር|carență de nutrienți",
+      "die|Dosierung|die Dosierungen||Die richtige Menge, zum Beispiel Gramm pro Quadratmeter.|Die Dosierung steht auf dem Sack: 40 g pro m².|⚖️|الجرعة|дозування|مقدار مصرف|dozaj|дозировка|dosage|dawkowanie|መጠን|dozare",
+      "das|Spurenelement|die Spurenelemente||Ein Nährstoff, den die Pflanze nur in sehr kleinen Mengen braucht, zum Beispiel Eisen.|Eisen ist ein Spurenelement.|🔬|عنصر غذائي صغير (عنصر نادر)|мікроелемент|عنصر ریزمغذی|iz element|микроэлемент|trace element|mikroelement||microelement"
+    ]},
+    { id: 'lf4-schutz', titel: 'Pflanzenschutz', w: [
+      "der|Schädling|die Schädlinge||Ein Tier, das Pflanzen kaputt macht.|Der Schädling frisst die Blätter.|🐛|الآفة|шкідник|آفت|zararlı (haşere)|вредитель|pest|szkodnik||dăunător",
+      "der|Nützling|die Nützlinge||Ein Tier, das gegen Schädlinge hilft.|Der Marienkäfer ist ein Nützling.|🐞|الحشرة النافعة|корисна комаха|حشره مفید|faydalı böcek|полезное насекомое|beneficial insect|organizm pożyteczny||insectă utilă",
+      "die|Blattlaus|die Blattläuse||Ein kleines Insekt. Es saugt Saft aus der Pflanze.|Die Blattlaus sitzt an der Knospe.||المنّ (قمل النبات)|попелиця|شته|yaprak biti|тля|aphid|mszyca||afidă (păduche de frunză)",
+      "der|Pilz|die Pilze||Ein Lebewesen. Manche Pilze machen Pflanzen krank, zum Beispiel Mehltau.|Der Pilz macht weiße Flecken auf den Blättern.|🍄|الفطر|гриб|قارچ|mantar|гриб|fungus|grzyb|ፈንገስ|ciupercă",
+      "das|Beikraut|die Beikräuter||Eine Pflanze, die dort wächst, wo sie nicht soll (Unkraut).|Das Beikraut ziehen wir mit der Wurzel aus.|🌿|الأعشاب الضارة|бур'ян|علف هرز|yabani ot|сорняк|weed|chwast||buruiană",
+      "das|Pflanzenschutzmittel|die Pflanzenschutzmittel||Ein Mittel gegen Schädlinge oder Krankheiten.|Das Pflanzenschutzmittel darf man nur mit Sachkunde benutzen.|🧴|مبيد (منتج وقاية النبات)|засіб захисту рослин|سم دفع آفات|bitki koruma ürünü|средство защиты растений|plant protection product|środek ochrony roślin|መድሃኒት ምክልኻል ተኽሊ|produs de protecție a plantelor",
+      "der|Marienkäfer|die Marienkäfer||Ein roter Käfer mit schwarzen Punkten. Er frisst Blattläuse.|Ein Marienkäfer frisst viele Blattläuse.|🐞|الدعسوقة|сонечко|کفشدوزک|uğur böceği|божья коровка|ladybird|biedronka||buburuză",
+      "die|Schnecke|die Schnecken||Ein langsames Tier ohne Beine. Sie frisst junge Pflanzen.|Die Schnecke frisst den Salat.|🐌|الحلزون (البزّاق)|слимак|حلزون|salyangoz|слизень (улитка)|slug (snail)|ślimak||melc"
+    ]},
+    { id: 'lf4-wasser', titel: 'Bewässerung', w: [
+      "die|Bewässerung|die Bewässerungen||Pflanzen bekommen Wasser.|Im Sommer ist die Bewässerung sehr wichtig.|💧|الري|полив|آبیاری|sulama|полив|irrigation|nawadnianie|መስኖ|irigare",
+      "der|Gartenschlauch|die Gartenschläuche||Ein langer Schlauch aus Gummi oder Kunststoff für Wasser.|Der Gartenschlauch ist 25 Meter lang.||خرطوم الحديقة|садовий шланг|شلنگ باغ|bahçe hortumu|садовый шланг|garden hose|wąż ogrodowy|ቱቦ ማይ|furtun de grădină",
+      "der|Rasensprenger|die Rasensprenger||Ein Gerät, das Wasser auf den Rasen sprüht.|Der Rasensprenger läuft am frühen Morgen.|💦|رشاش المرجة|дощувач для газону|آبپاش چمن|çim fıskiyesi|дождеватель для газона|lawn sprinkler|zraszacz||aspersor pentru gazon",
+      "die|Tropfbewässerung|die Tropfbewässerungen||Wasser kommt langsam in Tropfen direkt an die Wurzel.|Die Tropfbewässerung spart Wasser.|💧|الري بالتنقيط|крапельне зрошення|آبیاری قطره‌ای|damla sulama|капельный полив|drip irrigation|nawadnianie kropelkowe|መስኖ ብነጠብጣብ|irigare prin picurare",
+      "die|Gießkanne|die Gießkannen||Ein Gefäß mit langem Rohr zum Gießen.|Die Gießkanne fasst zehn Liter.||إبريق السقي (المرشّة)|лійка|آبپاش دستی|sulama kabı|лейка|watering can|konewka||stropitoare",
+      "der|Wasserbedarf|–||So viel Wasser braucht eine Pflanze.|Der Wasserbedarf ist im Juli am höchsten.|📊|الاحتياج المائي|потреба у воді|نیاز آبی|su ihtiyacı|потребность в воде|water requirement|zapotrzebowanie na wodę|ጠለብ ማይ|necesar de apă",
+      "die|Zisterne|die Zisternen||Ein Behälter unter der Erde. Er sammelt Regenwasser.|Das Wasser aus der Zisterne nutzen wir zum Gießen.||خزان مياه الأمطار|резервуар для дощової води|آب‌انبار (مخزن آب باران)|yağmur suyu sarnıcı|резервуар для дождевой воды|rainwater tank (cistern)|zbiornik na deszczówkę|ዒላ ማይ ዝናብ|cisternă pentru apa de ploaie",
+      "die|Trockenheit|–||Es regnet lange nicht. Der Boden ist trocken.|Bei Trockenheit müssen wir mehr gießen.|🌵|الجفاف|посуха|خشکی (خشکسالی)|kuraklık|засуха|drought|susza|ደርቂ|secetă"
+    ]}
+  ]
+});
+
+/* 2. Ausbildungsjahr (vorläufige Struktur) */
+DATA.lf.push({
+  id: 'lf5', nr: 5, jahr: 2, titel: 'Baustellen einrichten und vermessen',
+  subs: [
+    { id: 'lf5-baustelle', titel: 'Baustelle einrichten', w: [
+      "die|Baustelleneinrichtung|die Baustelleneinrichtungen||Alles, was man vor der Arbeit auf der Baustelle aufbaut: Zaun, Toilette, Lager.|Die Baustelleneinrichtung dauert einen halben Tag.|🏗️|تجهيز موقع البناء|облаштування будмайданчика|تجهیز کارگاه|şantiye kurulumu|обустройство стройплощадки|site setup|zagospodarowanie placu budowy|ምድላው ቦታ ስራሕ|organizarea șantierului",
+      "der|Bauzaun|die Bauzäune||Ein Zaun um die Baustelle. Er schützt vor Unfällen.|Der Bauzaun steht um die ganze Baustelle.|🚧|سياج موقع البناء|будівельний паркан|حصار کارگاه|şantiye çiti|строительное ограждение|site fence|ogrodzenie budowy|ሓጹር ቦታ ስራሕ|gard de șantier",
+      "der|Bauplan|die Baupläne||Eine Zeichnung. Sie zeigt, was und wie gebaut wird.|Auf dem Bauplan ist der Weg 1,20 m breit.|📐|مخطط البناء|будівельне креслення|نقشه اجرایی|uygulama planı (proje)|строительный чертёж|construction drawing|plan budowy (rysunek)|ንድፊ ህንጻ|plan de execuție",
+      "das|Leistungsverzeichnis|die Leistungsverzeichnisse||Eine Liste mit allen Arbeiten und Mengen für einen Auftrag.|Im Leistungsverzeichnis stehen 120 m² Pflaster.|📄|جدول الكميات|відомість обсягів робіт|فهرست مقادیر و بها|keşif listesi (iş kalemleri)|ведомость объёмов работ|bill of quantities|przedmiar robót|ዝርዝር ስራሕቲ|listă de cantități (antemăsurătoare)",
+      "der|Lagerplatz|die Lagerplätze||Ein Platz auf der Baustelle für Material.|Die Steine liegen auf dem Lagerplatz.|📦|مكان التخزين|складський майданчик|محل دپوی مصالح|depolama alanı|складская площадка|storage area|miejsce składowania|ቦታ መኽዘን|loc de depozitare",
+      "die|Absperrung|die Absperrungen||Band oder Gitter. Niemand soll in den gefährlichen Bereich laufen.|Die Absperrung schützt die Fußgänger.|🚧|الحاجز|огородження|مانع (نوار حفاظتی)|bariyer|ограждение|barrier|odgrodzenie|መዕገቲ|împrejmuire (barieră)",
+      "das|Aufmaß|die Aufmaße||Man misst die fertige Arbeit genau, zum Beispiel für die Rechnung.|Nach dem Pflastern machen wir das Aufmaß.|📏|قياس الأعمال المنفذة|обмір виконаних робіт|متره کار انجام‌شده|metraj (yapılan işin ölçümü)|обмер выполненных работ|measurement of completed work|obmiar robót|ምዕቃን ዝተሰርሐ ስራሕ|măsurătoarea lucrărilor executate",
+      "der|Bauleiter|die Bauleiter||Die Person, die die ganze Baustelle plant und kontrolliert.|Der Bauleiter kommt jeden Morgen auf die Baustelle.|👷|مدير موقع البناء|виконроб (керівник будівництва)|سرپرست کارگاه|şantiye şefi|прораб (руководитель строительства)|site manager|kierownik budowy|ሓላፊ ህንጻ|șef de șantier"
+    ]},
+    { id: 'lf5-vermessung', titel: 'Vermessung', w: [
+      "der|Zollstock|die Zollstöcke||Ein Meterstab, den man zusammenklappen kann.|Mit dem Zollstock messe ich die Höhe der Stufe.|📏|متر قابل للطي|складаний метр|متر تاشو|katlanır metre|складной метр|folding ruler|miarka składana|ዝዕጸፍ መዐቀኒ|metru pliant",
+      "das|Maßband|die Maßbänder||Ein langes Band mit Zahlen zum Messen.|Mit dem Maßband messen wir 25 Meter.|📏|شريط القياس|рулетка|متر نواری|şerit metre|рулетка|tape measure|taśma miernicza|ገመድ መዐቀኒ|ruletă",
+      "die|Wasserwaage|die Wasserwaagen||Ein Werkzeug. Es zeigt, ob etwas genau waagerecht ist.|Die Wasserwaage zeigt: Die Platte liegt gerade.||ميزان الماء|будівельний рівень|تراز|su terazisi|строительный уровень|spirit level|poziomica|መዐቀኒ ማዕርነት|nivelă cu bulă",
+      "das|Nivelliergerät|die Nivelliergeräte||Ein Gerät mit Fernrohr. Man misst damit Höhen.|Mit dem Nivelliergerät prüfen wir die Höhe vom Planum.|🔭|جهاز التسوية (الميزان المساحي)|нівелір|ترازیاب (دوربین نیوو)|nivo|нивелир|levelling instrument|niwelator|መዐቀኒ ብራኸ|nivelă optică",
+      "die|Fluchtstange|die Fluchtstangen||Ein rot-weißer Stab. Man steckt damit gerade Linien ab.|Die Fluchtstange steht genau an der Ecke.|🚩|شاخص المساحة|віха|ژالون|jalon|веха|ranging pole|tyczka miernicza|ዓንዲ መዐቀኒ|jalon",
+      "die|Richtschnur|die Richtschnüre||Eine gespannte Schnur. Sie zeigt die Linie und die Höhe an.|Wir spannen die Richtschnur für die Randsteine.|🧵|خيط الاستقامة|шнур-причалка|ریسمان کار|çırpı ipi|шнур-причалка|string line|sznurek murarski|ገመድ መቕነዒ|sfoară de aliniere",
+      "der|Pflock|die Pflöcke||Ein Stück Holz, das man in die Erde schlägt, zum Beispiel als Markierung.|Der Pflock markiert die Ecke der Terrasse.|🪵|الوتد|кілок|میخ چوبی|kazık|колышек|peg (stake)|palik||țăruș",
+      "das|Gefälle|die Gefälle||Eine Fläche ist schräg, damit Wasser abläuft. Man gibt es in Prozent an.|Die Terrasse hat 2 % Gefälle vom Haus weg.|↘️|الميل|ухил|شیب|eğim|уклон|fall (gradient)|spadek|ዝምባለ|pantă"
+    ]},
+    { id: 'lf5-maschinen', titel: 'Maschinen und Geräte', w: [
+      "der|Bagger|die Bagger||Eine große Maschine zum Graben und Heben.|Der Bagger hebt die Baugrube aus.|🚜|الحفّارة|екскаватор|بیل مکانیکی|ekskavatör|экскаватор|excavator|koparka|ማሽን ምኹዓት|excavator",
+      "der|Radlader|die Radlader||Eine Maschine mit Schaufel vorne. Sie transportiert Material.|Der Radlader bringt den Schotter zur Fläche.|🚜|اللودر|фронтальний навантажувач|لودر|lastikli yükleyici (kepçe)|фронтальный погрузчик|wheel loader|ładowarka kołowa|ሎደር|încărcător frontal",
+      "die|Rüttelplatte|die Rüttelplatten||Eine Maschine, die Boden oder Pflaster fest drückt.|Mit der Rüttelplatte verdichten wir den Schotter.||الدكّاكة الهزّازة|віброплита|کمپکتور صفحه‌ای (ویبره)|titreşimli plaka (kompaktör)|виброплита|plate compactor|zagęszczarka płytowa|ማሽን ምጽቃጥ|placă vibrantă",
+      "der|Minibagger|die Minibagger||Ein kleiner Bagger für enge Gärten.|Der Minibagger passt durch das Gartentor.|🚜|حفّارة صغيرة|міні-екскаватор|بیل مکانیکی کوچک|mini ekskavatör|мини-экскаватор|mini excavator|minikoparka|ንእሽቶ ማሽን ምኹዓት|miniexcavator",
+      "der|Dumper|die Dumper||Ein kleines Fahrzeug mit Mulde für Erde und Steine.|Der Dumper fährt den Aushub weg.|🚛|قلّابة صغيرة (دمبر)|думпер (міні-самоскид)|دامپر (کمپرسی کوچک)|damper|думпер (мини-самосвал)|dumper|wozidło (dumper)|ንእሽቶ ገልባጢት|dumper (basculantă mică)",
+      "der|Trennschleifer|die Trennschleifer||Eine Maschine mit Scheibe. Man schneidet damit Steine.|Mit dem Trennschleifer schneide ich den Randstein.||قاطعة الأحجار|бензоріз|سنگ‌بر (فرز برش)|taş kesme makinesi|бензорез|cut-off saw|przecinarka|መቑረጺ እምኒ|debitator (mașină de tăiat piatră)",
+      "die|Motorsäge|die Motorsägen||Eine Säge mit Motor für Bäume und dicke Äste.|Die Motorsäge darf man nur mit Schutzkleidung benutzen.|🪚|المنشار الآلي|бензопила|اره موتوری|motorlu testere|бензопила|chainsaw|piła łańcuchowa|ሞቶር መጋዝ|drujbă",
+      "der|Rasenmäher|die Rasenmäher||Eine Maschine zum Schneiden von Rasen.|Der Rasenmäher schneidet den Rasen auf 4 cm.||جزّازة العشب|газонокосарка|ماشین چمن‌زنی|çim biçme makinesi|газонокосилка|lawnmower|kosiarka|ማሽን ምቑራጽ ሳዕሪ|mașină de tuns iarba"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf6', nr: 6, jahr: 2, titel: 'Erdarbeiten durchführen und Flächen entwässern',
+  subs: [
+    { id: 'lf6-erde', titel: 'Erdarbeiten', w: [
+      "der|Aushub|die Aushübe||Die Erde, die man beim Graben herausholt.|Den Aushub fahren wir mit dem Dumper weg.|⛏️|ناتج الحفر|виймковий ґрунт|خاک حفاری|hafriyat|вынутый грунт|excavated material (spoil)|urobek|ዝተኹዓተ ሓመድ|pământ excavat",
+      "die|Baugrube|die Baugruben||Ein großes Loch für ein Fundament oder einen Teich.|Die Baugrube ist 80 cm tief.|🕳️|حفرة الأساس|котлован|گود ساختمانی|temel çukuru|котлован|excavation pit|wykop|ጉድጓድ ህንጻ|groapă de fundație",
+      "das|Planum|die Planums||Die glatte, feste Fläche aus Boden unter dem Wegeaufbau.|Das Planum hat das gleiche Gefälle wie der Belag.|📐|سطح التسوية|земляне полотно (спланована основа)|بستر تسطیح‌شده|tesviye yüzeyi|спланированное основание|formation level (subgrade)|koryto (podłoże wyrównane)|ዝተማዕረ መሬት|platformă nivelată",
+      "die|Böschung|die Böschungen||Ein schräger Hang aus Erde.|Die Böschung bepflanzen wir mit Bodendeckern.|⛰️|المنحدر الترابي|укіс|شیب خاکی|şev|откос|embankment (slope)|skarpa|ዝምባለ ጎቦ|taluz",
+      "die|Verfüllung|die Verfüllungen||Ein Loch oder Graben wird wieder mit Material gefüllt.|Für die Verfüllung nehmen wir Sand.||الردم|засипка|پرکردن (خاکریزی)|dolgu|засыпка|backfill|zasypka|ምምላእ ጉድጓድ|umplutură",
+      "der|Graben|die Gräben||Eine lange, schmale Vertiefung im Boden, zum Beispiel für Rohre.|Der Graben für das Rohr ist 60 cm tief.||الخندق|траншея|ترانشه|hendek|траншея|trench|rów|ነዊሕ ጉድጓድ|șanț",
+      "die|Verdichtung|die Verdichtungen||Eine Maschine drückt Material fest zusammen.|Die Verdichtung machen wir mit der Rüttelplatte.||الدمك|ущільнення|تراکم (کوبیدن)|sıkıştırma|уплотнение|compaction|zagęszczanie|ምጽቃጥ|compactare",
+      "der|Mutterboden|–||Ein anderes Wort für Oberboden: dunkle, fruchtbare Erde.|Der Mutterboden wird vor dem Bau abgetragen.|🟫|التربة الزراعية الخصبة|родючий шар ґрунту|خاک زراعی|bitkisel toprak|плодородный слой почвы|topsoil|ziemia urodzajna|ለምዒ ሓመድ|pământ vegetal"
+    ]},
+    { id: 'lf6-wasser', titel: 'Entwässerung', w: [
+      "die|Entwässerung|die Entwässerungen||Regenwasser wird von Flächen weggeleitet.|Ohne Entwässerung steht das Wasser auf dem Hof.|💧|تصريف المياه|водовідведення|زهکشی (دفع آب سطحی)|su tahliyesi (drenaj)|водоотвод|drainage|odwodnienie|ምፍሳስ ማይ|evacuarea apei",
+      "die|Rinne|die Rinnen||Ein offener Kanal. Er leitet Wasser ab.|Die Rinne liegt vor der Garage.||القناة (المجرى)|водовідвідний лоток|آبرو|oluk|водоотводный лоток|channel drain|odwodnienie liniowe|መፍሰሲ ማይ|rigolă",
+      "der|Hofablauf|die Hofabläufe||Ein Gitter im Boden. Dort fließt das Wasser in den Kanal.|Der Hofablauf ist voll mit Laub.||بالوعة الفناء|дворовий трап|کفشور حیاط|avlu süzgeci|дворовый трап (дождеприёмник)|yard gully|wpust podwórzowy|መእተዊ ማይ ቀጽሪ|sifon de curte",
+      "das|Rohr|die Rohre||Ein langes, rundes Teil. Wasser fließt hindurch.|Das Rohr verlegen wir mit Gefälle.||الأنبوب|труба|لوله|boru|труба|pipe|rura|ቱቦ|țeavă",
+      "die|Versickerung|die Versickerungen||Regenwasser läuft langsam in den Boden.|Rasenfugenpflaster ermöglicht Versickerung.|⬇️|تسرّب الماء إلى التربة|інфільтрація (вбирання води)|نفوذ آب به خاک|suyun toprağa sızması|впитывание воды в грунт|infiltration|wsiąkanie|ምስራግ ማይ ናብ መሬት|infiltrare",
+      "der|Schacht|die Schächte||Ein senkrechtes Loch mit Deckel, zum Beispiel zur Kontrolle der Rohre.|Der Schacht hat einen Deckel aus Gusseisen.||غرفة التفتيش|оглядовий колодязь|منهول (چاهک بازدید)|rögar|смотровой колодец|manhole (inspection chamber)|studzienka|ጉድጓድ ቁጽጽር|cămin de vizitare",
+      "das|Regenwasser|–||Wasser, das als Regen vom Himmel fällt.|Das Regenwasser fließt in die Zisterne.|🌧️|مياه الأمطار|дощова вода|آب باران|yağmur suyu|дождевая вода|rainwater|deszczówka|ማይ ዝናብ|apă de ploaie",
+      "die|Drainage|die Drainagen||Rohre oder Schichten, die Wasser aus dem Boden ableiten.|Die Drainage verhindert Staunässe.||الصرف الجوفي (الدرين)|дренаж|زهکش|drenaj|дренаж|land drain|drenaż|ቱቦ ምፍሳስ ማይ|drenaj"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf7', nr: 7, jahr: 2, titel: 'Wege und Plätze befestigen',
+  subs: [
+    { id: 'lf7-aufbau', titel: 'Aufbau von Wegen', w: [
+      "der|Oberbau|die Oberbauten||Alle Schichten über dem Planum: Tragschicht, Bettung und Belag.|Der Oberbau ist bei einer Einfahrt dicker als bei einem Gartenweg.||البنية العلوية للطريق|дорожній одяг (верхня будова)|روسازی|üst yapı|дорожная одежда|pavement construction|nawierzchnia (konstrukcja)|ላዕለዋይ ህንጻ መገዲ|structura căii (suprastructură)",
+      "die|Tragschicht|die Tragschichten||Eine feste Schicht aus Schotter. Sie trägt die Last.|Die Tragschicht ist 20 cm dick.||طبقة الأساس الحاملة|несучий шар|لایه اساس|taşıyıcı tabaka|несущий слой|base course|warstwa nośna|ተሰካሚ ደርቢ|strat portant",
+      "die|Frostschutzschicht|die Frostschutzschichten||Eine Schicht aus Kies oder Schotter. Sie schützt vor Schäden durch Frost.|Die Frostschutzschicht liegt direkt auf dem Planum.|❄️|طبقة الحماية من الصقيع|морозозахисний шар|لایه ضد یخبندان|don koruma tabakası|морозозащитный слой|frost protection layer (sub-base)|warstwa mrozoochronna|ደርቢ ምክልኻል ውርጪ|strat de protecție la îngheț",
+      "die|Bettung|die Bettungen||Eine dünne Schicht aus Splitt oder Sand. Darauf liegen die Steine.|Die Bettung ziehen wir mit der Latte glatt.||طبقة الفرش|постіль (вирівнювальний шар)|بستر ماسه‌ای|yataklama tabakası|постель (выравнивающий слой)|bedding layer|podsypka|ደርቢ መንበሪ እምኒ|strat de pozare",
+      "der|Splitt|die Splitte||Kleine, kantige Steine, zum Beispiel 2 bis 5 mm groß.|Für die Bettung nehmen wir Splitt.|⚪|الحصى المكسّر الناعم|дрібний щебінь (відсів)|شن شکسته ریز|mıcır|мелкий щебень (отсев)|fine chippings (grit)|grys|ደቂቕ ጸጸር|criblură (split)",
+      "der|Schotter|die Schotter||Grobe, kantige Steine, zum Beispiel 0 bis 32 mm groß.|Der Schotter wird in Lagen verdichtet.|🪨|الحصى المكسّر (البحص)|щебінь|سنگ شکسته (شن)|kırma taş|щебень|crushed stone|tłuczeń (kruszywo łamane)|ጸጸር|piatră spartă",
+      "der|Randstein|die Randsteine||Ein Stein am Rand. Er hält das Pflaster fest.|Der Randstein steht in Beton.||حجر الحافة|бордюрний камінь|جدول (سنگ کناره)|bordür taşı|бордюрный камень|edging stone (kerb)|krawężnik (obrzeże)|እምኒ ደረት|bordură",
+      "die|Fuge|die Fugen||Der kleine Raum zwischen zwei Steinen.|Die Fuge ist 3 bis 5 mm breit.||الفاصل بين الأحجار|шов|درز|derz|шов|joint|fuga|ፉጋ (መንጎ እምኒ)|rost"
+    ]},
+    { id: 'lf7-belag', titel: 'Beläge und Verbände', w: [
+      "das|Pflaster|die Pflaster||Ein Belag aus vielen kleinen Steinen.|Das Pflaster in der Einfahrt ist aus Granit.|🧱|الرصف بالحجارة|бруківка|سنگفرش|parke taşı döşeme|мощение (брусчатка)|paving|bruk|ዝተነጽፈ እምኒ|pavaj",
+      "der|Pflasterstein|die Pflastersteine||Ein einzelner Stein für das Pflaster.|Der Pflasterstein ist 8 cm dick.|🧱|حجر الرصف|бруківковий камінь|سنگ فرش (بلوک)|parke taşı|брусчатка (камень)|paving stone|kostka brukowa|እምኒ ንጽፊ|piatră de pavaj",
+      "die|Platte|die Platten||Ein flacher, großer Stein für Terrassen oder Wege.|Die Platte ist 60 mal 40 cm groß.|⬜|البلاطة|плита|دال (تخته‌سنگ)|plaka|плита|slab|płyta|ጸፍጣፍ እምኒ|dală",
+      "der|Naturstein|die Natursteine||Ein Stein aus der Natur, zum Beispiel Granit oder Sandstein.|Naturstein ist teurer als Betonstein.|🪨|الحجر الطبيعي|природний камінь|سنگ طبیعی|doğal taş|натуральный камень|natural stone|kamień naturalny|ተፈጥሮኣዊ እምኒ|piatră naturală",
+      "der|Betonstein|die Betonsteine||Ein Stein aus Beton. Er wird in einer Fabrik gemacht.|Der Betonstein ist grau und rechteckig.|🧱|الحجر الخرساني|бетонна бруківка|بلوک بتنی|beton parke taşı|бетонная брусчатка|concrete paver|kostka betonowa|እምኒ ኮንክሪት|pavele din beton",
+      "der|Verband|die Verbände||Das Muster, in dem man die Steine legt.|Der Verband sieht aus wie ein Fischgrätmuster.||نمط التركيب|схема укладання (перев'язка)|الگوی چیدمان|döşeme deseni|рисунок укладки|laying pattern (bond)|wzór układania|ኣሰራርዓ እምኒ|model de așezare",
+      "der|Läuferverband|die Läuferverbände||Die Steine liegen in langen Reihen, versetzt wie bei einer Mauer.|Der Läuferverband ist einfach zu verlegen.||التركيب الطولي المتعاقب|укладання рядами зі зміщенням|چیدمان ردیفی|sıralı döşeme|укладка рядами со смещением|stretcher bond|wiązanie pasowe|ብመስመር ዝተሰርዐ|așezare în rânduri decalate",
+      "der|Gummihammer|die Gummihämmer||Ein Hammer mit Kopf aus Gummi. Er klopft Steine fest.|Mit dem Gummihammer klopfe ich die Platte fest.|🔨|مطرقة مطاطية|гумовий молоток (киянка)|چکش لاستیکی|lastik çekiç|резиновая киянка|rubber mallet|młotek gumowy|መዶሻ ጎማ|ciocan de cauciuc"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf8', nr: 8, jahr: 2, titel: 'Gehölze pflanzen und schneiden',
+  subs: [
+    { id: 'lf8-pflanzung', titel: 'Pflanzung', w: [
+      "die|Pflanzgrube|die Pflanzgruben||Das Loch, in das eine Pflanze kommt.|Die Pflanzgrube ist doppelt so breit wie der Ballen.|🕳️|حفرة الزراعة|посадкова яма|چاله کاشت|dikim çukuru|посадочная яма|planting pit|dół do sadzenia|ጉድጓድ ተኽሊ|groapă de plantare",
+      "der|Wurzelballen|die Wurzelballen||Die Wurzeln mit der Erde daran.|Der Wurzelballen darf nicht austrocknen.||كتلة الجذور|кореневий ком|گلوله ریشه|kök topu|корневой ком|root ball|bryła korzeniowa|ሱርን ሓመድን|balotul rădăcinii",
+      "die|Containerpflanze|die Containerpflanzen||Eine Pflanze, die in einem Topf gewachsen ist.|Die Containerpflanze kann man fast das ganze Jahr pflanzen.|🪴|نبات مزروع في وعاء|рослина в контейнері|گیاه گلدانی|saksılı bitki|растение в контейнере|container plant|roślina w pojemniku|ኣብ ድስቲ ዝዓበየ ተኽሊ|plantă la ghiveci (container)",
+      "die|Wurzelware|–||Pflanzen ohne Erde an den Wurzeln.|Wurzelware pflanzen wir nur im Herbst oder im Frühjahr.|🌱|شتلات عارية الجذور|саджанці з відкритим коренем|نهال ریشه‌لخت|çıplak köklü fidan|саженцы с открытыми корнями|bare-root plants|sadzonki z odkrytym korzeniem||puieți cu rădăcină nudă",
+      "der|Baumpfahl|die Baumpfähle||Ein Holzpfahl. Er hält einen jungen Baum gerade.|Der Baumpfahl steht auf der Westseite.|🪵|دعامة الشجرة|кілок для дерева|قیم درخت|ağaç kazığı|кол для дерева|tree stake|palik do drzewa|ደገፍ ኦም|tutore pentru pom",
+      "das|Angießen|–||Das erste Gießen direkt nach dem Pflanzen.|Das Angießen ist nach dem Pflanzen sehr wichtig.|💧|السقي بعد الزراعة مباشرة|полив одразу після посадки|آبیاری بلافاصله پس از کاشت|can suyu (dikimden sonra ilk sulama)|полив сразу после посадки|watering in|podlewanie po posadzeniu|ቀዳማይ ምስታይ ማይ|udarea după plantare",
+      "der|Pflanzschnitt|die Pflanzschnitte||Ein Schnitt beim Pflanzen. Danach wächst die Pflanze besser an.|Beim Pflanzschnitt kürzen wir die Triebe um ein Drittel.|✂️|التقليم عند الزراعة|обрізування під час посадки|هرس هنگام کاشت|dikim budaması|обрезка при посадке|pruning at planting|cięcie przy sadzeniu||tăiere la plantare",
+      "der|Pflanzabstand|die Pflanzabstände||Der Abstand zwischen zwei Pflanzen.|Der Pflanzabstand bei der Hecke beträgt 30 cm.|↔️|مسافة الزراعة|відстань між рослинами|فاصله کاشت|dikim aralığı|расстояние между растениями|planting distance|rozstawa sadzenia|ርሕቀት ተኽልታት|distanța de plantare"
+    ]},
+    { id: 'lf8-schnitt', titel: 'Gehölzschnitt', w: [
+      "der|Rückschnitt|die Rückschnitte||Triebe werden kürzer geschnitten.|Im Frühjahr machen wir einen Rückschnitt bei den Stauden.|✂️|التقليم (التقصير)|обрізування (вкорочення)|هرس (کوتاه کردن)|geri budama|обрезка (укорачивание)|cutting back|przycinanie|ምቕናስ|tăiere de scurtare",
+      "der|Formschnitt|die Formschnitte||Ein Schnitt, der der Pflanze eine feste Form gibt, zum Beispiel eine Kugel.|Der Formschnitt beim Buchsbaum braucht Geduld.||التقليم التشكيلي|формувальна стрижка|هرس فرم‌دهی|şekil budaması|формовочная стрижка|topiary (shaping cut)|cięcie formujące||tăiere de formare",
+      "der|Verjüngungsschnitt|die Verjüngungsschnitte||Alte Triebe werden ganz entfernt. Die Pflanze wird wieder jung.|Der Verjüngungsschnitt macht den alten Strauch wieder dicht.|🔄|تقليم التجديد|омолоджувальна обрізка|هرس جوان‌سازی|gençleştirme budaması|омолаживающая обрезка|rejuvenation pruning|cięcie odmładzające||tăiere de întinerire",
+      "der|Trieb|die Triebe||Ein junger, wachsender Teil der Pflanze.|Der Trieb ist dieses Jahr 40 cm gewachsen.|🌿|الفرع الجديد|пагін|شاخه جوان|sürgün|побег|shoot|pęd|ሓድሽ ጨንፈር|lăstar",
+      "der|Ast|die Äste||Ein dicker Teil am Baum. Daran wachsen Zweige.|Der tote Ast muss ab.|🌳|الغصن|гілка|شاخه|dal|сук (ветка)|branch|gałąź|ጨንፈር|ramură",
+      "der|Leittrieb|die Leittriebe||Der oberste Trieb in der Mitte eines Baumes.|Den Leittrieb schneiden wir nicht ab.|⬆️|الفرع القائد|провідник (центральний пагін)|شاخه اصلی (رهبر)|lider sürgün|центральный проводник|leader (central shoot)|przewodnik||ax principal (lăstar conducător)",
+      "die|Hecke|die Hecken||Viele Sträucher in einer Reihe. Sie sehen aus wie eine grüne Wand.|Die Hecke schneiden wir zweimal im Jahr.|🌳|السياج النباتي|живопліт|پرچین|canlı çit|живая изгородь|hedge|żywopłot|ሓጹር ኣግራብ|gard viu",
+      "die|Heckenschere|die Heckenscheren||Eine große Schere oder Maschine für Hecken.|Die Heckenschere hat einen Akku.|✂️|مقص السياج|кущоріз|قیچی پرچین|çit makası|кусторез|hedge trimmer|nożyce do żywopłotu|መቐስ ሓጹር|foarfecă pentru gard viu"
+    ]}
+  ]
+});
+
+/* 3. Ausbildungsjahr (vorläufige Struktur) */
+DATA.lf.push({
+  id: 'lf9', nr: 9, jahr: 3, titel: 'Mauern und Treppen bauen',
+  subs: [
+    { id: 'lf9-mauer', titel: 'Mauern', w: [
+      "die|Mauer|die Mauern||Eine Wand aus Steinen im Garten.|Die Mauer ist 80 cm hoch.|🧱|الجدار|мур (стіна)|دیوار|duvar|стена|wall|mur|መንደቕ|zid",
+      "die|Trockenmauer|die Trockenmauern||Eine Mauer aus Natursteinen ohne Mörtel.|In der Trockenmauer leben Eidechsen.|🪨|جدار حجري جاف (بلا ملاط)|суха кладка (мур без розчину)|دیوار خشکه‌چین|harçsız taş duvar|сухая каменная кладка|dry stone wall|mur suchy|ብዘይ ሲሚንቶ ዝተሃንጸ መንደቕ|zid uscat din piatră",
+      "die|Stützmauer|die Stützmauern||Eine Mauer, die die Erde am Hang hält.|Die Stützmauer hält die Böschung.|🧱|جدار استنادي|підпірна стіна|دیوار حائل|istinat duvarı|подпорная стена|retaining wall|mur oporowy|ደገፍ መንደቕ|zid de sprijin",
+      "das|Fundament|die Fundamente||Der feste Unterbau unter einer Mauer. Es liegt frostfrei tief.|Das Fundament ist 80 cm tief.||الأساس|фундамент|پی (فونداسیون)|temel|фундамент|foundation|fundament|መሰረት|fundație",
+      "der|Mörtel|die Mörtel||Eine Masse aus Sand, Zement und Wasser. Sie verbindet Steine.|Der Mörtel muss gut abbinden.||الملاط (المونة)|будівельний розчин|ملات|harç|строительный раствор|mortar|zaprawa|ሲሚንቶን ሑጻን|mortar",
+      "der|Beton|die Betone||Ein Baustoff aus Zement, Kies und Wasser. Er wird sehr hart.|Der Beton für das Fundament kommt aus dem Mischer.|🏗️|الخرسانة|бетон|بتن|beton|бетон|concrete|beton|ኮንክሪት|beton",
+      "die|Gabione|die Gabionen||Ein Korb aus Draht, gefüllt mit Steinen.|Die Gabione dient als Sichtschutz.||قفص حجري (جابيون)|габіон|گابیون (سبد سنگی)|gabyon (taş sepeti)|габион|gabion|gabion|ሳንዱቕ ሽቦ ምስ እምኒ|gabion",
+      "die|Schalung|die Schalungen||Eine Form aus Holz oder Metall für Beton.|Die Schalung bauen wir aus Brettern.|🪵|القالب الخشبي (الشدّة)|опалубка|قالب بتن|beton kalıbı|опалубка|formwork|szalunek|ቅርጺ ኮንክሪት|cofraj"
+    ]},
+    { id: 'lf9-treppe', titel: 'Treppen', w: [
+      "die|Treppe|die Treppen||Mehrere Stufen, um nach oben oder unten zu gehen.|Die Treppe im Garten hat sechs Stufen.|🪜|الدرج|сходи|پله‌ها (راه‌پله)|merdiven|лестница|steps (stairs)|schody|መደያይቦ|scară",
+      "die|Stufe|die Stufen||Ein einzelnes Teil einer Treppe.|Die Stufe ist 15 cm hoch.||الدرجة|сходинка|پله|basamak|ступень|step|stopień|ደረጃ|treaptă",
+      "die|Steigung|die Steigungen||Die Höhe einer Stufe.|Die Steigung liegt im Garten meist bei 14 bis 16 cm.|📏|ارتفاع الدرجة|висота сходинки|ارتفاع پله|basamak yüksekliği|высота ступени|rise (riser height)|wysokość stopnia|ቁመት ደረጃ|înălțimea treptei",
+      "der|Auftritt|die Auftritte||Die Fläche einer Stufe, auf die man den Fuß setzt.|Der Auftritt ist 35 cm tief.|👣|عمق الدرجة (موطئ القدم)|проступ|کف پله|basamak derinliği|проступь|tread (going)|głębokość stopnia|መርገጺ ደረጃ|adâncimea treptei",
+      "das|Podest|die Podeste||Eine flache Fläche zwischen zwei Teilen einer Treppe.|Nach acht Stufen kommt ein Podest.||بسطة الدرج|сходовий майданчик|پاگرد|sahanlık|лестничная площадка|landing|spocznik||podest",
+      "die|Blockstufe|die Blockstufen||Eine Stufe aus einem einzigen, massiven Stein.|Die Blockstufe aus Granit ist sehr schwer.|🧱|درجة حجرية من كتلة واحدة|блокова сходинка|پله سنگی یکپارچه|blok basamak|блочная ступень|block step|stopień blokowy|ደረጃ ካብ ሓደ እምኒ|treaptă monolit",
+      "das|Geländer|die Geländer||Eine Stange zum Festhalten an der Treppe.|Ab vier Stufen planen wir ein Geländer.||الدرابزين|поручні (перила)|نرده|korkuluk|перила|handrail (railing)|poręcz|መትሓዚ ኢድ|balustradă",
+      "die|Schrittmaßregel|–||Eine Formel für bequeme Treppen: 2 Steigungen + 1 Auftritt = 63 bis 65 cm.|Nach der Schrittmaßregel kann man auf der Treppe gut gehen.|🧮|قاعدة الخطوة|правило кроку|قاعده گام|adım kuralı|правило шага|step rule (2 risers + 1 tread)|reguła kroku|ሕጊ ስጉምቲ|regula pasului"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf10', nr: 10, jahr: 3, titel: 'Holzbauteile im Garten errichten',
+  subs: [
+    { id: 'lf10-holz', titel: 'Holzbau', w: [
+      "der|Zaun|die Zäune||Eine Grenze aus Holz oder Metall um ein Grundstück.|Der Zaun ist 1,80 m hoch.||السياج|паркан|نرده (حصار)|çit|забор|fence|płot|ሓጹር|gard",
+      "die|Pergola|die Pergolen||Ein Gerüst aus Holz oder Metall. Oft wachsen Pflanzen daran.|Die Pergola gibt der Terrasse Schatten.||العريشة (البرغولا)|пергола|آلاچیق (پرگولا)|pergola|пергола|pergola|pergola|ፐርጎላ|pergolă",
+      "die|Holzterrasse|die Holzterrassen||Eine Terrasse mit einem Belag aus Holzdielen.|Die Holzterrasse liegt auf Kanthölzern.||شرفة خشبية|дерев'яна тераса|تراس چوبی|ahşap teras|деревянная терраса|timber deck|taras drewniany|ናይ ዕንጨይቲ ቨራንዳ|terasă din lemn",
+      "der|Pfosten|die Pfosten||Ein senkrechtes Stück aus Holz oder Metall. Es trägt etwas.|Der Pfosten steht in einem Betonfundament.|🪵|العمود|стовп|پایه (ستون)|direk|столб|post|słupek|ዓንዲ|stâlp",
+      "die|Schraube|die Schrauben||Ein Teil aus Metall mit Gewinde. Man verbindet damit Teile.|Die Schraube ist aus Edelstahl.|🔩|البرغي|шуруп|پیچ|vida|шуруп|screw|wkręt|ቪተ|șurub",
+      "der|Akkuschrauber|die Akkuschrauber||Eine Maschine mit Akku zum Schrauben.|Der Akkuschrauber muss geladen werden.|🔋|مفك براغي يعمل بالبطارية|акумуляторний шуруповерт|پیچ‌گوشتی شارژی|şarjlı vidalama makinesi|аккумуляторный шуруповёрт|cordless drill driver|wkrętarka akumulatorowa|ብባትሪ ዝሰርሕ መጠምዘዚ|mașină de înșurubat cu acumulator",
+      "der|Holzschutz|–||Alles, was man tut, damit Holz nicht fault.|Guter Holzschutz beginnt mit der richtigen Bauweise.|🛡️|حماية الخشب|захист деревини|محافظت از چوب|ahşap koruma|защита древесины|wood protection|ochrona drewna|ምክልኻል ዕንጨይቲ|protecția lemnului",
+      "der|Pfostenträger|die Pfostenträger||Ein Teil aus Metall. Es hält den Pfosten über dem Boden.|Der Pfostenträger schützt das Holz vor Nässe.|🔩|حامل العمود المعدني|тримач стовпа|پایه فلزی ستون|direk ayağı|опора для столба|post base|kotwa do słupka|ደገፍ ዓንዲ ብረት|suport metalic pentru stâlp"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf11', nr: 11, jahr: 3, titel: 'Rasen, Bauwerksbegrünung und Wasseranlagen herstellen',
+  subs: [
+    { id: 'lf11-rasen', titel: 'Rasen', w: [
+      "der|Rasen|die Rasen||Eine Fläche mit kurzem, dichtem Gras.|Der Rasen muss jede Woche gemäht werden.|🌱|المرجة (العشب)|газон|چمن|çim alan|газон|lawn|trawnik|ሳዕሪ ጀርዲን|gazon",
+      "das|Saatgut|–||Samen für die Aussaat, zum Beispiel Rasensamen.|Das Saatgut für Sportrasen ist sehr robust.|🌾|البذور|насіння (посівний матеріал)|بذر|tohumluk|семена|seed|materiał siewny|ዘርኢ ንምዝራእ|sămânță",
+      "der|Rollrasen|–||Fertiger Rasen in Rollen. Man rollt ihn aus.|Rollrasen ist sofort grün.||العشب الجاهز (لفائف)|рулонний газон|چمن رولی|rulo çim|рулонный газон|turf (rolled lawn)|trawa z rolki|ተጠቕሊሉ ዝመጽእ ሳዕሪ|gazon rulou",
+      "das|Vertikutieren|–||Man ritzt den Rasen. Moos und Filz werden entfernt.|Das Vertikutieren machen wir im Frühjahr.||تهوية المرجة (خدش العشب)|скарифікація|هوادهی چمن (ورتی‌کات)|tırmıklama (vertikutlama)|скарификация|scarifying|wertykulacja||scarificare",
+      "das|Mähen|–||Man schneidet den Rasen mit dem Rasenmäher.|Beim Mähen bleibt der Rasen 4 cm hoch.|🌿|جزّ العشب|косіння|چمن‌زنی|biçme|кошение|mowing|koszenie|ምቑራጽ ሳዕሪ|cosire",
+      "die|Rasenkante|die Rasenkanten||Der Rand vom Rasen zum Beet.|Die Rasenkante stechen wir mit dem Spaten ab.||حافة المرجة|край газону|لبه چمن|çim kenarı|край газона|lawn edge|obrzeże trawnika|ደረት ሳዕሪ|marginea gazonului",
+      "das|Moos|die Moose||Eine kleine grüne Pflanze. Im Rasen will man sie nicht haben.|Im Schatten wächst viel Moos.||الطحلب|мох|خزه|yosun|мох|moss|mech||mușchi",
+      "die|Nachsaat|die Nachsaaten||Man sät neue Samen in Lücken im Rasen.|Nach dem Vertikutieren machen wir eine Nachsaat.|🌱|إعادة البذر|підсів|بذرپاشی مجدد|ek ekim|подсев|overseeding|dosiewanie|ደጊምካ ምዝራእ|resemănare"
+    ]},
+    { id: 'lf11-gruen', titel: 'Bauwerksbegrünung und Wasser', w: [
+      "die|Dachbegrünung|die Dachbegrünungen||Pflanzen wachsen auf einem Dach.|Die Dachbegrünung hält Regenwasser zurück.|🏠|تخضير الأسطح|озеленення даху|بام سبز|çatı yeşillendirme|озеленение крыши|green roof|zielony dach|ቀጠልያ ናሕሲ|acoperiș verde",
+      "die|Extensivbegrünung|die Extensivbegrünungen||Eine leichte Dachbegrünung mit wenig Pflege, zum Beispiel mit Sedum.|Die Extensivbegrünung braucht nur 8 cm Substrat.||تخضير واسع قليل العناية|екстенсивне озеленення|سبزکاری گسترده (کم‌نگهداشت)|ekstansif yeşillendirme|экстенсивное озеленение|extensive green roof|zieleń ekstensywna||înverzire extensivă",
+      "die|Fassadenbegrünung|die Fassadenbegrünungen||Pflanzen wachsen an einer Hauswand.|Die Fassadenbegrünung kühlt das Haus im Sommer.|🏢|تخضير الواجهات|озеленення фасаду|نمای سبز|cephe yeşillendirme|озеленение фасада|green facade|zielona fasada|ቀጠልያ ገጽ ህንጻ|fațadă verde",
+      "der|Gartenteich|die Gartenteiche||Ein kleiner, künstlicher See im Garten.|Der Gartenteich ist 1,20 m tief.|🐸|بركة الحديقة|садовий ставок|حوض باغ (برکه)|bahçe havuzu|садовый пруд|garden pond|oczko wodne|ቀላይ ጀርዲን|iaz de grădină",
+      "die|Teichfolie|die Teichfolien||Eine dichte Folie aus Kunststoff. Sie hält das Wasser im Teich.|Die Teichfolie darf kein Loch haben.||غشاء عازل للبركة|плівка для ставка|ورق عایق حوض|havuz folyosu|плёнка для пруда|pond liner|folia do oczka wodnego|ፕላስቲክ ቀላይ|folie pentru iaz",
+      "die|Uferzone|die Uferzonen||Der flache Rand vom Teich mit Sumpfpflanzen.|In der Uferzone wachsen Schwertlilien.|🌾|منطقة الضفة|прибережна зона|ناحیه ساحلی|kıyı bölgesi|прибрежная зона|marginal zone (shallow edge)|strefa brzegowa|ገምገም ቀላይ|zonă de mal",
+      "die|Pumpe|die Pumpen||Ein Gerät, das Wasser bewegt.|Die Pumpe bringt das Wasser in den Bachlauf.|⚙️|المضخة|насос|پمپ|pompa|насос|pump|pompa|ፓምፕ|pompă",
+      "der|Bachlauf|die Bachläufe||Ein kleiner, künstlicher Bach im Garten.|Der Bachlauf endet im Gartenteich.|🏞️|جدول ماء صغير|декоративний струмок|جوی آب تزئینی|yapay dere|декоративный ручей|garden stream|strumyk ogrodowy|ንእሽቶ ሩባ|pârâu decorativ"
+    ]}
+  ]
+});
+
+DATA.lf.push({
+  id: 'lf12', nr: 12, jahr: 3, titel: 'Freianlagen pflegen und Aufträge abwickeln',
+  subs: [
+    { id: 'lf12-pflege', titel: 'Pflege von Anlagen', w: [
+      "die|Pflege|–||Alle Arbeiten, damit eine Anlage schön und gesund bleibt.|Die Pflege der Anlage machen wir jeden Monat.|🧹|العناية (الصيانة)|догляд|نگهداری|bakım|уход|maintenance|pielęgnacja|ክንክን|întreținere",
+      "der|Pflegeplan|die Pflegepläne||Ein Plan: Welche Arbeiten macht man wann?|Laut Pflegeplan schneiden wir die Hecke im Juni.|🗓️|خطة العناية|план догляду|برنامه نگهداری|bakım planı|план ухода|maintenance schedule|plan pielęgnacji|መደብ ክንክን|plan de întreținere",
+      "das|Laub|–||Die Blätter, die im Herbst von den Bäumen fallen.|Das Laub kommt auf den Kompost.|🍂|أوراق الشجر المتساقطة|опале листя|برگ ریخته|dökülen yapraklar|опавшая листва|fallen leaves|opadłe liście|ዝረገፈ ቆጽሊ|frunze căzute",
+      "der|Laubbläser|die Laubbläser||Eine Maschine, die Laub mit Luft wegbläst.|Der Laubbläser ist sehr laut.|💨|منفاخ أوراق الشجر|повітродувка для листя|برگ‌روب (دمنده)|yaprak üfleme makinesi|воздуходувка для листьев|leaf blower|dmuchawa do liści|ማሽን ምንፋሕ ቆጽሊ|suflantă de frunze",
+      "der|Freischneider|die Freischneider||Eine Maschine mit Faden oder Messer für hohes Gras an Rändern.|Mit dem Freischneider mähe ich die Böschung.||آلة قص الأعشاب|мотокоса (тример)|علف‌تراش|tırpan makinesi|мотокоса (триммер)|brush cutter (strimmer)|kosa spalinowa||motocoasă",
+      "die|Mulchschicht|die Mulchschichten||Eine Decke aus Rindenmulch oder Laub auf dem Beet.|Die Mulchschicht ist 5 cm dick.|🪵|طبقة التغطية (المالش)|шар мульчі|لایه مالچ|malç tabakası|слой мульчи|mulch layer|warstwa ściółki|ደርቢ መሸፈኒ|strat de mulci",
+      "der|Winterschutz|–||Ein Schutz für Pflanzen gegen Frost, zum Beispiel Vlies.|Der Winterschutz aus Vlies schützt die Rose.|❄️|الحماية الشتوية|зимове укриття|حفاظت زمستانی|kış koruması|зимнее укрытие|winter protection|osłona zimowa|ምክልኻል ክረምቲ|protecție de iarnă",
+      "die|Beikrautregulierung|die Beikrautregulierungen||Man entfernt Beikraut, zum Beispiel durch Hacken oder Mulchen.|Die Beikrautregulierung machen wir ohne Gift.|🌿|مكافحة الأعشاب الضارة|боротьба з бур'янами|کنترل علف‌های هرز|yabani ot kontrolü|борьба с сорняками|weed control|odchwaszczanie||combaterea buruienilor"
+    ]},
+    { id: 'lf12-auftrag', titel: 'Kunde, Angebot und Rechnung', w: [
+      "das|Angebot|die Angebote||Ein Schreiben an den Kunden: So viel kostet diese Arbeit.|Der Kunde bekommt das Angebot per E-Mail.|📨|عرض السعر|комерційна пропозиція|پیش‌فاکتور (پیشنهاد قیمت)|fiyat teklifi|коммерческое предложение|quotation (quote)|oferta|ምቕራብ ዋጋ|ofertă de preț",
+      "die|Rechnung|die Rechnungen||Ein Schreiben: So viel muss der Kunde jetzt bezahlen.|Die Rechnung schicken wir nach der Abnahme.|🧾|الفاتورة|рахунок|صورتحساب (فاکتور)|fatura|счёт|invoice|faktura|ፋቱራ|factură",
+      "die|Kalkulation|die Kalkulationen||Man berechnet die Kosten für einen Auftrag.|Die Kalkulation zeigt: Der Weg kostet 3.000 Euro.|🧮|حساب التكاليف|калькуляція|برآورد هزینه|maliyet hesabı|калькуляция|cost calculation|kalkulacja|ሕሳብ ወጻኢታት|calculația costurilor",
+      "der|Stundenlohn|die Stundenlöhne||So viel Geld bekommt man für eine Stunde Arbeit.|Der Stundenlohn steht im Tarifvertrag.|💶|الأجر بالساعة|погодинна оплата|دستمزد ساعتی|saatlik ücret|почасовая оплата|hourly wage|stawka godzinowa|ደሞዝ ብሰዓት|salariu pe oră",
+      "der|Materialpreis|die Materialpreise||Der Preis für Steine, Pflanzen oder Erde.|Der Materialpreis für Granit ist gestiegen.|🏷️|سعر المواد|ціна матеріалу|قیمت مصالح|malzeme fiyatı|цена материала|material price|cena materiału|ዋጋ ኣቑሑ|prețul materialului",
+      "die|Abnahme|die Abnahmen||Der Kunde prüft die fertige Arbeit und nimmt sie an.|Bei der Abnahme ist der Kunde zufrieden.|✅|الاستلام النهائي|приймання робіт|تحویل کار|iş teslimi (kabul)|приёмка работ|acceptance (handover)|odbiór robót|ምርካብ ስራሕ|recepția lucrării",
+      "die|Gewährleistung|die Gewährleistungen||Die Firma muss Fehler eine bestimmte Zeit lang kostenlos reparieren.|Die Gewährleistung dauert mehrere Jahre.|🛡️|الضمان|гарантійна відповідальність|ضمانت|garanti (ayıp sorumluluğu)|гарантийные обязательства|warranty (liability for defects)|rękojmia|ውሕስነት|garanție",
+      "der|Mangel|die Mängel||Ein Fehler an der fertigen Arbeit.|Der Kunde meldet einen Mangel am Pflaster.|❗|العيب|дефект|عیب (نقص)|kusur|дефект (недостаток)|defect|wada (usterka)|ጉድለት|defect"
+    ]}
+  ]
+});
+
+/* Pflanzenkunde – für alle Ausbildungsjahre.
+ * Zuerst die Grundbegriffe (botanische Namen), dann Pflanzennamen.
+ * Pflanzennamen auf Tigrinya fehlen bewusst: Hier hilft der botanische Name,
+ * der in allen Sprachen gleich ist.
+ */
+DATA.lf.push({
+  id: 'pfl', nr: 0, jahr: 0, titel: 'Pflanzenkunde: botanische Namen und Pflanzen',
+  subs: [
+    { id: 'pfl-grund', titel: 'Grundbegriffe: botanische Namen', w: [
+      "der|botanische Name|die botanischen Namen||Der wissenschaftliche Name einer Pflanze. Er ist Latein und gilt auf der ganzen Welt.|Der botanische Name der Stiel-Eiche ist Quercus robur.|🏷️|الاسم العلمي للنبات|ботанічна назва|نام علمی گیاه|bilimsel (botanik) ad|ботаническое название|botanical name|nazwa botaniczna|ሳይንሳዊ ስም ተኽሊ|denumire botanică",
+      "die|Gattung|die Gattungen||Der erste Teil des botanischen Namens. Er beginnt mit einem großen Buchstaben, zum Beispiel Acer.|Acer ist die Gattung der Ahorne.||الجنس|рід|جنس|cins|род|genus|rodzaj||gen",
+      "die|Art|die Arten||Der zweite Teil des botanischen Namens. Er wird klein geschrieben, zum Beispiel platanoides.|Die Art platanoides bedeutet: wie eine Platane.||النوع|вид|گونه|tür|вид|species|gatunek||specie",
+      "die|Sorte|die Sorten||Eine gezüchtete Form mit besonderen Merkmalen. Sie steht in einfachen Anführungszeichen, zum Beispiel 'Crimson King'.|Die Sorte 'Crimson King' hat rote Blätter.|🏷️|الصنف|сорт|رقم (واریته)|çeşit|сорт|cultivar|odmiana|ዓሌት|soi",
+      "die|Hybride|die Hybriden||Eine Kreuzung aus zwei Arten. Im Namen steht dann ein ×.|Forsythia × intermedia ist eine Hybride.|✖️|الهجين|гібрид|دورگه (هیبرید)|melez (hibrit)|гибрид|hybrid|mieszaniec|ድቅል|hibrid",
+      "die|Pflanzenfamilie|die Pflanzenfamilien||Eine Gruppe von Gattungen, die miteinander verwandt sind, zum Beispiel die Rosengewächse.|Die Pflanzenfamilie der Rosengewächse ist sehr groß.||الفصيلة النباتية|родина рослин|تیره گیاهی|bitki familyası|семейство растений|plant family|rodzina roślin|ስድራ ተኽልታት|familie de plante",
+      "der|deutsche Name|die deutschen Namen||Der Name der Pflanze auf Deutsch. Er ist nicht überall gleich.|Der deutsche Name von Acer platanoides ist Spitz-Ahorn.|🗣️|الاسم الألماني الشائع|німецька назва|نام آلمانی (عامیانه)|Almanca adı|немецкое название|German common name|nazwa niemiecka|ስም ብጀርመንኛ|denumire germană",
+      "das|Latein|–||Eine sehr alte Sprache. Viele Pflanzennamen kommen aus dem Latein.|Botanische Namen kommen meist aus dem Latein.|📜|اللغة اللاتينية|латина|زبان لاتین|Latince|латынь|Latin|łacina|ላቲን|latina"
+    ]},
+    { id: 'pfl-laub', titel: 'Laubgehölze', w: [
+      "die|Hänge-Birke|die Hänge-Birken|Betula pendula|Ein Baum mit weißer Rinde und hängenden Zweigen.|Die Hänge-Birke wächst auch auf armen Böden.|🌳|البتولا المتدلية|береза повисла|توس آویزان|sarkık huş|берёза повислая|silver birch|brzoza brodawkowata||mesteacăn",
+      "die|Stiel-Eiche|die Stiel-Eichen|Quercus robur|Ein großer Baum, der sehr alt wird. Die Früchte heißen Eicheln.|Die Stiel-Eiche kann über 500 Jahre alt werden.|🌳|البلوط الإنجليزي|дуб звичайний|بلوط معمولی|saplı meşe|дуб черешчатый|English oak|dąb szypułkowy||stejar pedunculat",
+      "der|Spitz-Ahorn|die Spitz-Ahorne|Acer platanoides|Ein Baum mit spitzen Blattzipfeln. Man sieht ihn oft an Straßen.|Der Spitz-Ahorn hat im Herbst gelbe Blätter.|🍁|القيقب النرويجي|клен гостролистий|افرای نروژی|Norveç akçaağacı|клён остролистный|Norway maple|klon zwyczajny||arțar",
+      "der|Feld-Ahorn|die Feld-Ahorne|Acer campestre|Ein kleiner Baum für Hecken und freie Landschaft.|Der Feld-Ahorn verträgt Trockenheit gut.|🍁|القيقب الحقلي|клен польовий|افرای صحرایی|ova akçaağacı|клён полевой|field maple|klon polny||jugastru",
+      "die|Rot-Buche|die Rot-Buchen|Fagus sylvatica|Ein Baum mit glatter, grauer Rinde. Man nutzt ihn auch als Hecke.|Die Rot-Buche behält im Winter oft ihr trockenes Laub.|🌳|الزان الأوروبي|бук лісовий|راش اروپایی|Avrupa kayını|бук лесной|European beech|buk zwyczajny||fag",
+      "die|Hainbuche|die Hainbuchen|Carpinus betulus|Ein Baum oder Heckenstrauch. Er verträgt Schnitt sehr gut.|Die Hainbuche ist eine beliebte Heckenpflanze.|🌳|شجرة الكاربينوس|граб звичайний|ممرز|gürgen|граб обыкновенный|hornbeam|grab pospolity||carpen",
+      "die|Winter-Linde|die Winter-Linden|Tilia cordata|Ein Baum mit herzförmigen Blättern. Die Blüten duften stark.|Die Winter-Linde blüht im Juli.|🌳|الزيزفون صغير الأوراق|липа серцелиста|نمدار برگ‌ریز|kış ıhlamuru|липа мелколистная|small-leaved lime|lipa drobnolistna||tei",
+      "die|Forsythie|die Forsythien|Forsythia × intermedia|Ein Strauch, der im März gelb blüht, noch vor den Blättern.|Die Forsythie blüht im Frühling gelb.|💛|الفورسيثيا|форзиція|فورسیتیا (زرین‌پیچ)|forsitya|форзиция|forsythia|forsycja||forsiție",
+      "der|Flieder|die Flieder|Syringa vulgaris|Ein Strauch mit lila oder weißen Blüten, die gut duften.|Der Flieder blüht im Mai.|💜|الليلك|бузок|یاس بنفش|leylak|сирень|lilac|lilak||liliac",
+      "der|Liguster|die Liguster|Ligustrum vulgare|Ein Strauch für Hecken. Er hat kleine Blätter und schwarze Beeren.|Der Liguster ist eine schnell wachsende Hecke.|🌿|الليغستروم (الحنّاء الأوروبية)|бирючина|برگ‌نو|kurtbağrı|бирючина|privet|ligustr||lemn câinesc"
+    ]},
+    { id: 'pfl-nadel', titel: 'Nadelgehölze', w: [
+      "die|Wald-Kiefer|die Wald-Kiefern|Pinus sylvestris|Ein Nadelbaum. Die Nadeln stehen zu zweit, die Rinde ist oben orange.|Die Wald-Kiefer wächst auf sandigem Boden.|🌲|الصنوبر الحرجي|сосна звичайна|کاج جنگلی|sarıçam|сосна обыкновенная|Scots pine|sosna zwyczajna||pin silvestru",
+      "die|Berg-Kiefer|die Berg-Kiefern|Pinus mugo|Eine kleine, buschige Kiefer. Gut für Steingärten.|Die Berg-Kiefer bleibt klein und kompakt.|🌲|الصنوبر الجبلي|сосна гірська|کاج کوهی|dağ çamı|сосна горная|mountain pine|kosodrzewina||jneapăn",
+      "die|Fichte|die Fichten|Picea abies|Ein Nadelbaum mit kurzen, spitzen Nadeln und hängenden Zapfen.|Die Fichte braucht feuchten Boden.|🌲|التنوب النرويجي|ялина європейська|صنوبر نروژی (پیسه‌آ)|ladin|ель обыкновенная|Norway spruce|świerk pospolity||molid",
+      "die|Weiß-Tanne|die Weiß-Tannen|Abies alba|Ein Nadelbaum mit weichen Nadeln. Die Zapfen stehen aufrecht.|Die Weiß-Tanne hat zwei weiße Streifen unter den Nadeln.|🎄|التنوب الأبيض|ялиця біла|نراد سفید|ak göknar|пихта белая|silver fir|jodła pospolita||brad alb",
+      "die|Eibe|die Eiben|Taxus baccata|Ein Nadelgehölz für Hecken. Fast alle Teile sind giftig.|Die Eibe ist sehr giftig.|🌲|الطقسوس|тис ягідний|سرخدار|porsuk|тис ягодный|yew|cis pospolity||tisă",
+      "der|Lebensbaum|die Lebensbäume|Thuja occidentalis|Ein Nadelgehölz mit kleinen, schuppigen Blättern. Oft als Hecke.|Der Lebensbaum ist eine beliebte Heckenpflanze.|🌲|الثويا|туя західна|توجا (سرو خمره‌ای)|batı mazısı (tuya)|туя западная|northern white cedar (thuja)|żywotnik zachodni||tuia",
+      "die|Europäische Lärche|die Europäischen Lärchen|Larix decidua|Ein Nadelbaum, der im Herbst seine Nadeln verliert.|Die Europäische Lärche wird im Herbst goldgelb.|🌲|الأرز الأوروبي المتساقط (اللاريكس)|модрина європейська|سیاه‌کاج اروپایی (لاریکس)|Avrupa melezi|лиственница европейская|European larch|modrzew europejski||larice",
+      "der|Gemeine Wacholder|die Gemeinen Wacholder|Juniperus communis|Ein Nadelgehölz mit stechenden Nadeln und blauen Beeren.|Der Gemeine Wacholder wächst gern in der Sonne.|🫐|العرعر الشائع|ялівець звичайний|سرو کوهی (ارس)|adi ardıç|можжевельник обыкновенный|common juniper|jałowiec pospolity||ienupăr"
+    ]},
+    { id: 'pfl-stauden', titel: 'Stauden und Gräser', w: [
+      "der|Lavendel|die Lavendel|Lavandula angustifolia|Eine duftende Pflanze mit lila Blüten. Sie liebt Sonne.|Der Lavendel duftet im Sommer.|💜|الخزامى|лаванда вузьколиста|اسطوخودوس|lavanta|лаванда узколистная|English lavender|lawenda wąskolistna||lavandă",
+      "der|Storchschnabel|die Storchschnäbel|Geranium × magnificum|Eine robuste Staude mit violetten Blüten. Gut als Bodendecker.|Der Storchschnabel blüht im Juni.|🌸|إبرة الراعي (جيرانيوم)|герань пишна|شمعدانی وحشی (ژرانیوم)|turnagagası|герань великолепная|cranesbill|bodziszek wspaniały||ciocul-cocorului",
+      "der|Frauenmantel|die Frauenmäntel|Alchemilla mollis|Eine Staude mit runden, weichen Blättern. Wassertropfen bleiben darauf liegen.|Der Frauenmantel blüht gelbgrün.|💧|الكيمية الناعمة (رجل الأسد)|манжетка м'яка|آلکمیلا (پنجه شیر)|aslan pençesi|манжетка мягкая|lady's mantle|przywrotnik miękki||crețișoară",
+      "der|Sonnenhut|die Sonnenhüte|Rudbeckia fulgida|Eine Staude mit gelben Blüten und schwarzer Mitte.|Der Sonnenhut blüht bis in den Herbst.|🌼|الرودبيكيا|рудбекія блискуча|رودبکیا|rudbekya|рудбекия блестящая|black-eyed Susan|rudbekia błyskotliwa||rudbeckia",
+      "die|Katzenminze|die Katzenminzen|Nepeta × faassenii|Eine Staude mit blau-lila Blüten. Katzen mögen den Duft.|Die Katzenminze blüht sehr lange.|🐈|نعناع القطط|котяча м'ята|پونه گربه|kedi nanesi|котовник|catmint|kocimiętka||cătușnică",
+      "die|Funkie|die Funkien|Hosta|Eine Staude für den Schatten mit großen Blättern.|Die Funkie wächst gut im Schatten.|🍃|الهوستا|хоста|هوستا|hosta|хоста|hosta (plantain lily)|funkia||hosta",
+      "das|Chinaschilf|–|Miscanthus sinensis|Ein hohes Gras. Es bleibt im Winter stehen.|Das Chinaschilf wird bis zu zwei Meter hoch.|🌾|القصب الصيني (ميسكانثوس)|міскантус китайський|میسکانتوس (نی چینی)|Çin kamışı|мискантус китайский|Chinese silver grass|miskant chiński||miscanthus",
+      "das|Lampenputzergras|–|Pennisetum alopecuroides|Ein Gras mit weichen Blüten, die wie Flaschenbürsten aussehen.|Das Lampenputzergras blüht im Spätsommer.|🌾|عشب النافورة (بينيسيتوم)|пенісетум лисохвостовий|علف چشمه‌ای (پنیستوم)|çeşme otu (pennisetum)|пеннисетум лисохвостовый|fountain grass|rozplenica japońska||pennisetum"
+    ]},
+    { id: 'pfl-kletter', titel: 'Kletterpflanzen und Bodendecker', w: [
+      "der|Efeu|–|Hedera helix|Eine immergrüne Kletterpflanze. Sie hält sich mit Haftwurzeln fest.|Der Efeu wächst an der Mauer hoch.|🌿|اللبلاب|плющ звичайний|پیچک (عشقه)|sarmaşık|плющ обыкновенный|ivy|bluszcz pospolity||iederă",
+      "der|Wilde Wein|–|Parthenocissus tricuspidata|Eine Kletterpflanze mit roten Blättern im Herbst.|Der Wilde Wein wird im Herbst rot.|🍁|الكرمة البرية|дикий виноград|تاک وحشی (پیچ اناری)|yabani asma|девичий виноград|Boston ivy|winobluszcz trójklapowy||viță de Canada",
+      "die|Waldrebe|die Waldreben|Clematis|Eine Kletterpflanze mit großen Blüten. Sie braucht ein Rankgerüst.|Die Waldrebe klettert an der Pergola.|🌸|الكليماتيس|ломиніс (клематис)|کلماتیس|akasma (klematis)|клематис (ломонос)|clematis|powojnik||clematită",
+      "der|Blauregen|–|Wisteria sinensis|Eine starke Kletterpflanze mit langen, blauen Blütentrauben.|Der Blauregen braucht ein sehr stabiles Gerüst.|💜|الوستارية الصينية|гліцинія китайська|ویستریا|mor salkım|глициния китайская|Chinese wisteria|glicynia chińska||glicină",
+      "die|Kletterrose|die Kletterrosen|Rosa (Kletterrosen)|Eine Rose mit langen Trieben. Man muss sie anbinden.|Die Kletterrose blüht am Rosenbogen.|🌹|الورد المتسلق|витка троянда|رز رونده|sarmaşık gül|плетистая роза|climbing rose|róża pnąca||trandafir cățărător",
+      "das|Kleine Immergrün|–|Vinca minor|Ein Bodendecker mit blauen Blüten. Er wächst im Schatten.|Das Kleine Immergrün bedeckt den Boden unter den Bäumen.|🔵|الونكة الصغرى|барвінок малий|پیچ تلگرافی (وینکا)|küçük cezayir menekşesi|барвинок малый|lesser periwinkle|barwinek pospolity||saschiu",
+      "das|Dickmännchen|–|Pachysandra terminalis|Ein immergrüner Bodendecker für den Schatten.|Das Dickmännchen wächst gut unter Gehölzen.|🍃|الباكيساندرا|пахізандра верхівкова|پاکیساندرا|pachysandra|пахизандра верхушечная|Japanese spurge|runianka japońska||pachysandra",
+      "die|Kriechspindel|die Kriechspindeln|Euonymus fortunei|Ein immergrüner Bodendecker. Er kann auch klettern.|Die Kriechspindel hat oft bunte Blätter.|🌿|الفعيلة الزاحفة (يونيموس)|бересклет Форчуна|اونیموس رونده|sürünücü taflan (euonymus)|бересклет Форчуна|wintercreeper|trzmielina Fortune'a||euonymus târâtor"
+    ]}
+  ]
+});
+
+/* Kurztext für die Einführung „Botanische Namen verstehen" in allen Sprachen */
+const BOT_INTRO = {
+  ar: 'الاسم العلمي للنبات باللاتينية وهو نفسه في كل العالم. الجزء الأول = الجنس، الجزء الثاني = النوع.',
+  uk: 'Ботанічна назва – латиною, вона однакова в усьому світі. Перша частина = рід, друга частина = вид.',
+  fa: 'نام علمی گیاه لاتین است و در همه دنیا یکسان است. بخش اول = جنس، بخش دوم = گونه.',
+  tr: 'Bitkinin bilimsel adı Latincedir ve tüm dünyada aynıdır. 1. kısım = cins, 2. kısım = tür.',
+  ru: 'Ботаническое название – на латыни, оно одинаково во всём мире. Первая часть = род, вторая часть = вид.',
+  en: 'The botanical name is Latin and the same all over the world. Part 1 = genus, part 2 = species.',
+  pl: 'Nazwa botaniczna jest po łacinie i jest taka sama na całym świecie. Część 1 = rodzaj, część 2 = gatunek.',
+  ti: 'ሳይንሳዊ ስም ተኽሊ ብላቲን እዩ፡ ኣብ ኩሉ ዓለም ሓደ እዩ። ቀዳማይ ክፋል = ጀነስ፡ ካልኣይ ክፋል = ስፒሽስ።',
+  ro: 'Denumirea botanică este în latină și este la fel în toată lumea. Partea 1 = genul, partea 2 = specia.'
+};
+</script>
+<script>
+(function(){
+'use strict';
+const KEY='fwt-galabau-v1';
+const PAGES_URL='https://tobi-bot94.github.io/Fachwortschatz-Trainer-Gala/';
+const LANGS=[
+  {c:'de',code:'DE',n:'Nur Deutsch',nat:'Deutsch',tts:'de-DE'},
+  {c:'ar',code:'AR',n:'Arabisch',nat:'العربية',dir:'rtl',tts:'ar'},
+  {c:'uk',code:'UK',n:'Ukrainisch',nat:'Українська',tts:'uk'},
+  {c:'fa',code:'FA',n:'Persisch / Dari',nat:'فارسی / دری',dir:'rtl',tts:'fa'},
+  {c:'tr',code:'TR',n:'Türkisch',nat:'Türkçe',tts:'tr'},
+  {c:'ru',code:'RU',n:'Russisch',nat:'Русский',tts:'ru'},
+  {c:'en',code:'EN',n:'Englisch',nat:'English',tts:'en'},
+  {c:'pl',code:'PL',n:'Polnisch',nat:'Polski',tts:'pl'},
+  {c:'ti',code:'TI',n:'Tigrinya',nat:'ትግርኛ',tts:'ti'},
+  {c:'ro',code:'RO',n:'Rumänisch',nat:'Română',tts:'ro'}
+];
+const LEVELS=[
+  {c:'A',n:'Viel Hilfe',d:'Übersetzung immer sichtbar · Artikel in Farbe · 3 Antworten · Tipps'},
+  {c:'B',n:'Etwas Hilfe',d:'Karte umdrehen für die Übersetzung · Artikel in Farbe · 4 Antworten · Tipps'},
+  {c:'C',n:'Ohne Hilfe',d:'Keine Farben · Fachwort selbst schreiben · Tipps nur im Notfall'}
+];
+const YEARS=[{v:1,n:'1. Jahr'},{v:2,n:'2. Jahr'},{v:3,n:'3. Jahr'},{v:0,n:'Pflanzen'}];
+const LF_ICON={lf1:'🦺',lf2:'🌱',lf3:'🪱',lf4:'💧',lf5:'📐',lf6:'🚜',lf7:'🧱',lf8:'🌳',lf9:'🪨',lf10:'🪵',lf11:'🌾',lf12:'🧾',pfl:'🌿'};
+
+/* Oberflächentexte zweisprachig (KI-übersetzt, bitte prüfen) */
+const UI_KEYS=['chooseLang','help','topics','practice','learn','learnD','match','matchD','quiz','quizD','fb','fbD','tap','expl','ex','right','wrong','qMeaning','qTrans','qToTr','qArticle','qPlural','qGap','qBot','qType','matchHint','know','again'];
+const UI_RAW={
+de:['Wähle deine Sprache','Wie viel Hilfe möchtest du?','Was willst du heute lernen?','Was möchtest du üben?','Lernen','Wortkarten mit Übersetzung und Beispiel','Zuordnen','Finde die richtigen Paare','Quiz','10 Fragen mit Feedback','Rückmeldung','Was kann ich schon? Was muss ich üben?','Tippe auf die Karte – dann siehst du die Übersetzung.','Erklärung','Beispielsatz','Richtig!','Leider falsch.','Welches Wort passt zur Erklärung?','Wie heißt das auf Deutsch?','Was bedeutet dieses Wort?','Welcher Artikel ist richtig?','Wie heißt die Mehrzahl?','Welches Wort fehlt im Satz?','Wie heißt die Pflanze auf Deutsch?','Schreibe das Fachwort mit Artikel.','Verbinde das deutsche Wort mit der Übersetzung.','Kann ich','Noch üben'],
+ar:['اختر لغتك','كم تحتاج من المساعدة؟','ماذا تريد أن تتعلم اليوم؟','ماذا تريد أن تتمرن؟','تعلّم','بطاقات كلمات مع ترجمة ومثال','وصّل','ابحث عن الأزواج الصحيحة','اختبار','10 أسئلة مع تقييم','التقييم','ماذا أعرف؟ ماذا يجب أن أتمرن؟','اضغط على البطاقة لترى الترجمة.','الشرح','جملة مثال','صحيح!','للأسف خطأ.','أي كلمة تناسب الشرح؟','ما اسمها بالألمانية؟','ماذا تعني هذه الكلمة؟','ما هي أداة التعريف الصحيحة؟','ما هو الجمع؟','أي كلمة ناقصة في الجملة؟','ما اسم هذا النبات بالألمانية؟','اكتب المصطلح مع أداة التعريف.','صِل الكلمة الألمانية بترجمتها.','أعرفها','أحتاج إلى تمرين'],
+uk:['Обери свою мову','Скільки допомоги тобі потрібно?','Що ти хочеш вивчити сьогодні?','Що хочеш тренувати?','Вчити','Картки зі словами, перекладом і прикладом',"З'єднати",'Знайди правильні пари','Квіз',"10 запитань зі зворотним зв'язком",'Підсумок','Що я вже знаю? Що треба повторити?','Торкнись картки – побачиш переклад.','Пояснення','Приклад речення','Правильно!','На жаль, неправильно.','Яке слово підходить до пояснення?','Як це німецькою?','Що означає це слово?','Який артикль правильний?','Яка форма множини?','Якого слова бракує в реченні?','Як називається рослина німецькою?','Напиши термін з артиклем.',"З'єднай німецьке слово з перекладом.",'Знаю','Ще повторити'],
+fa:['زبان خود را انتخاب کن','چقدر کمک می‌خواهی؟','امروز چه می‌خواهی یاد بگیری؟','چه چیزی را می‌خواهی تمرین کنی؟','یادگیری','کارت‌های لغت با ترجمه و مثال','وصل کردن','جفت‌های درست را پیدا کن','آزمون','۱۰ سؤال با بازخورد','نتیجه','چه چیزی را بلدم؟ چه چیزی را باید تمرین کنم؟','روی کارت بزن تا ترجمه را ببینی.','توضیح','جمله نمونه','درست است!','متأسفانه غلط است.','کدام کلمه با توضیح جور است؟','به آلمانی چه می‌شود؟','این کلمه چه معنایی دارد؟','کدام حرف تعریف درست است؟','جمع آن چیست؟','کدام کلمه در جمله جا افتاده است؟','نام این گیاه به آلمانی چیست؟','اصطلاح را با حرف تعریف بنویس.','کلمه آلمانی را به ترجمه‌اش وصل کن.','بلدم','باید تمرین کنم'],
+tr:['Dilini seç','Ne kadar yardım istiyorsun?','Bugün ne öğrenmek istiyorsun?','Ne çalışmak istiyorsun?','Öğren','Çeviri ve örnekli kelime kartları','Eşleştir','Doğru çiftleri bul','Quiz','Geri bildirimli 10 soru','Sonuç','Neyi biliyorum? Neyi tekrar etmeliyim?','Karta dokun – çeviriyi gör.','Açıklama','Örnek cümle','Doğru!','Maalesef yanlış.','Hangi kelime açıklamaya uyuyor?','Almancası ne?','Bu kelime ne anlama geliyor?','Hangi artikel doğru?','Çoğulu nedir?','Cümlede hangi kelime eksik?','Bu bitkinin Almanca adı ne?','Terimi artikeliyle yaz.','Almanca kelimeyi çevirisiyle eşleştir.','Biliyorum','Tekrar etmeliyim'],
+ru:['Выбери свой язык','Сколько помощи тебе нужно?','Что ты хочешь выучить сегодня?','Что ты хочешь тренировать?','Учить','Карточки со словами, переводом и примером','Соединить','Найди правильные пары','Квиз','10 вопросов с обратной связью','Итог','Что я уже знаю? Что нужно повторить?','Нажми на карточку – увидишь перевод.','Объяснение','Пример предложения','Правильно!','К сожалению, неправильно.','Какое слово подходит к объяснению?','Как это по-немецки?','Что означает это слово?','Какой артикль правильный?','Какая форма множественного числа?','Какого слова не хватает в предложении?','Как называется растение по-немецки?','Напиши термин с артиклем.','Соедини немецкое слово с переводом.','Знаю','Ещё повторить'],
+en:['Choose your language','How much help do you want?','What do you want to learn today?','What do you want to practise?','Learn','Word cards with translation and example','Match','Find the right pairs','Quiz','10 questions with feedback','Feedback','What do I know? What should I practise?','Tap the card to see the translation.','Explanation','Example sentence','Correct!','Sorry, that is wrong.','Which word fits the explanation?','What is it in German?','What does this word mean?','Which article is correct?','What is the plural?','Which word is missing in the sentence?','What is the German name of this plant?','Write the term with its article.','Match the German word with its translation.','I know it','Practise again'],
+pl:['Wybierz swój język','Ile pomocy potrzebujesz?','Czego chcesz się dziś nauczyć?','Co chcesz ćwiczyć?','Ucz się','Karty ze słowami, tłumaczeniem i przykładem','Dopasuj','Znajdź właściwe pary','Quiz','10 pytań z informacją zwrotną','Wynik','Co już umiem? Co muszę powtórzyć?','Dotknij karty – zobaczysz tłumaczenie.','Wyjaśnienie','Przykładowe zdanie','Dobrze!','Niestety źle.','Które słowo pasuje do wyjaśnienia?','Jak to jest po niemiecku?','Co znaczy to słowo?','Który rodzajnik jest poprawny?','Jaka jest liczba mnoga?','Którego słowa brakuje w zdaniu?','Jak nazywa się ta roślina po niemiecku?','Napisz termin z rodzajnikiem.','Połącz niemieckie słowo z tłumaczeniem.','Umiem','Jeszcze ćwiczyć'],
+ti:['ቋንቋኻ ምረጽ','ክንደይ ሓገዝ ትደሊ?','ሎሚ እንታይ ክትመሃር ትደሊ?','እንታይ ክትለማመድ ትደሊ?','ተመሃር','ካርድታት ቃላት ምስ ትርጉምን ኣብነትን','ኣራኽብ','ቅኑዓት ጽምዲ ርከብ','ፈተና','10 ሕቶታት ምስ ርእይቶ','ውጽኢት','እንታይ እፈልጥ? እንታይ ክደግም ኣለኒ?','ነታ ካርድ ጠውቓ – ትርጉም ክትርኢ ኢኻ።','መብርሂ','ኣብነት','ቅኑዕ!','ይቕሬታ፡ ጌጋ እዩ።','ኣየናይ ቃል ምስ መብርሂ ይሰማማዕ?','ብጀርመንኛ እንታይ ይበሃል?','እዚ ቃል እንታይ ማለት እዩ?','ኣየናይ ኣርቲክል ቅኑዕ እዩ?','ብዙሕ ቁጽሩ እንታይ እዩ?','ኣብቲ ሓሳብ ኣየናይ ቃል ጎዲሉ?','ስም እዚ ተኽሊ ብጀርመንኛ እንታይ እዩ?','ነቲ ቃል ምስ ኣርቲክሉ ጽሓፎ።','ነቲ ጀርመንኛ ቃል ምስ ትርጉሙ ኣራኽቦ።','እፈልጦ እየ','ክደግሞ ኣለኒ'],
+ro:['Alege-ți limba','De cât ajutor ai nevoie?','Ce vrei să înveți azi?','Ce vrei să exersezi?','Învață','Carduri cu cuvinte, traducere și exemplu','Potrivește','Găsește perechile corecte','Quiz','10 întrebări cu feedback','Rezultat','Ce știu deja? Ce trebuie să repet?','Atinge cardul – vezi traducerea.','Explicație','Propoziție exemplu','Corect!','Din păcate, greșit.','Ce cuvânt se potrivește cu explicația?','Cum se spune în germană?','Ce înseamnă acest cuvânt?','Care articol este corect?','Care este pluralul?','Ce cuvânt lipsește din propoziție?','Cum se numește planta în germană?','Scrie termenul cu articolul.','Leagă cuvântul german de traducere.','Știu','Mai exersez']
+};
+const ICON={
+  say:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>',
+  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+  next:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
+};
+
+/* ---------- Daten aufbereiten ---------- */
+const WORDS=[]; const BYID={}; const SUBS={};
+DATA.lf.forEach(lf=>lf.subs.forEach(s=>{
+  s.lf=lf; s.words=[]; SUBS[s.id]=s;
+  s.w.forEach(line=>{
+    const f=line.split('|');
+    const w={art:f[0],w:f[1],pl:f[2],bot:f[3],ex:f[4],bsp:f[5],em:f[6],tr:{},sub:s,lf:lf};
+    TR_ORDER.forEach((c,i)=>{w.tr[c]=f[7+i]||''});
+    w.id=s.id+':'+f[1];
+    s.words.push(w); WORDS.push(w); BYID[w.id]=w;
+  });
+}));
+
+/* ---------- Zustand ---------- */
+let S={lang:null,lvl:'A',sel:[],stats:{},best:{},year:1,botSeen:false,onlyWeak:false};
+try{const raw=localStorage.getItem(KEY); if(raw) S=Object.assign(S,JSON.parse(raw));}catch(e){}
+S.sel=S.sel.filter(id=>SUBS[id]); S.best=S.best||{};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const V={screen:S.lang?'select':'start'};
+
+/* ---------- Hilfsfunktionen ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const lang=()=>LANGS.find(l=>l.c===S.lang)||LANGS[0];
+const isDe=()=>!S.lang||S.lang==='de';
+const hasTr=w=>!isDe()&&!!w.tr[S.lang];
+const la=l=>`lang="${l.c}" dir="${l.dir||'ltr'}"`;
+function ui(k){return UI_RAW.de[UI_KEYS.indexOf(k)]}
+function uiTr(k){ if(isDe()) return ''; const l=lang(); return `<span class="trl" ${la(l)}>${esc(UI_RAW[l.c][UI_KEYS.indexOf(k)])}</span>`; }
+const sep=()=>isDe()?'':' · ';
+function status(w){const st=S.stats[w.id]; if(!st) return 'neu'; return st.s>=2?'gut':'üben';}
+function record(w,ok){const st=S.stats[w.id]||{r:0,w:0,s:0}; if(ok){st.r++;st.s++}else{st.w++;st.s=0} st.t=Date.now(); S.stats[w.id]=st; save();}
+function selWords(){return S.sel.flatMap(id=>SUBS[id]?SUBS[id].words:[])}
+function sessionWords(){let ws=selWords(); if(S.onlyWeak){const f=ws.filter(w=>status(w)!=='gut'); if(f.length) ws=f;} return ws;}
+function counts(ws){const c={gut:0,'üben':0,neu:0}; ws.forEach(w=>c[status(w)]++); return c;}
+const selKey=()=>S.sel.slice().sort().join(',');
+function setBest(mode,pct){const k=selKey(); S.best[k]=S.best[k]||{}; S.best[k][mode]=Math.max(S.best[k][mode]||0,pct); save();}
+function starsHTML(pct){const n=pct>=100?3:pct>=80?2:pct>=50?1:0; return `<span class="stars" role="img" aria-label="${n} von 3 Sternen">${'★'.repeat(n)}<span class="off">${'★'.repeat(3-n)}</span></span>`}
+const pill=w=>`<span class="pill ${w.art}">${w.art}</span>`;
+function botHTML(b){ if(!b) return ''; return '<span class="bot">'+esc(b).replace(/(&#39;[^&]*&#39;|\([^)]*\))/g,'<span class="cv">$1</span>')+'</span>';}
+function plHTML(w){return w.pl==='–'?'<span>nur Einzahl</span>':`<span>Mehrzahl: <b>${esc(w.pl)}</b></span>`}
+function toast(msg){const t=$('#toast'); t.textContent=msg; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>t.hidden=true,2600);}
+const norm=s=>String(s).toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss').replace(/[-‐–]/g,' ').replace(/[.,!?;:"„“']/g,'').replace(/\s+/g,' ').trim();
+function gapSentence(w){
+  const re=new RegExp('(^|[^A-Za-zÄÖÜäöüß-])('+w.w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?![A-Za-zÄÖÜäöüß])');
+  if(!re.test(w.bsp)) return null;
+  return esc(w.bsp.replace(re,'$1\u0000')).replace('\u0000','<span class="gap">&nbsp;</span>');
+}
+function trBig(w,say){
+  const l=lang(), t=w.tr[S.lang];
+  if(!t) return `<p class="missing">Übersetzung (${esc(l.n)}) fehlt noch.${w.bot?' Der botanische Name hilft in jeder Sprache: '+botHTML(w.bot):''}</p>`;
+  return `<div class="big-tr" ${la(l)}><span>${esc(t)}</span>${say?`<button class="say sm" data-act="say" data-v="tr" aria-label="Übersetzung vorlesen">${ICON.say}</button>`:''}</div>`;
+}
+const head=(title,icon,backTo)=>`<header class="head">
+  ${backTo?`<button class="back" data-act="go" data-v="${backTo}" aria-label="Zurück">${ICON.back}</button>`:''}
+  <div class="head-t">${icon?`<b aria-hidden="true">${icon}</b>`:''}<span>${esc(title)}</span></div>
+  ${S.lang?`<button class="pill-btn" data-act="go" data-v="start" aria-label="Sprache und Hilfe-Stufe ändern">${ICON.globe}<span ${la(lang())}>${esc(lang().nat)}</span><span>· ${S.lvl}</span></button>`:''}
+</header>`;
+function selTitle(){
+  const subs=S.sel.map(id=>SUBS[id]);
+  if(subs.length===1) return [(subs[0].lf.nr?'LF '+subs[0].lf.nr+' · ':'')+subs[0].titel, LF_ICON[subs[0].lf.id]];
+  const lfs=[...new Set(subs.map(s=>s.lf))];
+  if(lfs.length===1) return [(lfs[0].nr?'LF '+lfs[0].nr+' · ':'')+lfs[0].titel, LF_ICON[lfs[0].id]];
+  return [subs.length+' Themen gemischt','🧺'];
+}
+
+/* ---------- Vorlesen ---------- */
+let VOICES=[];
+function loadVoices(){try{VOICES=speechSynthesis.getVoices()}catch(e){}}
+if('speechSynthesis' in window){loadVoices(); speechSynthesis.onvoiceschanged=loadVoices;}
+function speak(text,code){
+  if(!text) return;
+  if(!('speechSynthesis' in window)){toast('Vorlesen geht auf diesem Gerät leider nicht.');return}
+  const l=LANGS.find(x=>x.c===code)||LANGS[0];
+  const pre=l.tts.slice(0,2).toLowerCase();
+  const v=VOICES.find(v=>v.lang&&v.lang.toLowerCase().replace('_','-').startsWith(pre));
+  if(!v&&code!=='de'&&VOICES.length){toast('Für '+l.n+' gibt es auf diesem Gerät keine Stimme.');return}
+  const u=new SpeechSynthesisUtterance(text); u.lang=v?v.lang:l.tts; if(v) u.voice=v;
+  u.rate=S.lvl==='A'?0.8:0.95;
+  speechSynthesis.cancel(); speechSynthesis.speak(u);
+}
+function setBar(html){const b=$('#bar'); if(!html){b.hidden=true;return} $('#barIn').innerHTML=html; b.hidden=false;}
+
+/* ---------- Bildschirme ---------- */
+const R={};
+
+R.start=()=>{
+  setBar('');
+  return `<section class="screen">
+    ${S.lang?head('Fachwortschatz-Trainer','','select'):`<header class="head"><div class="head-t"><span>Fachwortschatz-Trainer</span></div></header>`}
+    <div class="hero">
+      <span class="school">Duale Ausbildung NRW · Gärtner/in GaLaBau</span>
+      <h1>Fachwortschatz-<em>Trainer</em></h1>
+      <p>Deutsche Fachwörter für deine Ausbildung im Garten- und Landschaftsbau – lernen, üben, Quiz spielen.</p>
+    </div>
+    <div class="sec-h"><h2><span class="ico" aria-hidden="true">🌐</span>Wähle deine Sprache / Choose your language</h2><span class="sub2">Die Übersetzungen helfen dir beim Lernen.</span></div>
+    <div class="lang-grid">${LANGS.map(l=>`<button class="lang ${S.lang===l.c?'on':''}" data-act="lang" data-v="${l.c}" aria-pressed="${S.lang===l.c}"><span class="code">${l.code}</span><span class="nm"><span class="nat" ${la(l)}>${esc(l.nat)}</span><span class="lname">${esc(l.n)}</span></span></button>`).join('')}</div>
+    <div class="sec-h"><h2><span class="ico" aria-hidden="true">🪜</span>${ui('help')}</h2>${uiTr('help')}</div>
+    <div class="lvl-list">${LEVELS.map(x=>`<button class="lvl ${S.lvl===x.c?'on':''}" data-act="lvl" data-v="${x.c}" aria-pressed="${S.lvl===x.c}"><span class="top"><span class="badge">${x.c}</span><b>${x.n}</b></span><span class="d">${x.d}</span></button>`).join('')}</div>
+    <div class="btn-row center"><button class="btn primary" data-act="go" data-v="select" ${S.lang?'':'disabled'}>Weiter zu den Lernfeldern ${ICON.next}</button></div>
+    <div class="info"><div><span aria-hidden="true">ℹ️</span> <b>Hinweis für Lehrkräfte:</b> Fachwortschatz zur Ausbildung Gärtner/in, Fachrichtung Garten- und Landschaftsbau, nach Lernfeldern für alle drei Ausbildungsjahre, dazu ein Teil Pflanzenkunde. Drei Hilfe-Stufen, Lernkarten mit Vorlesefunktion, Zuordnen, Quiz und Rückmeldung. Die Übersetzungen wurden KI-gestützt erstellt – bitte vor dem Einsatz von Muttersprachler:innen prüfen lassen.</div>
+      <div><button class="linkbtn" data-act="go" data-v="teacher">Zum Bereich für Lehrkräfte (QR-Code, Übersetzungstabelle)</button></div></div>
+    <div class="foot"><span>Fachwortschatz-Trainer GaLaBau · ohne Login, ohne App, kostenlos</span><span>Der Lernstand bleibt nur auf diesem Gerät gespeichert.</span></div>
+  </section>`;
+};
+
+R.select=()=>{
+  const n=selWords().length;
+  setBar(`<div class="bar-info"><b>${n}</b> Wörter gewählt${S.sel.length?` · <button class="linkbtn" data-act="clearsel">leeren</button>`:''}</div><button class="btn primary" data-act="go" data-v="path" ${n?'':'disabled'}>Üben ${ICON.next}</button>`);
+  const lfs=DATA.lf.filter(lf=>lf.jahr===S.year);
+  const intro=S.year===0?`<button class="intro-card" data-act="go" data-v="botanik"><span class="lf-ico" aria-hidden="true">🏷️</span><span><b>Zuerst: Was bedeutet der botanische Name?</b><span class="s">Gattung, Art, Sorte – kurz erklärt mit Beispielen</span></span>${ICON.next}</button>`:'';
+  return `<section class="screen">
+    ${head('Fachwortschatz-Trainer','','start')}
+    <div class="sec-h"><h2><span class="ico" aria-hidden="true">🧑‍🌾</span>${ui('topics')}</h2>${uiTr('topics')}</div>
+    <p class="note">Wähle ein Ausbildungsjahr und tippe auf ein oder mehrere Themen. Du kannst Themen aus verschiedenen Lernfeldern mischen.</p>
+    <div class="tabs" role="tablist">${YEARS.map(y=>`<button class="tab" role="tab" aria-selected="${S.year===y.v}" data-act="year" data-v="${y.v}">${y.n}</button>`).join('')}</div>
+    ${intro}
+    <div class="lf-list">${lfs.map(lfHTML).join('')}</div>
+    <p class="note">Die Lernfelder sind vorläufig gegliedert und werden an die Jahresplanung der Schule angepasst.</p>
+    <div class="foot"><button class="linkbtn" data-act="go" data-v="teacher">Bereich für Lehrkräfte</button></div>
+  </section>`;
+};
+function lfHTML(lf){
+  const all=lf.subs.every(s=>S.sel.includes(s.id)), n=lf.subs.reduce((a,s)=>a+s.words.length,0);
+  return `<article class="lf">
+    <header class="lf-h"><span class="lf-ico" aria-hidden="true">${LF_ICON[lf.id]||'🌿'}</span><h3><small>${lf.nr?'Lernfeld '+lf.nr+' · '+n+' Fachwörter':'alle Ausbildungsjahre · '+n+' Fachwörter'}</small>${esc(lf.titel)}</h3><button class="allbtn" data-act="lfall" data-v="${lf.id}">${all?'keine':'alle wählen'}</button></header>
+    <div class="subs">${lf.subs.map(s=>{
+      const on=S.sel.includes(s.id), c=counts(s.words), k=s.words.length;
+      return `<button class="sub ${on?'on':''}" data-act="sub" data-v="${s.id}" aria-pressed="${on}">
+        <span class="sub-t">${esc(s.titel)}</span>
+        <span class="sub-m">${k} Wörter · ${c.gut} sitzen · ${c['üben']} üben</span>
+        <span class="meter" aria-hidden="true"><i class="g" style="width:${c.gut/k*100}%"></i><i class="r" style="width:${c['üben']/k*100}%"></i></span>
+      </button>`}).join('')}</div>
+  </article>`;
+}
+
+R.path=()=>{
+  setBar('');
+  const all=selWords(); if(!all.length){V.screen='select';return R.select()}
+  const c=counts(all), weak=c['üben']+c.neu, [t,ic]=selTitle(), best=S.best[selKey()]||{};
+  const modes=[
+    ['cards','learn','🃏','var(--teal-soft)',Math.round((all.length-c.neu)/all.length*100)],
+    ['match','match','🧩','var(--sand)',best.match||0],
+    ['quiz','quiz','🏆','var(--rose)',best.quiz||0],
+    ['feedback','fb','📊','var(--good-soft)',Math.round(c.gut/all.length*100)]
+  ];
+  return `<section class="screen">
+    ${head(t,ic,'select')}
+    <div class="sec-h"><h2><span class="ico" aria-hidden="true">🎯</span>${ui('practice')}</h2>${uiTr('practice')}</div>
+    ${S.lvl!=='C'?`<div class="arts" aria-hidden="true"><span class="apill der">der</span><span class="apill die">die</span><span class="apill das">das</span></div>`:''}
+    <div class="modes">${modes.map(m=>`<button class="mode" data-act="go" data-v="${m[0]}"><span class="mi" style="background:${m[3]}" aria-hidden="true">${m[2]}</span><span><span class="mt1">${ui(m[1])}${sep()}${uiTr(m[1])}</span><span class="md">${ui(m[1]+'D')} ${uiTr(m[1]+'D')}</span></span>${starsHTML(m[4])}</button>`).join('')}</div>
+    <div class="tiles">
+      <div class="tile"><b>${all.length}</b><span>Wörter</span></div>
+      <div class="tile g"><b>${c.gut}</b><span>sitzen gut</span></div>
+      <div class="tile r"><b>${c['üben']}</b><span>üben</span></div>
+      <div class="tile"><b>${c.neu}</b><span>neu</span></div>
+    </div>
+    ${weak&&weak<all.length?`<label class="toggle"><input type="checkbox" id="onlyWeak" data-act="weak" ${S.onlyWeak?'checked':''}> Nur Wörter üben, die noch nicht sitzen (${weak})</label>`:''}
+    <p class="note">Tipp: Erst Lernen, dann Zuordnen, dann Quiz. Die Sterne zeigen dein bestes Ergebnis.</p>
+  </section>`;
+};
+
+/* Lernkarten */
+function startCards(){V.cards={order:shuffle(sessionWords()),i:0,open:false}}
+R.cards=()=>{
+  setBar('');
+  if(!V.cards) startCards(); const C=V.cards, w=C.order[C.i]; if(!w){V.screen='path';return R.path()}
+  const lvl=S.lvl, open=C.open, [t,ic]=selTitle();
+  const sayDe=`<button class="say" data-act="say" data-v="de" aria-label="Wort vorlesen">${ICON.say}</button>`;
+  const front=`${w.em&&lvl!=='C'?`<div class="pic" aria-hidden="true">${w.em}</div>`:''}
+    <span class="pill ${w.art}">${w.art}</span>
+    <div class="wordrow"><span class="lemma">${esc(w.w)}</span>${sayDe}</div>
+    <div class="meta">${plHTML(w)}${w.bot?`<span>${botHTML(w.bot)}</span>`:''}</div>`;
+  const boxes=`<div class="box"><span class="lab">💡 ${ui('expl')}${sep()}${uiTr('expl')}</span><p>${esc(w.ex)}</p></div>
+    <div class="box"><span class="lab">✏️ ${ui('ex')}${sep()}${uiTr('ex')}</span><div class="row"><p>${esc(w.bsp)}</p><button class="say sm" data-act="say" data-v="bsp" aria-label="Satz vorlesen">${ICON.say}</button></div></div>`;
+  let body, cls=`card ${w.art}`, tap=false;
+  if(lvl==='A'){ body=front+(isDe()?'':trBig(w,true))+boxes; }
+  else if(lvl==='B'){
+    if(!open){ body=front+`<p class="tapnote">👆 ${ui('tap')}</p>`; tap=true; }
+    else body=`<span class="small-de ${w.art}">${w.art} ${esc(w.w)}</span>`+(isDe()?`<div class="wordrow"><span class="lemma">${esc(w.w)}</span>${sayDe}</div>`:trBig(w,true))+boxes;
+  } else {
+    cls+=' nocolor';
+    const prompt=(hasTr(w)?trBig(w,false):'')+`<div class="box"><span class="lab">💡 ${ui('expl')}</span><p>${esc(w.ex)}</p></div>`+(w.bot?`<div class="meta"><span>${botHTML(w.bot)}</span></div>`:'');
+    if(!open){ body=prompt+`<p class="tapnote">👆 Wie heißt das Fachwort? Tippe auf die Karte.</p>`; tap=true; }
+    else body=prompt+`<span class="pill ${w.art}">${w.art}</span><div class="wordrow"><span class="lemma">${esc(w.w)}</span>${sayDe}</div><div class="meta">${plHTML(w)}</div>`;
+  }
+  if(tap) cls+=' tap';
+  const dots=C.order.length>24?`<div class="lin"><i style="width:${(C.i+1)/C.order.length*100}%"></i></div>`
+    :`<div class="dots" aria-hidden="true">${C.order.map((x,i)=>`<i class="${i===C.i?'on':(S.stats[x.id]?(status(x)==='gut'?'g':'r'):'')}"></i>`).join('')}</div>`;
+  return `<section class="screen">
+    ${head(t,ic,'path')}
+    ${lvl==='B'?`<div class="hintline"><span>👆 ${ui('tap')}</span>${uiTr('tap')}</div>`:''}
+    <div class="${cls}" id="card" ${tap?'data-act="reveal" role="button" tabindex="0" aria-label="Karte umdrehen"':''}>${body}</div>
+    ${dots}
+    <div class="rate"><button class="btn again" data-act="rate" data-v="0">↺ ${ui('again')}</button><button class="btn know" data-act="rate" data-v="1">✓ ${ui('know')}</button></div>
+    <div class="cnav">
+      <button class="sq" data-act="prev" aria-label="Vorheriges Wort" ${C.i?'':'disabled'}>${ICON.back}</button>
+      <div class="count">${C.i+1} / ${C.order.length}</div>
+      <button class="sq primary" data-act="next" aria-label="Nächstes Wort">${ICON.next}</button>
+    </div>
+  </section>`;
+};
+
+/* Zuordnen */
+function startMatch(){V.match={pool:shuffle(sessionWords()),pos:0,round:null}; nextRound();}
+function nextRound(){
+  const M=V.match, size=S.lvl==='A'?4:6;
+  if(M.pos>=M.pool.length){M.pool=shuffle(M.pool);M.pos=0}
+  let batch=M.pool.slice(M.pos,M.pos+size); M.pos+=size;
+  if(batch.length<Math.min(size,M.pool.length)) batch=batch.concat(M.pool.filter(w=>!batch.includes(w)).slice(0,size-batch.length));
+  M.round={words:batch,left:shuffle(batch),right:shuffle(batch),done:new Set(),err:new Set(),pick:null,tries:0,no:(M.round?M.round.no+1:1)};
+}
+const matchByTr=()=>S.lvl!=='C'&&!isDe();
+R.match=()=>{
+  setBar('');
+  if(!V.match) startMatch(); const r=V.match.round, fin=r.done.size===r.words.length, [t,ic]=selTitle();
+  const tile=(w,side)=>{const d=r.done.has(w.id), p=r.pick&&r.pick.side===side&&r.pick.id===w.id;
+    let inner, ex=false;
+    if(side==='L') inner=`${pill(w)}<span>${esc(w.w)}</span>`;
+    else if(matchByTr()&&w.tr[S.lang]) inner=`<span ${la(lang())}>${esc(w.tr[S.lang])}</span>`;
+    else {inner=esc(w.ex); ex=true}
+    return `<button class="mtile ${ex?'ex':''} ${d?'done':''} ${p?'pick':''}" data-act="mt" data-side="${side}" data-v="${esc(w.id)}" ${d?'disabled':''}>${inner}</button>`};
+  const hintDe=matchByTr()?ui('matchHint'):'Verbinde das deutsche Wort mit der passenden Erklärung.';
+  return `<section class="screen">
+    ${head(t,ic,'path')}
+    <div class="hintline"><span>🧩 ${hintDe}</span>${matchByTr()?uiTr('matchHint'):''}</div>
+    <div class="stat"><span>🧩 ${r.done.size} / ${r.words.length} Paare</span><span>🔁 ${r.tries} Versuche</span></div>
+    <div class="match ${S.lvl==='C'?'nocolor':''}"><div class="col">${r.left.map(w=>tile(w,'L')).join('')}</div><div class="col">${r.right.map(w=>tile(w,'R')).join('')}</div></div>
+    ${fin?`<div class="fb ok"><h3>Super! ${uiTr('right')}</h3><p style="margin:0">${r.err.size?`${r.err.size} Wort${r.err.size>1?'e waren':' war'} schwierig. ${r.err.size>1?'Sie kommen':'Es kommt'} auf deine Übungsliste.`:'Alles beim ersten Versuch richtig.'}</p>
+      <div class="btn-row"><button class="btn" data-act="mround">Neue Runde</button><button class="btn primary" data-act="go" data-v="quiz">Weiter zum Quiz ${ICON.next}</button></div></div>`:''}
+  </section>`;
+};
+function onMatch(side,id){
+  const r=V.match.round; if(r.done.has(id)) return;
+  if(!r.pick||r.pick.side===side){r.pick={side,id}; render(); return}
+  const a=r.pick.id; r.pick=null; r.tries++;
+  if(a===id){
+    r.done.add(id); if(!r.err.has(id)) record(BYID[id],true);
+    if(r.done.size===r.words.length) setBest('match',Math.round((r.words.length-r.err.size)/r.words.length*100));
+    render();
+  } else {
+    const leftId=side==='L'?id:a; if(!r.err.has(leftId)){r.err.add(leftId); record(BYID[leftId],false)}
+    render(); const el=document.querySelector(`.mtile[data-side="${side}"][data-v="${CSS.escape(id)}"]`); if(el) el.classList.add('wrong');
+  }
+}
+
+/* Quiz */
+const QN=10;
+function startQuiz(){
+  const ws=sessionWords(), pri={'üben':0,neu:1,gut:2};
+  const ordered=shuffle(ws).sort((a,b)=>pri[status(a)]-pri[status(b)]);
+  const len=Math.min(QN,ordered.length*2), pick=[]; // bei wenigen Wörtern kommt ein Wort ein zweites Mal mit anderem Fragetyp
+  for(let i=0;i<len;i++) pick.push(ordered[i%ordered.length]);
+  V.quiz={items:pick.map(makeQ),i:0,score:0,ans:null,hints:0};
+}
+function distractors(w,n,key){
+  const near=shuffle(sessionWords().filter(x=>x!==w&&x.w!==w.w));
+  const far=shuffle(WORDS.filter(x=>x!==w&&x.w!==w.w&&!near.includes(x)));
+  const out=[]; for(const x of near.concat(far)){ if(out.length>=n) break; if(key&&!key(x)) continue; if(out.some(o=>o.w===x.w)) continue; out.push(x);} return out;
+}
+function pluralOpts(w,n){
+  const base=w.w, cor=w.pl;
+  const uml=base.replace(/([aouAOU])([^aouäöüAOUÄÖÜ]*)$/,(m,v,r)=>({a:'ä',o:'ö',u:'ü',A:'Ä',O:'Ö',U:'Ü'}[v]+r));
+  // keine doppelten Endungen wie „Spatenn“ oder „Heckee“
+  const ok=suf=>!((/n$/.test(base)&&/^e?n$/.test(suf))||(/e$/.test(base)&&/^e/.test(suf))||(/er$/.test(base)&&suf==='er'));
+  const c=['','e','en','n','s','er'].filter(ok).map(x=>'die '+base+x).concat(['die '+uml+'e','die '+uml+'er','die '+uml].filter(x=>!/ee$/.test(x)))
+    .filter((x,i,a)=>x!==cor&&a.indexOf(x)===i);
+  return shuffle([cor].concat(shuffle(c).slice(0,n-1)));
+}
+function makeQ(w){
+  const types=['meaning','article'];
+  if(hasTr(w)){ types.push('trans'); if(S.lvl!=='C') types.push('toTr','toTr'); }
+  if(w.pl!=='–'&&!w.w.includes(' ')) types.push('plural');
+  if(gapSentence(w)) types.push('gap');
+  if(w.bot) types.push('bot','bot');
+  const t=types[Math.floor(Math.random()*types.length)];
+  const n=S.lvl==='A'?3:4, typeIn=S.lvl==='C'&&['meaning','trans','gap','bot'].includes(t), q={w,t,typeIn};
+  if(t==='article') q.opts=['der','die','das'];
+  else if(t==='plural') q.opts=pluralOpts(w,n);
+  else if(!typeIn){
+    const key=t==='bot'?(x=>!!x.bot):(t==='toTr'?(x=>!!x.tr[S.lang]):null);
+    q.opts=shuffle([w].concat(distractors(w,n-1,key)));
+  }
+  return q;
+}
+const QKEY={meaning:'qMeaning',trans:'qTrans',toTr:'qToTr',article:'qArticle',plural:'qPlural',gap:'qGap',bot:'qBot'};
+function promptHTML(q){
+  const w=q.w, l=lang(), sayW=`<button class="say sm" data-act="sayw" data-v="${esc(w.id)}" aria-label="Wort vorlesen">${ICON.say}</button>`;
+  switch(q.t){
+    case 'meaning': return `<p class="qtext">${esc(w.ex)}</p>${S.lvl==='A'&&hasTr(w)?trBig(w,false):''}`;
+    case 'trans': return `<div class="big-tr" ${la(l)} style="justify-content:flex-start">${esc(w.tr[S.lang])}</div>`;
+    case 'toTr': return `<div class="qword"><span class="lemma">${w.art} ${esc(w.w)}</span>${sayW}</div>`;
+    case 'article': return `<div class="qword"><span class="lemma">… ${esc(w.w)}</span></div>${S.lvl==='A'&&hasTr(w)?trBig(w,false):''}`;
+    case 'plural': return `<div class="qword ${S.lvl==='C'?'nocolor':''}">${pill(w)}<span class="lemma">${esc(w.w)}</span>${sayW}</div><p class="note">Einzahl → Mehrzahl</p>`;
+    case 'gap': return `<p class="qtext">${gapSentence(w)}</p>${S.lvl!=='C'?`<p class="note">${esc(w.ex)}</p>`:''}`;
+    case 'bot': return `<div class="qword"><span class="lemma" style="font-family:Georgia,serif;font-weight:400">${botHTML(w.bot)}</span></div>`;
+  }
+}
+function optHTML(q,o,i,a){
+  const w=q.w; let label, cls='opt', ok;
+  if(q.t==='article'){ label=o; cls+=' artopt'+(S.lvl==='C'?'':' '+o); ok=o===w.art; }
+  else if(q.t==='plural'){ label=esc(o); ok=o===w.pl; }
+  else if(q.t==='toTr'){ label=`<span ${la(lang())}>${esc(o.tr[S.lang])}</span>`; ok=o===w; }
+  else { label=`<span class="${S.lvl==='C'?'nocolor':''}">${pill(o)}</span><span>${esc(o.w)}</span>`; ok=o===w; }
+  if(a){ if(ok){cls+=' correct'; label='✓ '+label} else if(a.idx===i){cls+=' false'; label='✗ '+label} else cls+=' dim'; }
+  return `<button class="${cls}" data-act="ans" data-v="${i}" ${a?'disabled':''}>${label}</button>`;
+}
+function articleTips(w){
+  const tips=[], lw=w.w.toLowerCase();
+  if(/(ung|heit|keit|schaft|ion|tät)$/.test(lw)) tips.push('Wörter auf -ung, -heit, -keit, -schaft, -ion, -tät sind immer <b>die</b>.');
+  if(/(chen|lein|ment|um)$/.test(lw)) tips.push('Wörter auf -chen, -lein, -ment, -um sind meist <b>das</b>.');
+  if(/(ling|ismus)$/.test(lw)) tips.push('Wörter auf -ling und -ismus sind <b>der</b>.');
+  if(/^[a-zäöü]+en$/.test(lw)&&w.art==='das'&&w.pl==='–') tips.push('Aus einem Verb wird ein Nomen. Das ist immer <b>das</b>: gießen → das Gießen.');
+  const tail=WORDS.filter(x=>x.w!==w.w&&!x.w.includes(' ')&&x.w.length>=4&&lw.endsWith(x.w.toLowerCase())).sort((a,b)=>b.w.length-a.w.length)[0];
+  if(tail) tips.push(`Zusammengesetztes Wort: Das letzte Wort bestimmt den Artikel. <b>${tail.art} ${esc(tail.w)}</b> → ${esc(w.w)}`);
+  else if(!tips.length) tips.push('Bei zusammengesetzten Wörtern bestimmt immer das letzte Wort den Artikel: der Garten + die Schere = die Gartenschere.');
+  return tips;
+}
+function hintList(q){
+  const w=q.w, l=lang(), h=[];
+  if(q.t==='article'){ h.push(...articleTips(w)); if(hasTr(w)) h.push(`Übersetzung: <span ${la(l)}>${esc(w.tr[S.lang])}</span>`); return h; }
+  if(q.t==='plural'){ h.push('Viele Wörter auf -e bekommen -n: die Hecke → die Hecken.'); h.push('Wörter auf -er, -el, -en bleiben oft gleich: der Spaten → die Spaten. Manchmal kommt ein Umlaut dazu: der Graben → die Gräben.'); return h; }
+  if(q.t==='toTr'){ h.push(esc(w.ex)); h.push(`Beispiel: „${esc(w.bsp)}“`); return h; }
+  h.push(`Der Artikel ist <b>${w.art}</b>.`);
+  h.push(`Das Wort beginnt mit <b>${esc(w.w.slice(0,2))}…</b> und hat ${w.w.replace(/[\s-]/g,'').length} Buchstaben.`);
+  if(hasTr(w)&&q.t!=='trans') h.push(`Übersetzung: <span ${la(l)}>${esc(w.tr[S.lang])}</span>`);
+  else if(q.t!=='meaning') h.push(esc(w.ex));
+  return h;
+}
+function solutionHTML(w){
+  return `<div class="qword">${pill(w)}<span class="lemma" style="font-size:1.6rem">${esc(w.w)}</span><button class="say sm" data-act="sayw" data-v="${esc(w.id)}" aria-label="Wort vorlesen">${ICON.say}</button></div>
+    <div class="meta" style="justify-content:flex-start">${plHTML(w)}${w.bot?`<span>${botHTML(w.bot)}</span>`:''}</div>
+    ${hasTr(w)?`<div class="big-tr" ${la(lang())} style="font-size:1.3rem;justify-content:flex-start">${esc(w.tr[S.lang])}</div>`:''}<p style="margin:0">${esc(w.ex)}</p>`;
+}
+R.quiz=()=>{
+  setBar('');
+  if(!V.quiz) startQuiz(); const Q=V.quiz;
+  if(Q.i>=Q.items.length) return quizEnd();
+  const q=Q.items[Q.i], w=q.w, a=Q.ans, [t,ic]=selTitle(), key=q.typeIn?'qType':QKEY[q.t];
+  let answer;
+  if(q.typeIn) answer=`<form class="type" data-form="type"><input id="typein" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="z. B. der Spaten" ${a?'disabled':''} value="${a?esc(a.val):''}" aria-label="Antwort eingeben"><button class="btn primary" ${a?'disabled':''}>Prüfen</button></form>`;
+  else answer=`<div class="opts ${q.t==='article'?'three':'two'}">${q.opts.map((o,i)=>optHTML(q,o,i,a)).join('')}</div>`;
+  const hl=hintList(q);
+  const hints=!a?`<div class="hints">${hl.slice(0,Q.hints).map(h=>`<div class="hint">💡 ${h}</div>`).join('')}</div><div class="btn-row">${Q.hints<hl.length?`<button class="btn small" data-act="hint">Tipp ${Q.hints+1}</button>`:''}<button class="btn small" data-act="qskip">Weiß ich nicht</button></div>`:'';
+  const fb=a?`<div class="fb ${a.ok?'ok':'no'}"><h3>${a.ok?ui('right'):(a.msg||ui('wrong'))}${uiTr(a.ok?'right':'wrong')}</h3>${solutionHTML(w)}<button class="btn primary" data-act="qnext" id="qnext">${Q.i+1<Q.items.length?'Nächste Frage':'Ergebnis zeigen'} ${ICON.next}</button></div>`:'';
+  return `<section class="screen">
+    ${head(t,ic,'path')}
+    <div class="stat"><span>Frage ${Q.i+1} / ${Q.items.length}</span><span>⭐ ${Q.score} Punkte</span></div>
+    <div class="lin"><i style="width:${(Q.i+(a?1:0))/Q.items.length*100}%"></i></div>
+    <div class="qcard">
+      <div class="qlab"><span class="de">${ui(key)}</span>${uiTr(key)}</div>
+      ${promptHTML(q)}
+      ${answer}${hints}
+    </div>
+    ${fb}
+  </section>`;
+};
+function answerQ(ok,extra){
+  const Q=V.quiz, q=Q.items[Q.i]; Q.ans=Object.assign({ok},extra||{}); if(ok) Q.score++; record(q.w,ok); render();
+  setTimeout(()=>{const b=$('#qnext'); if(b){b.scrollIntoView({block:'nearest',behavior:'smooth'}); b.focus({preventScroll:true})}},30);
+}
+function checkTyped(val){
+  const q=V.quiz.items[V.quiz.i], w=q.w, v=norm(val), word=norm(w.w), full=norm(w.art+' '+w.w);
+  if(!v) return;
+  if(v===full) return answerQ(true,{val});
+  if(v===word||v.endsWith(' '+word)) return answerQ(false,{val,msg:'Fast! Das Wort stimmt, aber der Artikel fehlt oder ist falsch.'});
+  answerQ(false,{val});
+}
+function quizEnd(){
+  const Q=V.quiz, pct=Math.round(Q.score/Q.items.length*100), [t,ic]=selTitle();
+  if(!Q.saved){setBest('quiz',pct); Q.saved=true}
+  return `<section class="screen">
+    ${head(t,ic,'path')}
+    <div class="qcard" style="text-align:center;justify-items:center">
+      <div style="font-size:3rem" aria-hidden="true">${pct>=80?'🏆':pct>=50?'👍':'🌱'}</div>
+      <h1 style="font:800 2.2rem/1.1 var(--f-head)">${Q.score} von ${Q.items.length} richtig</h1>
+      <div style="font-size:1.8rem">${starsHTML(pct)}</div>
+      <p style="margin:0" class="muted">${pct>=80?'Sehr gut! Probiere doch die nächste Hilfe-Stufe.':pct>=50?'Gut gemacht. Wiederhole die schwierigen Wörter noch einmal mit den Lernkarten.':'Das war schwer. Schau dir die Wörter in Ruhe auf den Lernkarten an und versuche es dann noch einmal.'}</p>
+      <div class="btn-row center"><button class="btn" data-act="qagain">Neues Quiz</button><button class="btn primary" data-act="go" data-v="feedback">${ui('fb')} ${ICON.next}</button></div>
+    </div>
+  </section>`;
+}
+
+/* Rückmeldung */
+R.feedback=()=>{
+  setBar('');
+  const all=selWords(); if(!all.length){V.screen='select';return R.select()}
+  const g={gut:[],'üben':[],neu:[]}; all.forEach(w=>g[status(w)].push(w)); const n=all.length, [t,ic]=selTitle();
+  const chip=w=>`<span class="wchip">${pill(w)}${esc(w.w)}</span>`;
+  const grp=(key,title,color,text)=>g[key].length?`<div class="group"><h3><span class="dot" style="background:${color}"></span>${title} <span class="note">(${g[key].length})</span></h3><p class="note">${text}</p><div class="wchips">${g[key].map(chip).join('')}</div></div>`:'';
+  const weak=g['üben'].length+g.neu.length;
+  return `<section class="screen">
+    ${head(t,ic,'path')}
+    <div class="sec-h"><h2><span class="ico" aria-hidden="true">📊</span>${g.gut.length} von ${n} Wörtern sitzen</h2>${uiTr('fbD')}</div>
+    <div class="stack" aria-hidden="true"><i style="width:${g.gut.length/n*100}%;background:var(--good)"></i><i style="width:${g['üben'].length/n*100}%;background:var(--review)"></i></div>
+    ${weak?`<div class="btn-row"><button class="btn primary" data-act="drill">Wiederholen (${weak}) ${ICON.next}</button><button class="btn" data-act="go" data-v="select">Andere Themen</button></div>`:`<div class="btn-row"><button class="btn primary" data-act="go" data-v="select">Andere Themen ${ICON.next}</button></div>`}
+    ${grp('üben','Wiederholen','var(--review)','Diese Wörter waren zuletzt falsch oder du hast „Noch üben“ gewählt.')}
+    ${grp('gut','Sitzt gut','var(--good)','Mindestens zweimal nacheinander richtig.')}
+    ${grp('neu','Noch nicht geübt','var(--muted)','Diese Wörter hast du noch nicht bearbeitet.')}
+    <p class="note">Dein Lernstand wird nur auf diesem Gerät gespeichert. Es gibt kein Konto und es werden keine Daten verschickt.</p>
+  </section>`;
+};
+
+/* Botanische Namen */
+R.botanik=()=>{
+  setBar(''); S.botSeen=true; save();
+  const l=lang(), tr=!isDe()&&BOT_INTRO[S.lang];
+  const ex=[['Spitz-Ahorn','Acer platanoides','platanoides = wie eine Platane (das Blatt)'],['Hänge-Birke','Betula pendula','pendula = hängend'],['Wald-Kiefer','Pinus sylvestris','sylvestris = aus dem Wald'],['Gemeiner Wacholder','Juniperus communis','communis = gewöhnlich, häufig'],['Kleines Immergrün','Vinca minor','minor = kleiner'],['Winter-Linde','Tilia cordata','cordata = herzförmig (das Blatt)']];
+  return `<section class="screen">
+    ${head('Pflanzenkunde','🌿','select')}
+    <div class="sec-h"><h2><span class="ico" aria-hidden="true">🏷️</span>Was bedeutet der botanische Name?</h2></div>
+    <div class="panel">
+      <p style="margin:0">Jede Pflanze hat einen deutschen Namen und einen botanischen Namen. Der botanische Name ist Latein. Er ist auf der ganzen Welt gleich. So verstehen sich Gärtnerinnen und Gärtner in jedem Land.</p>
+      ${tr?`<p style="margin:0;font-weight:700;color:var(--teal)" ${la(l)}>${esc(tr)}</p>`:''}
+      <div class="btn-row"><button class="btn small" data-act="say-intro">${ICON.say} Vorlesen</button></div>
+    </div>
+    <div class="panel">
+      <div class="botname"><span class="b1">Acer<small>1 · Gattung</small></span><span class="b2">platanoides<small>2 · Art</small></span><span class="b3">'Crimson King'<small>3 · Sorte</small></span></div>
+      <p class="note">Deutsch: der Spitz-Ahorn 'Crimson King' – ein Ahorn mit dunkelroten Blättern.</p>
+    </div>
+    <div class="panel"><h2>So liest du den Namen</h2>
+      <ol class="rules">
+        <li><b>Gattung</b> steht vorne. Sie beginnt mit einem großen Buchstaben: <i>Acer</i>.</li>
+        <li><b>Art</b> steht an zweiter Stelle. Sie wird klein geschrieben: <i>platanoides</i>.</li>
+        <li>Gattung + Art zusammen sind der Name der Pflanzenart. Diese Regel mit zwei Teilen stammt von Carl von Linné (1753).</li>
+        <li><b>Sorte</b> steht in einfachen Anführungszeichen und ist nicht kursiv: 'Crimson King'.</li>
+        <li>Ein <b>×</b> bedeutet: Die Pflanze ist eine Kreuzung (Hybride), zum Beispiel <i>Forsythia</i> × <i>intermedia</i>.</li>
+        <li>Gedruckt schreibt man Gattung und Art <i>kursiv</i> (schräg). Mit der Hand unterstreicht man sie.</li>
+      </ol></div>
+    <div class="panel"><h2>Der Name verrät oft etwas</h2>
+      <div class="tbl-wrap"><table><thead><tr><th>Deutsch</th><th>Botanisch</th><th>Bedeutung der Art</th></tr></thead>
+      <tbody>${ex.map(r=>`<tr><td>${r[0]}</td><td><i>${r[1]}</i></td><td>${r[2]}</td></tr>`).join('')}</tbody></table></div></div>
+    <div class="btn-row center"><button class="btn" data-act="go" data-v="select">Zu den Pflanzen</button><button class="btn primary" data-act="botgo">Grundbegriffe üben ${ICON.next}</button></div>
+  </section>`;
+};
+
+/* Lehrkraft */
+R.teacher=()=>{
+  setBar('');
+  const url=/github\.io$/.test(location.hostname)?location.origin+location.pathname:PAGES_URL;
+  const miss=TR_ORDER.map(c=>[c,WORDS.filter(w=>!w.tr[c]).length]);
+  return `<section class="screen">
+    ${head('Für Lehrkräfte','🧑‍🏫',S.lang?'select':'start')}
+    <div class="panel">
+      <h2>Link und QR-Code für die Klasse</h2>
+      <p class="note">Die Lernenden scannen den Code mit dem Handy oder Tablet und öffnen die App im Browser. Ohne Login, ohne App-Store.</p>
+      <div class="field"><label for="qrurl">Adresse der Seite</label><input id="qrurl" value="${esc(url)}" inputmode="url"></div>
+      <div class="btn-row"><button class="btn primary" data-act="qr">QR-Code erzeugen</button><button class="btn" data-act="copyurl">Link kopieren</button></div>
+      <div id="qr" hidden></div>
+    </div>
+    <div class="panel">
+      <h2>Übersetzungen prüfen</h2>
+      <p class="note">Alle Übersetzungen sind KI-generiert und noch nicht geprüft. Die Tabelle lässt sich in Excel öffnen und an Kolleginnen, Kollegen oder Sprachmittler weitergeben.</p>
+      <div class="btn-row"><button class="btn primary" data-act="csv">Tabelle herunterladen (CSV)</button><button class="btn" data-act="csvcopy">Tabelle kopieren</button></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Sprache</th><th style="text-align:right">vorhanden</th><th style="text-align:right">fehlt</th></tr></thead><tbody>
+        ${miss.map(([c,m])=>`<tr><td>${esc(LANGS.find(l=>l.c===c).n)}</td><td class="num">${WORDS.length-m}</td><td class="num">${m}</td></tr>`).join('')}
+      </tbody></table></div>
+    </div>
+    <div class="panel">
+      <h2>Inhalt</h2>
+      <p class="note">${WORDS.length} Fachwörter in ${Object.keys(SUBS).length} Themen. Die Lernfelder sind vorläufig und werden an die didaktische Jahresplanung angepasst.</p>
+      <div class="tbl-wrap"><table><thead><tr><th>Lernfeld</th><th>Jahr</th><th style="text-align:right">Wörter</th></tr></thead><tbody>
+        ${DATA.lf.map(lf=>`<tr><td>${lf.nr?'LF '+lf.nr+' · ':''}${esc(lf.titel)}</td><td>${lf.jahr||'alle'}</td><td class="num">${lf.subs.reduce((a,s)=>a+s.words.length,0)}</td></tr>`).join('')}
+      </tbody></table></div>
+    </div>
+    <div class="panel">
+      <h2>Lernstand auf diesem Gerät</h2>
+      <p class="note">Der Lernstand liegt nur im Browser dieses Geräts. Zurücksetzen löscht alle Ergebnisse auf diesem Gerät.</p>
+      <div class="btn-row"><button class="btn" data-act="reset">Lernstand zurücksetzen</button></div>
+    </div>
+  </section>`;
+};
+function csvText(){
+  const headR=['Lernfeld','Jahr','Thema','Artikel','Wort','Plural','Botanisch','Erklärung','Beispielsatz'].concat(TR_ORDER.map(c=>LANGS.find(l=>l.c===c).n),['Status']);
+  const q=s=>'"'+String(s).replace(/"/g,'""')+'"';
+  const rows=WORDS.map(w=>[w.lf.nr?'LF '+w.lf.nr:'Pflanzen',w.lf.jahr||'alle',w.sub.titel,w.art,w.w,w.pl,w.bot,w.ex,w.bsp].concat(TR_ORDER.map(c=>w.tr[c]),['KI – ungeprüft']).map(q).join(';'));
+  return [headR.map(q).join(';')].concat(rows).join('\r\n');
+}
+function copyText(txt,ok){
+  const fallback=()=>{const ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); let r=false; try{r=document.execCommand('copy')}catch(e){} ta.remove(); toast(r?ok:'Kopieren hat nicht geklappt.');};
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(()=>toast(ok),fallback); else fallback();
+}
+function makeQR(){
+  const url=$('#qrurl').value.trim(), box=$('#qr'); if(!url) return;
+  const draw=()=>{box.innerHTML=''; box.hidden=false; try{new QRCode(box,{text:url,width:240,height:240,colorDark:'#16343b',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}catch(e){box.textContent='QR-Code konnte nicht erzeugt werden.'}};
+  if(window.QRCode) return draw();
+  const s=document.createElement('script'); s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  s.onload=draw; s.onerror=()=>toast('Für den QR-Code braucht es eine Internetverbindung.'); document.head.appendChild(s);
+}
+
+/* ---------- Rendern & Aktionen ---------- */
+function render(){ $('#app').innerHTML=(R[V.screen]||R.select)(); }
+function go(s){
+  if(s==='cards') startCards();
+  if(s==='match') startMatch();
+  if(s==='quiz') startQuiz();
+  if(s==='select'&&S.year===0&&!S.botSeen) s='botanik';
+  V.screen=s; render(); window.scrollTo(0,0);
+  if('speechSynthesis' in window) try{speechSynthesis.cancel()}catch(e){}
+}
+const curCard=()=>V.cards&&V.cards.order[V.cards.i];
+const ACT={
+  go:v=>go(v),
+  lang:v=>{S.lang=v; save(); render()},
+  lvl:v=>{S.lvl=v; save(); render()},
+  year:v=>{S.year=+v; save(); if(S.year===0&&!S.botSeen) go('botanik'); else render()},
+  sub:v=>{const i=S.sel.indexOf(v); if(i>=0) S.sel.splice(i,1); else S.sel.push(v); save(); render()},
+  lfall:v=>{const lf=DATA.lf.find(x=>x.id===v), all=lf.subs.every(s=>S.sel.includes(s.id)); lf.subs.forEach(s=>{const i=S.sel.indexOf(s.id); if(all&&i>=0) S.sel.splice(i,1); if(!all&&i<0) S.sel.push(s.id)}); save(); render()},
+  clearsel:()=>{S.sel=[]; save(); render()},
+  weak:(v,b)=>{S.onlyWeak=b.checked; save(); render()},
+  say:v=>{const w=curCard(); if(!w) return; if(v==='de') speak(w.art+' '+w.w,'de'); else if(v==='bsp') speak(w.bsp,'de'); else speak(w.tr[S.lang],S.lang)},
+  sayw:v=>{const w=BYID[v]; if(w) speak(w.art+' '+w.w,'de')},
+  reveal:()=>{V.cards.open=true; render()},
+  prev:()=>{const C=V.cards; if(C.i>0){C.i--;C.open=false;render()}},
+  next:()=>{const C=V.cards; if(C.i<C.order.length-1){C.i++;C.open=false;render()} else go('match')},
+  rate:v=>{const C=V.cards; record(C.order[C.i],v==='1'); if(C.i<C.order.length-1){C.i++;C.open=false;render()} else {toast('Alle Karten geschafft! Weiter mit Zuordnen.'); render()}},
+  mt:(v,b)=>onMatch(b.dataset.side,v),
+  mround:()=>{nextRound(); render()},
+  ans:v=>{const Q=V.quiz,q=Q.items[Q.i]; if(Q.ans) return; const o=q.opts[+v]; const ok=q.t==='article'?o===q.w.art:(q.t==='plural'?o===q.w.pl:o===q.w); answerQ(ok,{idx:+v})},
+  hint:()=>{V.quiz.hints++; render()},
+  qskip:()=>answerQ(false,{msg:'Das ist die Lösung:',val:''}),
+  qnext:()=>{const Q=V.quiz; Q.i++; Q.ans=null; Q.hints=0; render(); window.scrollTo(0,0)},
+  qagain:()=>{startQuiz(); render()},
+  drill:()=>{S.onlyWeak=true; save(); go('cards')},
+  botgo:()=>{S.sel=['pfl-grund']; S.onlyWeak=false; S.year=0; save(); go('path')},
+  'say-intro':()=>speak('Jede Pflanze hat einen deutschen Namen und einen botanischen Namen. Der botanische Name ist Latein. Er ist auf der ganzen Welt gleich. Zuerst kommt die Gattung, dann die Art. Die Sorte steht in Anführungszeichen.','de'),
+  qr:()=>makeQR(),
+  copyurl:()=>copyText($('#qrurl').value.trim(),'Link kopiert.'),
+  csv:()=>{try{const blob=new Blob(['﻿'+csvText()],{type:'text/csv;charset=utf-8'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='fachwortschatz-galabau-uebersetzungen.csv'; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500); toast('Download gestartet. Falls nichts passiert: „Tabelle kopieren“ nutzen.')}catch(e){toast('Download nicht möglich. Bitte „Tabelle kopieren“ nutzen.')}},
+  csvcopy:()=>copyText(csvText(),'Tabelle kopiert. In Excel einfügen.'),
+  reset:(v,b)=>{if(b.dataset.armed){S.stats={}; S.best={}; save(); toast('Lernstand gelöscht.'); render()} else {b.dataset.armed='1'; b.textContent='Wirklich löschen? Nochmal tippen'; b.classList.add('primary')}}
+};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act]'); if(!b||b.disabled) return; if(b.tagName==='INPUT') return; const f=ACT[b.dataset.act]; if(f) f(b.dataset.v,b,e)});
+document.addEventListener('change',e=>{const b=e.target.closest('[data-act="weak"]'); if(b) ACT.weak(null,b)});
+document.addEventListener('submit',e=>{const f=e.target.closest('[data-form="type"]'); if(!f) return; e.preventDefault(); checkTyped($('#typein').value)});
+document.addEventListener('keydown',e=>{
+  if(V.screen!=='cards'||e.target.closest('input')) return;
+  if(e.key==='ArrowRight') ACT.next(); else if(e.key==='ArrowLeft') ACT.prev();
+  else if((e.key===' '||e.key==='Enter')&&e.target.id==='card'){e.preventDefault(); ACT.reveal()}
+});
+let tx=null;
+document.addEventListener('touchstart',e=>{tx=e.target.closest('#card')?e.touches[0].clientX:null},{passive:true});
+document.addEventListener('touchend',e=>{if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>60){dx<0?ACT.next():ACT.prev()}},{passive:true});
+
+render();
+})();
+</script>
+</body>
+</html>
