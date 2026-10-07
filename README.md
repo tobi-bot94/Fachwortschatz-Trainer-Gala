@@ -13,7 +13,7 @@ Eine einzige HTML-Datei: kein Login, keine App, keine Kosten.
     (vorläufig, aus Fachwissen zusammengestellt – noch ohne Unterlagen der Schule)
   - **Pflanzenkunde** für alle (zuerst: Was bedeutet der botanische Name? Danach Laub- und Nadelgehölze, Stauden, Gräser, Kletterpflanzen)
 - Jedes Wort mit Artikel, Plural, Erklärung in einfacher Sprache, Beispielsatz und Bildhilfe.
-- **Übersetzungen in 9 Sprachen:** Arabisch, Ukrainisch, Persisch/Dari, Türkisch, Russisch, Englisch, Polnisch, Tigrinya, Rumänisch.
+- **Übersetzungen in 8 Sprachen:** Arabisch, Ukrainisch, Persisch/Dari, Türkisch, Russisch, Englisch, Polnisch, Rumänisch.
   Arabisch und Persisch werden von rechts nach links angezeigt.
 - Artikel farbig wie im DaZ-Unterricht: **der** blau, **die** rot, **das** grün.
 - Oberfläche zweisprachig (Deutsch + gewählte Sprache).
@@ -42,8 +42,6 @@ Der Lernstand wird nur im Browser des eigenen Geräts gespeichert (localStorage)
 - Übersicht, welche Übersetzungen noch fehlen
 
 > **Wichtig:** Alle Übersetzungen sind KI-generiert und noch **nicht geprüft**.
-> Bei Tigrinya fehlen bewusst Übersetzungen, bei denen keine verlässliche Fassung möglich war
-> (vor allem Pflanzennamen – hier hilft der botanische Name).
 > Die Lernfeld-Gliederung ist **vorläufig** und wird an die didaktische Jahresplanung der Schule angepasst.
 
 ## Online stellen mit GitHub Pages (für den QR-Code)

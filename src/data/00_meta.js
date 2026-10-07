@@ -8,11 +8,11 @@
  *  4 Erklärung in einfacher Sprache
  *  5 Beispielsatz (enthält das Wort genau so wie in Feld 1)
  *  6 Bildhilfe (Emoji, darf leer sein)
- *  7–15 Übersetzungen: ar | uk | fa | tr | ru | en | pl | ti | ro
+ *  7–14 Übersetzungen: ar | uk | fa | tr | ru | en | pl | ro
  *       (leer = Übersetzung fehlt noch)
  *
  * ALLE Übersetzungen sind KI-generiert und müssen vor dem Einsatz geprüft werden.
  * Die Lernfeld-Struktur ist vorläufig und wird an die DJP der Schule angepasst.
  */
-const TR_ORDER = ['ar', 'uk', 'fa', 'tr', 'ru', 'en', 'pl', 'ti', 'ro'];
+const TR_ORDER = ['ar', 'uk', 'fa', 'tr', 'ru', 'en', 'pl', 'ro'];
 const DATA = { lf: [] };
